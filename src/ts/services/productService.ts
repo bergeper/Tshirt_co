@@ -1,1 +1,0 @@
-//hårdkodad lista
