@@ -5,7 +5,7 @@ export const products: Product[] = [
   new Product(
     1,
     "PataGucci",
-    "https://hottrendtees.com/wp-content/uploads/2021/05/Patagucci-Classic-Mens-T-shirt.png",
+    "https://images.pexels.com/photos/991509/pexels-photo-991509.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     600,
     "medium",
     1
@@ -13,7 +13,7 @@ export const products: Product[] = [
   new Product(
     2,
     "Gucci",
-    "https://www.net-a-porter.com/variants/images/1647597300912582/in/w920_q60.jpg",
+    "https://images.pexels.com/photos/428338/pexels-photo-428338.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     900,
     "large",
     1
@@ -21,7 +21,7 @@ export const products: Product[] = [
   new Product(
     3,
     "Patagonia",
-    "https://img01.ztat.net/article/spp-media-p1/c596739889104ffa9ceff4e785698615/e8139c97686a48179420caa3e3c99dea.jpg?imwidth=156&filter=packshot",
+    "https://images.pexels.com/photos/428340/pexels-photo-428340.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     199,
     "small",
     1
@@ -29,7 +29,7 @@ export const products: Product[] = [
   new Product(
     4,
     "Peak",
-    "https://www.peakperformance.com/se/sv/media/catalog/product/G/7/G77692260_f405d506d11c37dff033c3a5945d2be3.jpg?dpr=1&fit=cover&orient=1&optimize=low&format=pjpg&auto=webp&width=1017",
+    "https://images.pexels.com/photos/1304647/pexels-photo-1304647.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     299,
     "small",
     1
@@ -37,7 +37,7 @@ export const products: Product[] = [
   new Product(
     5,
     "Line",
-    "https://images.evo.com/imgp/700/103667/452195/line-skis-stencil-t-shirt--front.jpg",
+    "https://images.pexels.com/photos/1566412/pexels-photo-1566412.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     99,
     "small",
     1
@@ -45,7 +45,7 @@ export const products: Product[] = [
   new Product(
     6,
     "KwelShirtsEu",
-    "https://img.joomcdn.net/269470a261c7ea399d8607248e6d276de0df04f7_1024_957.jpeg",
+    "https://images.pexels.com/photos/1311590/pexels-photo-1311590.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     499,
     "large",
     1
@@ -53,7 +53,7 @@ export const products: Product[] = [
   new Product(
     7,
     "Sickman",
-    "https://www.netshirt.se/wp-content/uploads/2018/03/106-45_F-JPG-Spola-Kr%C3%B6ken.jpg",
+    "https://images.pexels.com/photos/428311/pexels-photo-428311.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     10,
     "large",
     1
