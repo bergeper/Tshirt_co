@@ -16,5 +16,14 @@ export function openCartModal() {
   let ptag: HTMLParagraphElement = document.createElement("p");
   ptag.innerHTML = "hejhej";
 
+  let informationDiv: HTMLDivElement = document.createElement("div");
+  informationDiv.className = "cartDiv";
+  informationDiv.innerHTML = "diven";
+
+  let cartImage: HTMLImageElement = document.createElement("img");
+  cartImage.className = "cartImage";
+  cartImage.src =
+    "https://www.shirtstore.se/pub_images/original/15348_r_20268.jpg?extend=copy&width=1280&method=fit&height=1280&type=webp";
   modalContainer.appendChild(ptag);
+  modalContainer.appendChild(informationDiv);
 }
