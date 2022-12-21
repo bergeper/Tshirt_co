@@ -1,6 +1,10 @@
 import { createProductModal } from "./helpers/productDesc";
 import { Product } from "./models/Products";
 import { products } from "./services/productList";
+import { openCartModal, buttonAttributes } from "./helpers/cart";
+
+buttonAttributes();
+openCartModal();
 
 function createHTMLForProducts() {
   for (let i = 0; i < products.length; i++) {
