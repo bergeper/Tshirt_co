@@ -1,15 +1,13 @@
-// create Menu
-export const createCart = () => {
-  // menu
-  // TESTKÅD
-  const menuContainer: HTMLDivElement = document.querySelector(
-    ".cart__menu"
-  ) as HTMLDivElement;
+export function openCartModal() {
+  let modalContainer = document.getElementById("modal-body") as HTMLDivElement; ///hämtar modalbodyn från html
+  modalContainer.innerHTML = ""; //tömmer inför varje gång
+  let modalTitle = document.getElementById(
+    //hämtar modaltiteln med id från html
+    "exampleModalLabel"
+  ) as HTMLHeadingElement;
+  modalTitle.innerHTML = "här sätter vi titel";
+  let ptag: HTMLParagraphElement = document.createElement("p");
+  ptag.innerHTML = "hejhej";
 
-  let isHidden = menuContainer.style.display === "none";
-  if (isHidden) {
-    menuContainer.style.display = "block";
-  } else {
-    menuContainer.style.display = "none";
-  }
-};
+  modalContainer.appendChild(ptag);
+}
