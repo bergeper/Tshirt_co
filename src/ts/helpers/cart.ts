@@ -43,7 +43,7 @@ export function openCartModal() {
   totalAmount.innerHTML = "Total Summa:........";
 
   let quantityDiv: HTMLDivElement = document.createElement("div");
-  quantityDiv.className = "quantityDiv";
+  quantityDiv.className = "cartDiv__quantityDiv";
 
   productAttributes.appendChild(productName);
   productAttributes.appendChild(productPrice);
