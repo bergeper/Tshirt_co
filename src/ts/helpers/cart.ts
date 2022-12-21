@@ -2,6 +2,7 @@ export function buttonAttributes() {
   let clickOnCart = document.getElementById("cart__icon") as HTMLButtonElement;
   clickOnCart.setAttribute("data-bs-toggle", "modal");
   clickOnCart.setAttribute("data-bs-target", "#exampleModal");
+  clickOnCart.addEventListener("click", openCartModal);
 }
 
 export function openCartModal() {
@@ -11,7 +12,7 @@ export function openCartModal() {
     //hämtar modaltiteln med id från html
     "exampleModalLabel"
   ) as HTMLHeadingElement;
-  modalTitle.innerHTML = "här sätter vi titel";
+  modalTitle.innerHTML = "Varukorg";
   let ptag: HTMLParagraphElement = document.createElement("p");
   ptag.innerHTML = "hejhej";
 
