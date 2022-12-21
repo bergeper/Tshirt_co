@@ -1,20 +1,25 @@
 body {
-    background-color: rgb(95, 161, 181);
+  background-color: rgb(95, 161, 181);
 }
-.wrapper {
-    width: 100%;
-    min-height: 100vh; 
 
-    .product-button-wraper {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding-top: 50%;
-    }
+.wrapper {
+  width: 100%;
+  min-height: 100vh;
+
+  .product-button-wraper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 50%;
+  }
 }
 
 .footer {
-    background-color: lightblue;
-    width: 100%;
-    height: 100px;
+  background-color: lightblue;
+  width: 100%;
+  height: 100px;
+}
+
+.entry {
+  color: coral;
 }
