@@ -50,14 +50,16 @@ function createProductModal(product: Product) {
   let clothingSize: HTMLParagraphElement = document.createElement("p");
   let clothingPrice: HTMLParagraphElement = document.createElement("p");
 
+  clothingImage.classList.add("productmodal__image");
+  clothingSize.classList.add("productmodal__size");
+  clothingPrice.classList.add("productmodal__price");
+
   clothingImage.src = product.image;
   clothingImage.alt = product.name;
-  clothingSize.innerHTML = product.size;
-  clothingPrice.innerHTML = product.price.toString() + " Kr";
+  clothingSize.innerHTML = "Storlek: " + product.size;
+  clothingPrice.innerHTML = "Pris: " + product.price.toString() + " Kr";
 
   productDescContainer.appendChild(clothingImage);
   productDescContainer.appendChild(clothingSize);
   productDescContainer.appendChild(clothingPrice);
-
-  console.log(product);
 }

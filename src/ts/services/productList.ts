@@ -7,7 +7,7 @@ export const products: Product[] = [
     "PataGucci",
     "https://dl.dropboxusercontent.com/s/2ygxng0w5ns4juk/patagucci.png?dl=0",
     600,
-    "medium",
+    "Medium",
     1
   ),
   new Product(
@@ -15,7 +15,7 @@ export const products: Product[] = [
     "GucciPeak",
     "https://dl.dropboxusercontent.com/s/1xszfrj1tdpcq0i/guccipeak.png?dl=0",
     900,
-    "large",
+    "Large",
     1
   ),
   new Product(
@@ -23,7 +23,7 @@ export const products: Product[] = [
     "PataPeak",
     "https://dl.dropboxusercontent.com/s/jzqnyykfq7e5o0a/patapeak.png?dl=0",
     199,
-    "small",
+    "Small",
     1
   ),
   new Product(
@@ -31,7 +31,7 @@ export const products: Product[] = [
     "TwinPeak",
     "https://dl.dropboxusercontent.com/s/15uo8lxfsvedc0j/twinpeak.png?dl=0",
     299,
-    "small",
+    "Small",
     1
   ),
   new Product(
@@ -39,7 +39,7 @@ export const products: Product[] = [
     "Line",
     "https://dl.dropboxusercontent.com/s/owbun7mir9jrzke/line.png?dl=0",
     99,
-    "small",
+    "Small",
     1
   ),
   new Product(
@@ -55,7 +55,7 @@ export const products: Product[] = [
     "Fun Fun Fun",
     "https://dl.dropboxusercontent.com/s/raobg6di5enks9z/funfunfun.png?dl=0",
     10,
-    "large",
+    "Large",
     1
   ),
   new Product(
@@ -63,7 +63,7 @@ export const products: Product[] = [
     "PradaGucci",
     "https://dl.dropboxusercontent.com/s/s0oqqt9542m2ymj/pradagucci.png?dl=0",
     1230,
-    "large",
+    "Large",
     1
   ),
   new Product(
@@ -71,7 +71,7 @@ export const products: Product[] = [
     "Vuitton Gucci Louis",
     "https://dl.dropboxusercontent.com/s/l7b8312vqs213qa/vuittonguccilouis.png?dl=0",
     9999,
-    "large",
+    "Large",
     1
   ),
   new Product(
@@ -79,7 +79,7 @@ export const products: Product[] = [
     "Lesied",
     "https://dl.dropboxusercontent.com/s/2mqz8f0wddpcbwh/lesied.png?dl=0",
     20,
-    "large",
+    "Large",
     1
   ),
 ];
