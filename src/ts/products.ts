@@ -1,5 +1,8 @@
 import { Product } from "./models/Products";
 import { products } from "./services/productList";
+import { buttonAttributes } from "./helpers/cart";
+
+buttonAttributes();
 
 function createHTMLForProducts() {
   for (let i = 0; i < products.length; i++) {
