@@ -40,16 +40,17 @@ function createProductModal(product: Product) {
   productDescContainer.innerHTML = "";
 
   // Title of modal will be product name
-  let productName = document.getElementById(
+  let clothingName = document.getElementById(
     //hämtar modaltiteln med id från html
     "productName"
   ) as HTMLHeadingElement;
-  productName.innerHTML = product.name;
+  clothingName.innerHTML = product.name;
 
   let clothingImage: HTMLImageElement = document.createElement("img");
   let clothingSize: HTMLParagraphElement = document.createElement("p");
   let clothingPrice: HTMLParagraphElement = document.createElement("p");
 
+  clothingName.classList.add("productmodal__title");
   clothingImage.classList.add("productmodal__image");
   clothingSize.classList.add("productmodal__size");
   clothingPrice.classList.add("productmodal__price");
