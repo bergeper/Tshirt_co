@@ -24,7 +24,6 @@ function createHTMLForProducts() {
 
     div.appendChild(clothingName);
     div.appendChild(clothingImage);
-    document.body.appendChild(div);
   }
 }
 createHTMLForProducts();
