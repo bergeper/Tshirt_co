@@ -1,4 +1,3 @@
-import { createProductModal } from "./helpers/productDesc";
 import { Product } from "./models/Products";
 import { products } from "./services/productList";
 
@@ -26,4 +25,24 @@ function createHTMLForProducts() {
     div.appendChild(clothingImage);
   }
 }
+
+function createProductModal(product: Product) {
+  let div = document.getElementById("productDescContainer") as HTMLDivElement;
+
+  let clothingName: HTMLHeadingElement = document.createElement(
+    "h2"
+  ) as HTMLHeadingElement;
+
+  let clothingImage: HTMLImageElement = document.createElement(
+    "img"
+  ) as HTMLImageElement;
+
+  clothingName.innerHTML = product.name;
+  clothingImage.src = product.image;
+  clothingImage.alt = product.name;
+
+  div.appendChild(clothingName);
+  div.appendChild(clothingImage);
+}
+
 createHTMLForProducts();
