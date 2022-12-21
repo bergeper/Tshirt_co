@@ -1,5 +1,5 @@
 // create Menu
-export const createMenu = () => {
+export const createCart = () => {
   // menu
   // TESTKÅD
   const menuContainer: HTMLDivElement = document.querySelector(
