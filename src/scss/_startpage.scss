@@ -4,7 +4,6 @@ body {
 
 .wrapper {
   width: 100%;
-  min-height: 100vh;
 
   .product-button-wraper {
     display: flex;
@@ -18,6 +17,7 @@ body {
   background-color: lightblue;
   width: 100%;
   height: 100px;
+  position: bottom;
 }
 
 .entry {

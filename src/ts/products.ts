@@ -1,9 +1,10 @@
+import { createProductModal } from "./helpers/productDesc";
 import { Product } from "./models/Products";
 import { products } from "./services/productList";
 
 function createHTMLForProducts() {
   for (let i = 0; i < products.length; i++) {
-    let div = document.getElementById("container") as HTMLDivElement;
+    let div = document.getElementById("productContainer") as HTMLDivElement;
 
     let clothingName: HTMLHeadingElement = document.createElement(
       "h2"
@@ -26,9 +27,4 @@ function createHTMLForProducts() {
     document.body.appendChild(div);
   }
 }
-
-function createProductModal(product: Product) {
-  console.log("HELHLEHLELHELHELHEL");
-}
-
 createHTMLForProducts();
