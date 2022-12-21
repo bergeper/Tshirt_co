@@ -1,18 +1,13 @@
 export function openCartModal() {
   let modalContainer = document.getElementById("modal-body") as HTMLDivElement; ///hämtar modalbodyn från html
-  //modalContainer.innerHTML = " "; //tömmer inför varje gång
-  //funktion för modalen.
-  console.log("hejhej");
-
-  //modalContainer.setAttribute("data-bs-toggle", "modal"); //sätter alla attribut som är utkommenderade i html
-  //modalContainer.setAttribute("data-bs-target", "#exampleModal");
-
+  modalContainer.innerHTML = ""; //tömmer inför varje gång
   let modalTitle = document.getElementById(
     //hämtar modaltiteln med id från html
     "exampleModalLabel"
   ) as HTMLHeadingElement;
   modalTitle.innerHTML = "här sätter vi titel";
+  let ptag: HTMLParagraphElement = document.createElement("p");
+  ptag.innerHTML = "hejhej";
 
-  document.body.appendChild(modalContainer);
-  modalContainer.appendChild(modalTitle);
+  modalContainer.appendChild(ptag);
 }
