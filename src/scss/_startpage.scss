@@ -14,8 +14,20 @@ body {
 }
 
 .cartDiv {
-  background-color: pink;
-  height: 100px;
+display: flex;
+flex-direction: row;
+padding: 0;
+background-color: aqua;
+
+.quantityDiv {
+background-color: pink;
+}
+}
+
+.productAttributesDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .footer {
