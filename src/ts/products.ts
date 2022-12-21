@@ -39,21 +39,28 @@ function createProductModal(product: Product) {
   ) as HTMLDivElement;
   productDescContainer.innerHTML = "";
 
-  let productName = document.getElementById(
+  // Title of modal will be product name
+  let clothingName = document.getElementById(
     //hämtar modaltiteln med id från html
     "productName"
   ) as HTMLHeadingElement;
+  clothingName.innerHTML = product.name;
 
-  productName.innerHTML = product.name;
+  let clothingImage: HTMLImageElement = document.createElement("img");
+  let clothingSize: HTMLParagraphElement = document.createElement("p");
+  let clothingPrice: HTMLParagraphElement = document.createElement("p");
 
-  let clothingDescImage: HTMLImageElement = document.createElement(
-    "img"
-  ) as HTMLImageElement;
+  clothingName.classList.add("productmodal__title");
+  clothingImage.classList.add("productmodal__image");
+  clothingSize.classList.add("productmodal__size");
+  clothingPrice.classList.add("productmodal__price");
 
-  clothingDescImage.src = product.image;
-  clothingDescImage.alt = product.name;
+  clothingImage.src = product.image;
+  clothingImage.alt = product.name;
+  clothingSize.innerHTML = "Storlek: " + product.size;
+  clothingPrice.innerHTML = "Pris: " + product.price.toString() + " Kr";
 
-  productDescContainer.appendChild(clothingDescImage);
-
-  console.log(product);
+  productDescContainer.appendChild(clothingImage);
+  productDescContainer.appendChild(clothingSize);
+  productDescContainer.appendChild(clothingPrice);
 }
