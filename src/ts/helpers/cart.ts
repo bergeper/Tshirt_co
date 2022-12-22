@@ -32,15 +32,13 @@ export function openCartModal() {
 
     let productPrice: HTMLParagraphElement = document.createElement("p");
     productPrice.className = "modal-body__priceText";
-    productPrice.innerHTML = "PRISET...";
+    productPrice.innerHTML = cartProducts[i].product.price.toString();
 
     let cartImage: HTMLImageElement = document.createElement("img");
     cartImage.className = "modal-body__cartImage";
-    cartImage.src =
-      "https://www.shirtstore.se/pub_images/original/15348_r_20268.jpg?extend=copy&width=1280&method=fit&height=1280&type=webp";
-
+    cartImage.src = cartProducts[i].product.image;
     let cartQuantity: HTMLParagraphElement = document.createElement("p");
-    cartQuantity.innerHTML = "Antal:";
+    cartQuantity.innerHTML = cartProducts[i].quantity.toString();
     cartQuantity.className = "modal-body__cartQuantity";
     let totalAmount: HTMLParagraphElement = document.createElement("p");
     totalAmount.innerHTML = "Totalt Summa:....";
