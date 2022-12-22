@@ -28,7 +28,7 @@ export function openCartModal() {
 
     let productName: HTMLParagraphElement = document.createElement("p");
     productName.className = "modal-body__priceName";
-    productName.innerHTML = "NAMNET:...";
+    productName.innerHTML = cartProducts[i].product.name;
 
     let productPrice: HTMLParagraphElement = document.createElement("p");
     productPrice.className = "modal-body__priceText";
@@ -66,15 +66,4 @@ export function openCartModal() {
     modalContainer.appendChild(quantityDiv);
     quantityDiv.appendChild(totalAmount);
   }
-  ///console.log(cartAttributes);
-  /*
-      for (let i = 0; i < productsInCart.length; i++) {
-    let cartArticleId: number = productsInCart[i].product;
-    let cartImage: string = productsInCart[i].produc
-    let cartProductName: string = productsInCart[i].;
-    let cartProductPrice: number = productsInCart[i].price;
-    let cartProductSize: string = productsInCart[i].size;
-    let cartQuantity: number = productsInCart[i].quantity;
-  }
-  */
 }
