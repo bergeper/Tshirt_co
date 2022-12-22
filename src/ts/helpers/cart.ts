@@ -30,14 +30,25 @@ export function openCartModal() {
     "https://www.shirtstore.se/pub_images/original/15348_r_20268.jpg?extend=copy&width=1280&method=fit&height=1280&type=webp";
 
   let cartQuantity: HTMLParagraphElement = document.createElement("p");
-  cartQuantity.innerHTML = "Antal:.........";
+  cartQuantity.innerHTML = "Antal:";
+  cartQuantity.className = "modal-body__cartQuantity";
   let totalAmount: HTMLParagraphElement = document.createElement("p");
-  totalAmount.innerHTML = "Totalt Summa:........";
+  totalAmount.innerHTML = "Totalt Summa:....";
+  totalAmount.className = "modal-body__totalAmount";
 
+  //create - + buttons
+  let removeButton: HTMLButtonElement = document.createElement("button");
+  let addButton: HTMLButtonElement = document.createElement("button");
+  removeButton.className = "modal-body__removeButton";
+  addButton.className = "modal-body__addButton";
+  removeButton.innerHTML = "-";
+  addButton.innerHTML = "+";
   modalContainer.appendChild(productName);
   modalContainer.appendChild(productPrice);
   modalContainer.appendChild(cartImage);
+  modalContainer.appendChild(addButton);
   modalContainer.appendChild(cartQuantity);
+  modalContainer.appendChild(removeButton);
   modalContainer.appendChild(totalAmount);
 
   let productsInCart: ProductCart[] = getFromLocalStorage();
