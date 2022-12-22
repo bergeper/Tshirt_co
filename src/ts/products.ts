@@ -5,6 +5,8 @@ import { buttonAttributes } from "./helpers/cart";
 buttonAttributes();
 createHTMLForProducts();
 
+let cartProducts: Product[] = [];
+
 function createHTMLForProducts() {
   for (let i = 0; i < products.length; i++) {
     let clothingDiv = document.getElementById(
@@ -69,8 +71,9 @@ function createProductModal(product: Product) {
   clothingSize.innerHTML = "Storlek: " + product.size;
   clothingPrice.innerHTML = "Pris: " + product.price.toString() + " Kr";
 
-  addToCartBtn.addEventListener("click", () => {
-    localStorage.setItem("cart", JSON.stringify(newProduct) || "[]");
+  addToCartBtn.addEventListener("click", (product) => {
+    cartProducts.push(newProduct);
+    localStorage.setItem("cart", JSON.stringify(cartProducts) || "");
   });
 
   productDescContainer.appendChild(clothingImage);
