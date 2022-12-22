@@ -42,8 +42,6 @@ function createHTMLForProducts() {
 }
 
 function createProductModal(product: Product) {
-  let newProduct = product;
-
   let productDescContainer = document.getElementById(
     "productDescContainer"
   ) as HTMLDivElement;
@@ -71,12 +69,16 @@ function createProductModal(product: Product) {
   clothingSize.innerHTML = "Storlek: " + product.size;
   clothingPrice.innerHTML = "Pris: " + product.price.toString() + " Kr";
 
-  addToCartBtn.addEventListener("click", (product) => {
-    cartProducts.push(newProduct);
-    localStorage.setItem("Cart", JSON.stringify(cartProducts) || "");
+  addToCartBtn.addEventListener("click", () => {
+    productToLS(product);
   });
 
   productDescContainer.appendChild(clothingImage);
   productDescContainer.appendChild(clothingSize);
   productDescContainer.appendChild(clothingPrice);
+}
+
+function productToLS(product: Product) {
+  cartProducts.push(product);
+  localStorage.setItem("Cart", JSON.stringify(cartProducts) || "");
 }
