@@ -1,3 +1,4 @@
+import { ProductCart } from "../models/ProductCart";
 import { getFromLocalStorage } from "./addToCart";
 
 export function buttonAttributes() {
@@ -59,5 +60,11 @@ export function openCartModal() {
   quantityDiv.appendChild(cartQuantity);
   quantityDiv.appendChild(totalAmount);
 
-  getFromLocalStorage();
+  let cartAttributes: ProductCart[] = getFromLocalStorage();
+  console.log(cartAttributes);
+  for (let i = 0; i < cartAttributes.length; i++) {
+    cartAttributes[i].articleId;
+  }
+
+  //
 }
