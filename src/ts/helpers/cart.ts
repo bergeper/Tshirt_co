@@ -60,6 +60,16 @@ export function openCartModal() {
   quantityDiv.appendChild(cartQuantity);
   quantityDiv.appendChild(totalAmount);
 
-  let cartAttributes: ProductCart[] = getFromLocalStorage();
-  console.log(cartAttributes);
+  let productsInCart: ProductCart[] = getFromLocalStorage();
+  ///console.log(cartAttributes);
+  for (let i = 0; i < productsInCart.length; i++) {
+    let cartArticleId: number = productsInCart[i].articleId;
+    let cartImage: string = productsInCart[i].image;
+    let cartProductName: string = productsInCart[i].name;
+    let cartProductPrice: number = productsInCart[i].price;
+    let cartProductSize: string = productsInCart[i].size;
+    let cartQuantity: number = productsInCart[i].quantity;
+  }
+
+  //
 }
