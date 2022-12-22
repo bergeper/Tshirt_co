@@ -40,7 +40,7 @@ export function openCartModal() {
   quantityDiv.className = "cartDiv__quantityDiv";
 
   document.createElement;
-
+  /*
   productAttributes.appendChild(productName);
   productAttributes.appendChild(productPrice);
   modalContainer.appendChild(cartHeading);
@@ -63,5 +63,4 @@ export function openCartModal() {
     let cartQuantity: number = productsInCart[i].quantity;
   }
   */
-  //
 }
