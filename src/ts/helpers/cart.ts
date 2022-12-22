@@ -11,8 +11,11 @@ export function buttonAttributes() {
 }
 
 export function openCartModal() {
+  // LOCALSTORAGE
   cartProducts = getFromLocalStorage();
   console.log(cartProducts);
+
+  //Loop for cartProducts
   for (let i = 0; i < cartProducts.length; i++) {
     let modalContainer = document.getElementById(
       "modal-body"
