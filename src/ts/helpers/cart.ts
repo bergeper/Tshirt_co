@@ -36,24 +36,24 @@ export function openCartModal() {
   totalAmount.innerHTML = "Totalt Summa:....";
   totalAmount.className = "modal-body__totalAmount";
 
-  //create - + buttons
-  let removeButton: HTMLButtonElement = document.createElement("button");
-  let addButton: HTMLButtonElement = document.createElement("button");
-  removeButton.className = "modal-body__removeButton";
-  addButton.className = "modal-body__addButton";
-  removeButton.innerHTML = "-";
-  addButton.innerHTML = "+";
-  modalContainer.appendChild(productName);
-  modalContainer.appendChild(productPrice);
-  modalContainer.appendChild(cartImage);
-  modalContainer.appendChild(addButton);
-  modalContainer.appendChild(cartQuantity);
-  modalContainer.appendChild(removeButton);
-  modalContainer.appendChild(totalAmount);
+  let quantityDiv: HTMLDivElement = document.createElement("div");
+  quantityDiv.className = "cartDiv__quantityDiv";
+
+  document.createElement;
+
+  productAttributes.appendChild(productName);
+  productAttributes.appendChild(productPrice);
+  modalContainer.appendChild(cartHeading);
+  modalContainer.appendChild(informationDiv);
+  informationDiv.appendChild(productAttributes);
+  informationDiv.appendChild(cartImage);
+  informationDiv.appendChild(quantityDiv);
+  quantityDiv.appendChild(cartQuantity);
+  quantityDiv.appendChild(totalAmount);
 
   let productsInCart: ProductCart = getFromLocalStorage();
   ///console.log(cartAttributes);
-  /*
+  
   for (let i = 0; i < productsInCart.length; i++) {
     let cartArticleId: number = productsInCart[i].product;
     let cartImage: string = productsInCart[i]

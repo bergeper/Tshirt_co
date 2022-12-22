@@ -1,11 +1,12 @@
 import { Product } from "./models/Products";
 import { products } from "./services/productList";
 import { buttonAttributes } from "./helpers/cart";
+import { ProductCart } from "./models/ProductCart";
 
 buttonAttributes();
 createHTMLForProducts();
 
-let cartProducts: Product[] = [];
+let cartProducts: ProductCart[] = [];
 
 function createHTMLForProducts() {
   for (let i = 0; i < products.length; i++) {
@@ -42,6 +43,7 @@ function createHTMLForProducts() {
 }
 
 function createProductModal(product: Product) {
+  let productToCart = product;
   let productDescContainer = document.getElementById(
     "productDescContainer"
   ) as HTMLDivElement;
@@ -70,15 +72,12 @@ function createProductModal(product: Product) {
   clothingPrice.innerHTML = "Pris: " + product.price.toString() + " Kr";
 
   addToCartBtn.addEventListener("click", () => {
-    productToLS(product);
+    const cartProduct: ProductCart = new ProductCart(productToCart, 1);
+    cartProducts.push(cartProduct);
+    localStorage.setItem("Cart", JSON.stringify(cartProducts) || "");
   });
 
   productDescContainer.appendChild(clothingImage);
   productDescContainer.appendChild(clothingSize);
   productDescContainer.appendChild(clothingPrice);
-}
-
-function productToLS(product: Product) {
-  cartProducts.push(product);
-  localStorage.setItem("Cart", JSON.stringify(cartProducts) || "");
 }
