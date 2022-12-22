@@ -40,10 +40,14 @@ function createHTMLForProducts() {
 }
 
 function createProductModal(product: Product) {
+  let newProduct = product;
+
   let productDescContainer = document.getElementById(
     "productDescContainer"
   ) as HTMLDivElement;
   productDescContainer.innerHTML = "";
+
+  let addToCartBtn = document.getElementById("addToCart") as HTMLButtonElement;
 
   // Title of modal will be product name
   let clothingName = document.getElementById(
@@ -64,6 +68,10 @@ function createProductModal(product: Product) {
   clothingImage.alt = product.name;
   clothingSize.innerHTML = "Storlek: " + product.size;
   clothingPrice.innerHTML = "Pris: " + product.price.toString() + " Kr";
+
+  addToCartBtn.addEventListener("click", () => {
+    localStorage.setItem("cart", JSON.stringify(newProduct) || "[]");
+  });
 
   productDescContainer.appendChild(clothingImage);
   productDescContainer.appendChild(clothingSize);

@@ -4,7 +4,8 @@ export class ProductCart {
     public articleId: number,
     public name: string,
     public image: string,
-    public price: number // Lägg till listan om tid finns. public size: Size[],
+    public price: number,
+    public size: string
   ) {
     this.quantity = 1;
   }
