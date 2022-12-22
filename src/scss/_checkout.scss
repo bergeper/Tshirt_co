@@ -3,9 +3,6 @@
     flex-direction: row;
     padding: 0;
     border: 2px solid black;
-        &__cartImage, &__priceText, &__priceName, &__totalAmount, &__cartQuantity {
-        //border: 2px solid black;
-        }
         &__cartImage {
         width: 70px;
         height: 70px;

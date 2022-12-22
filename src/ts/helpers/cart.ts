@@ -51,7 +51,7 @@ export function openCartModal() {
   modalContainer.appendChild(removeButton);
   modalContainer.appendChild(totalAmount);
 
-  let productsInCart: ProductCart[] = getFromLocalStorage();
+  let productsInCart: ProductCart = getFromLocalStorage();
   ///console.log(cartAttributes);
   /*
   for (let i = 0; i < productsInCart.length; i++) {
