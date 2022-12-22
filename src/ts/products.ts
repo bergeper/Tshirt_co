@@ -39,7 +39,6 @@ function createHTMLForProducts() {
 
     clothingDiv.appendChild(clothingName);
     clothingDiv.appendChild(clothingImage);
-    console.log(products);
   }
 }
 
