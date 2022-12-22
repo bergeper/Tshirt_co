@@ -56,7 +56,7 @@ export function openCartModal() {
   modalContainer.appendChild(removeButton);
   modalContainer.appendChild(totalAmount);
   /*
-  KAKA
+KAKA
   let productsInCart: ProductCart[] = getFromLocalStorage();
   ///console.log(cartAttributes);
   
