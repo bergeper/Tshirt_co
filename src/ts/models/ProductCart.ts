@@ -1,3 +1,5 @@
+import { Product } from "./Products";
+
 export class ProductCart {
   quantity: number;
   constructor(
@@ -5,7 +7,7 @@ export class ProductCart {
     public name: string,
     public image: string,
     public price: number,
-    public size: string
+    public size: string // public product: Product[] = []
   ) {
     this.quantity = 1;
   }
