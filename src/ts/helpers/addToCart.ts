@@ -7,6 +7,7 @@ export function getFromLocalStorage() {
   cartProducts.map((product) => {
     return new ProductCart(product.product, product.quantity);
   });
+  return cartProducts;
 }
 //gör en ny tom lista, skicka in ohc returna
 //productsInCart
