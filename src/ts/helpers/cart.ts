@@ -50,8 +50,11 @@ export function openCartModal() {
     //create - + buttons
     let removeButton: HTMLButtonElement = document.createElement("button");
     let addButton: HTMLButtonElement = document.createElement("button");
+    let removeAllButton: HTMLElement = document.createElement("button");
+    removeAllButton.className = "modal-body__removeAllButton";
     removeButton.className = "modal-body__removeButton";
     addButton.className = "modal-body__addButton";
+    removeAllButton.innerHTML = "Rensa";
     removeButton.innerHTML = "-";
     addButton.innerHTML = "+";
 
@@ -61,6 +64,7 @@ export function openCartModal() {
     modalContainer.appendChild(addButton);
     modalContainer.appendChild(cartQuantity);
     modalContainer.appendChild(removeButton);
+    modalContainer.appendChild(removeAllButton);
     modalContainer.appendChild(quantityDiv);
     quantityDiv.appendChild(totalAmount);
   }
