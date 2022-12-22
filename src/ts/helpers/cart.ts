@@ -6,10 +6,10 @@ export function buttonAttributes() {
 }
 
 export function openCartModal() {
-  let modalContainer = document.getElementById("modal-body") as HTMLDivElement; ///hämtar modalbodyn från html
-  modalContainer.innerHTML = ""; //tömmer inför varje gång
+  let modalContainer = document.getElementById("modal-body") as HTMLDivElement; //get modalbody from html
+  modalContainer.innerHTML = ""; //empty container
   let modalTitle = document.getElementById(
-    //hämtar modaltiteln med id från html
+    //gets the modaltitle from html
     "exampleModalLabel"
   ) as HTMLHeadingElement;
   modalTitle.innerHTML = "Varukorg";
@@ -30,10 +30,10 @@ export function openCartModal() {
   productPrice.innerHTML = "PRISET";
 
   let productAttributes: HTMLDivElement = document.createElement("div");
-  productAttributes.className = "productAttributesDiv";
+  productAttributes.className = "cartDiv__productAttributesDiv";
 
   let cartImage: HTMLImageElement = document.createElement("img");
-  cartImage.className = "cartImage";
+  cartImage.className = "cartDiv__cartImage";
   cartImage.src =
     "https://www.shirtstore.se/pub_images/original/15348_r_20268.jpg?extend=copy&width=1280&method=fit&height=1280&type=webp";
 
