@@ -62,14 +62,15 @@ export function openCartModal() {
 
   let productsInCart: ProductCart[] = getFromLocalStorage();
   ///console.log(cartAttributes);
+  /*
   for (let i = 0; i < productsInCart.length; i++) {
-    let cartArticleId: number = productsInCart[i].articleId;
-    let cartImage: string = productsInCart[i].image;
-    let cartProductName: string = productsInCart[i].name;
+    let cartArticleId: number = productsInCart[i].product;
+    let cartImage: string = productsInCart[i]
+    let cartProductName: string = productsInCart[i].;
     let cartProductPrice: number = productsInCart[i].price;
     let cartProductSize: string = productsInCart[i].size;
     let cartQuantity: number = productsInCart[i].quantity;
   }
-
+  */
   //
 }
