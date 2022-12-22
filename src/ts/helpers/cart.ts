@@ -37,6 +37,7 @@ export function openCartModal() {
   let cartQuantity: HTMLParagraphElement = document.createElement("p");
   cartQuantity.innerHTML = "Antal:";
   cartQuantity.className = "modal-body__cartQuantity";
+
   let totalAmount: HTMLParagraphElement = document.createElement("p");
   totalAmount.innerHTML = "Totalt Summa:....";
   totalAmount.className = "modal-body__totalAmount";
@@ -51,13 +52,15 @@ export function openCartModal() {
   addButton.className = "modal-body__addButton";
   removeButton.innerHTML = "-";
   addButton.innerHTML = "+";
+
   modalContainer.appendChild(productName);
   modalContainer.appendChild(productPrice);
   modalContainer.appendChild(cartImage);
   modalContainer.appendChild(addButton);
   modalContainer.appendChild(cartQuantity);
   modalContainer.appendChild(removeButton);
-  modalContainer.appendChild(totalAmount);
+  modalContainer.appendChild(quantityDiv);
+  quantityDiv.appendChild(totalAmount);
 
   ///console.log(cartAttributes);
   /*
