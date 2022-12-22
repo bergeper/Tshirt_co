@@ -1,3 +1,5 @@
+import { getFromLocalStorage } from "./addToCart";
+
 export function buttonAttributes() {
   let clickOnCart = document.getElementById("cart__icon") as HTMLButtonElement;
   clickOnCart.setAttribute("data-bs-toggle", "modal");
@@ -45,6 +47,8 @@ export function openCartModal() {
   let quantityDiv: HTMLDivElement = document.createElement("div");
   quantityDiv.className = "cartDiv__quantityDiv";
 
+  document.createElement;
+
   productAttributes.appendChild(productName);
   productAttributes.appendChild(productPrice);
   modalContainer.appendChild(cartHeading);
@@ -54,4 +58,6 @@ export function openCartModal() {
   informationDiv.appendChild(quantityDiv);
   quantityDiv.appendChild(cartQuantity);
   quantityDiv.appendChild(totalAmount);
+
+  getFromLocalStorage();
 }
