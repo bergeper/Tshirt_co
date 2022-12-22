@@ -73,7 +73,7 @@ function createProductModal(product: Product) {
 
   addToCartBtn.addEventListener("click", (product) => {
     cartProducts.push(newProduct);
-    localStorage.setItem("cart", JSON.stringify(cartProducts) || "");
+    localStorage.setItem("Cart", JSON.stringify(cartProducts) || "");
   });
 
   productDescContainer.appendChild(clothingImage);
