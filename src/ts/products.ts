@@ -75,7 +75,7 @@ function createProductModal(product: Product) {
   addToCartBtn.addEventListener("click", () => {
     const cartProduct: ProductCart = new ProductCart(productToCart, 1);
     cartProducts.push(cartProduct);
-    localStorage.setItem("Cart", JSON.stringify(cartProduct) || "");
+    localStorage.setItem("Cart", JSON.stringify(cartProducts) || "");
   });
 
   productDescContainer.appendChild(clothingImage);

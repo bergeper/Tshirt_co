@@ -1,6 +1,6 @@
 import { ProductCart } from "../models/ProductCart";
 
-export function getFromLocalStorage() {
+export function getFromLocalStorage(): ProductCart[] {
   let cartProducts: ProductCart[] = JSON.parse(
     localStorage.getItem("Cart") || "[]"
   );
