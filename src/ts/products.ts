@@ -7,7 +7,9 @@ createHTMLForProducts();
 
 function createHTMLForProducts() {
   for (let i = 0; i < products.length; i++) {
-    let div = document.getElementById("productsContainer") as HTMLDivElement;
+    let clothingDiv = document.getElementById(
+      "productsContainer"
+    ) as HTMLDivElement;
 
     let clothingName: HTMLHeadingElement = document.createElement(
       "h2"
@@ -21,6 +23,10 @@ function createHTMLForProducts() {
     clothingImage.src = products[i].image;
     clothingImage.alt = products[i].name;
 
+    clothingDiv.classList.add("productDiv");
+    clothingName.classList.add("productDiv__title");
+    clothingImage.classList.add("productDiv__image");
+
     clothingImage.addEventListener("click", () => {
       createProductModal(products[i]);
     });
@@ -28,8 +34,8 @@ function createHTMLForProducts() {
     clothingImage.setAttribute("data-bs-toggle", "modal");
     clothingImage.setAttribute("data-bs-target", "#productModal");
 
-    div.appendChild(clothingName);
-    div.appendChild(clothingImage);
+    clothingDiv.appendChild(clothingName);
+    clothingDiv.appendChild(clothingImage);
   }
 }
 
@@ -41,7 +47,6 @@ function createProductModal(product: Product) {
 
   // Title of modal will be product name
   let clothingName = document.getElementById(
-    //hämtar modaltiteln med id från html
     "productName"
   ) as HTMLHeadingElement;
   clothingName.innerHTML = product.name;

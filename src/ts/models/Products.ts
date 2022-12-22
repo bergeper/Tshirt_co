@@ -7,13 +7,6 @@ export class Product {
     public image: string,
     public price: number,
     // Lägg till listan om tid finns. public size: Size[],
-    public size: string,
-    public quantity: number
+    public size: string
   ) {}
-  quantityPlus() {
-    this.quantity += 1;
-  }
-  quantityMinus() {
-    this.quantity -= 1;
-  }
 }
