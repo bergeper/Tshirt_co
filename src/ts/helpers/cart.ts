@@ -59,10 +59,10 @@ export function openCartModal() {
   informationDiv.appendChild(quantityDiv);
   quantityDiv.appendChild(cartQuantity);
   quantityDiv.appendChild(totalAmount);
-
+  /*
   let productsInCart: ProductCart[] = getFromLocalStorage();
   ///console.log(cartAttributes);
-  /*
+  
   for (let i = 0; i < productsInCart.length; i++) {
     let cartArticleId: number = productsInCart[i].product;
     let cartImage: string = productsInCart[i]

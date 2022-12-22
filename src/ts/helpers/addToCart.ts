@@ -4,5 +4,9 @@ export function getFromLocalStorage() {
   let objectsFromLS: ProductCart[] = JSON.parse(
     localStorage.getItem("Cart") || "[]"
   );
-  return objectsFromLS;
+  /*
+  objectsFromLS.map((cartProducts) => {
+    return new ProductCart()
+  })
+  */
 }

@@ -1,9 +1,8 @@
 import { Product } from "./Products";
 
 export class ProductCart {
-  quantity: number;
-  constructor(public product: Product[]) {
-    this.quantity = 1;
+  constructor(public product: Product, public quantity: number) {
+    this.quantity = quantity;
   }
   quantityPlus(add: number) {
     this.quantity += 1;
