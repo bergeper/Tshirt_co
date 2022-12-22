@@ -1,5 +1,5 @@
 # Tshirt_co
 
-cart.ts och startpage.ts styalas båda i checkout.scss
-och där stylas även det som ska stylas gemensamt på alla sidor
+cart.ts och checkout.ts styalas båda i checkout.scss
+Allt gemensamt stylas på starpage.scss
 /Mira

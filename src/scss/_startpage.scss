@@ -12,19 +12,6 @@ body {
     padding-top: 50%;
   }
 }
-
-.cartDiv {
-display: flex;
-flex-direction: row;
-padding: 0;
-background-color: aqua;
-
-&__quantityDiv {
-background-color: pink;
-
-}
-}
-
 .productAttributesDiv {
   display: flex;
   flex-direction: column;
