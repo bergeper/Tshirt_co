@@ -1,6 +1,8 @@
 import { ProductCart } from "../models/ProductCart";
 import { getFromLocalStorage } from "./addToCart";
 
+let cartProducts: ProductCart[] = [];
+
 export function buttonAttributes() {
   let clickOnCart = document.getElementById("cart__icon") as HTMLButtonElement;
   clickOnCart.setAttribute("data-bs-toggle", "modal");
@@ -39,8 +41,6 @@ export function openCartModal() {
   let quantityDiv: HTMLDivElement = document.createElement("div");
   quantityDiv.className = "cartDiv__quantityDiv";
 
-  document.createElement;
-
   //create - + buttons
   let removeButton: HTMLButtonElement = document.createElement("button");
   let addButton: HTMLButtonElement = document.createElement("button");
@@ -55,11 +55,9 @@ export function openCartModal() {
   modalContainer.appendChild(cartQuantity);
   modalContainer.appendChild(removeButton);
   modalContainer.appendChild(totalAmount);
-  /*
-KAKA
-  let productsInCart: ProductCart[] = getFromLocalStorage();
+
   ///console.log(cartAttributes);
-  
+  /*
   for (let i = 0; i < productsInCart.length; i++) {
     let cartArticleId: number = productsInCart[i].product;
     let cartImage: string = productsInCart[i].produc

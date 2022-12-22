@@ -1,15 +1,12 @@
 import { ProductCart } from "../models/ProductCart";
 
-//let newProductsInCart: ProductCart[] = [];
 export function getFromLocalStorage() {
-  let objectsFromLS: ProductCart[] = JSON.parse(
+  let cartProducts: ProductCart[] = JSON.parse(
     localStorage.getItem("Cart") || "[]"
   );
-  /*
-  objectsFromLS.map((cartProducts) => {
-    return new ProductCart()
-  })
-  */
+  cartProducts.map((product) => {
+    return new ProductCart(product.product, product.quantity);
+  });
 }
 //gör en ny tom lista, skicka in ohc returna
 //productsInCart
