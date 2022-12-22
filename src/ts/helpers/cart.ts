@@ -63,7 +63,7 @@ export function openCartModal() {
   let cartAttributes: ProductCart[] = getFromLocalStorage();
   console.log(cartAttributes);
   for (let i = 0; i < cartAttributes.length; i++) {
-    cartAttributes[i].articleId;
+    console.log("hej" + cartAttributes[i].articleId);
   }
 
   //
