@@ -1,6 +1,10 @@
 import { ProductCart } from "../models/ProductCart";
 import { getFromLocalStorage } from "./addToCart";
 
+// localStorage
+let cartProductsFromLS: ProductCart[] = [];
+
+// cart List
 let cartProducts: ProductCart[] = [];
 
 //connect the cart button to the modal
@@ -8,13 +12,19 @@ export function buttonAttributes() {
   let clickOnCart = document.getElementById("cart__icon") as HTMLButtonElement;
   clickOnCart.setAttribute("data-bs-toggle", "modal");
   clickOnCart.setAttribute("data-bs-target", "#exampleModal");
-  //  clickOnCart.addEventListener("load", openCartModal);
+  cartProducts = JSON.parse(localStorage.getItem("Cart") || "[]");
+  clickOnCart.addEventListener("click", () => {
+    openCartModal(cartProducts);
+  });
 }
 
-export function openCartModal(cartProduct: ProductCart[]) {
-  cartProducts = getFromLocalStorage();
+export function openCartModal(cartProducts: ProductCart[]) {
   // LOCALSTORAGE
-  console.log(cartProducts);
+  cartProductsFromLS = JSON.parse(localStorage.getItem("Cart") || "[]");
+  cartProducts = cartProductsFromLS.map((product) => {
+    return new ProductCart(product.product, product.quantity);
+  });
+  // cartProducts = getFromLocalStorage();
 
   let modalContainer = document.getElementById("modal-body") as HTMLDivElement; //get modalbody from html
   modalContainer.innerHTML = ""; //empty the container before loop
@@ -44,6 +54,7 @@ export function openCartModal(cartProduct: ProductCart[]) {
     let cartImage: HTMLImageElement = document.createElement("img");
     cartImage.className = "cart__cartImage";
     cartImage.src = cartProducts[i].product.image;
+
     let cartQuantity: HTMLParagraphElement = document.createElement("p");
     cartQuantity.innerHTML = cartProducts[i].quantity.toString();
     cartQuantity.className = "cart__cartQuantity";
@@ -53,21 +64,24 @@ export function openCartModal(cartProduct: ProductCart[]) {
 
     //create - + buttons
     let removeButton: HTMLButtonElement = document.createElement("button");
+    removeButton.className = "cart__removeButton";
+    removeButton.innerHTML = "-";
+
     let addButton: HTMLButtonElement = document.createElement("button");
+    addButton.className = "cart__addButton";
+    addButton.innerHTML = "+";
+
     let removeAllButton: HTMLElement = document.createElement("button");
     removeAllButton.className = "cart__removeAllButton";
-    removeButton.className = "cart__removeButton";
-    addButton.className = "cart__addButton";
     removeAllButton.innerHTML = "Rensa";
-    removeButton.innerHTML = "-";
-    addButton.innerHTML = "+";
 
     //add or remove from cart
     addButton.addEventListener("click", () => {
-      //console.log(cartProducts[i]);
+      // addQuantity(cartProducts[i]);
+      console.log(cartProducts[i]);
       cartProducts[i].quantityPlus(1);
       console.log(cartProducts[i]);
-      localStorage.setItem("cart", JSON.stringify(cartProducts) || "");
+      localStorage.setItem("Cart", JSON.stringify(cartProducts) || "");
       openCartModal(cartProducts);
     });
 
