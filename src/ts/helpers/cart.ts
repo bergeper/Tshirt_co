@@ -11,8 +11,8 @@ export function buttonAttributes() {
 }
 
 export function openCartModal() {
-  // LOCALSTORAGE
   cartProducts = getFromLocalStorage();
+  // LOCALSTORAGE
   console.log(cartProducts);
 
   let modalContainer = document.getElementById("modal-body") as HTMLDivElement; //get modalbody from html
