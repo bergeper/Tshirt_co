@@ -1,6 +1,7 @@
 .cart {
   display: flex;
   flex-direction: row;
+  justify-content: space-evenly;
   padding: 0;
   border: 2px solid black;
   &__cartImage {
