@@ -15,57 +15,60 @@ export function openCartModal() {
   cartProducts = getFromLocalStorage();
   console.log(cartProducts);
 
+  let modalContainer = document.getElementById("modal-body") as HTMLDivElement; //get modalbody from html
+  modalContainer.innerHTML = ""; //empty container
+
   //Loop for cartProducts
   for (let i = 0; i < cartProducts.length; i++) {
-    let modalContainer = document.getElementById(
-      "modal-body"
-    ) as HTMLDivElement; //get modalbody from html
-    modalContainer.innerHTML = ""; //empty container
     let modalTitle = document.getElementById(
       "exampleModalLabel"
     ) as HTMLHeadingElement;
     modalTitle.innerHTML = "Varukorg";
 
+    let cart: HTMLDivElement = document.createElement("div");
+    cart.className = "cart";
+
     let productName: HTMLParagraphElement = document.createElement("p");
-    productName.className = "modal-body__priceName";
+    productName.className = "cart__priceName";
     productName.innerHTML = cartProducts[i].product.name;
 
     let productPrice: HTMLParagraphElement = document.createElement("p");
-    productPrice.className = "modal-body__priceText";
+    productPrice.className = "cart__priceText";
     productPrice.innerHTML = cartProducts[i].product.price.toString();
 
     let cartImage: HTMLImageElement = document.createElement("img");
-    cartImage.className = "modal-body__cartImage";
+    cartImage.className = "cart__cartImage";
     cartImage.src = cartProducts[i].product.image;
     let cartQuantity: HTMLParagraphElement = document.createElement("p");
     cartQuantity.innerHTML = cartProducts[i].quantity.toString();
-    cartQuantity.className = "modal-body__cartQuantity";
+    cartQuantity.className = "cart__cartQuantity";
     let totalAmount: HTMLParagraphElement = document.createElement("p");
     totalAmount.innerHTML = "Totalt Summa:....";
-    totalAmount.className = "modal-body__totalAmount";
+    totalAmount.className = "cart__totalAmount";
 
     let quantityDiv: HTMLDivElement = document.createElement("div");
-    quantityDiv.className = "cartDiv__quantityDiv";
+    quantityDiv.className = "cart__quantityDiv";
 
     //create - + buttons
     let removeButton: HTMLButtonElement = document.createElement("button");
     let addButton: HTMLButtonElement = document.createElement("button");
     let removeAllButton: HTMLElement = document.createElement("button");
-    removeAllButton.className = "modal-body__removeAllButton";
-    removeButton.className = "modal-body__removeButton";
-    addButton.className = "modal-body__addButton";
+    removeAllButton.className = "cart__removeAllButton";
+    removeButton.className = "cart__removeButton";
+    addButton.className = "cart__addButton";
     removeAllButton.innerHTML = "Rensa";
     removeButton.innerHTML = "-";
     addButton.innerHTML = "+";
 
-    modalContainer.appendChild(productName);
-    modalContainer.appendChild(productPrice);
-    modalContainer.appendChild(cartImage);
-    modalContainer.appendChild(addButton);
-    modalContainer.appendChild(cartQuantity);
-    modalContainer.appendChild(removeButton);
-    modalContainer.appendChild(removeAllButton);
-    modalContainer.appendChild(quantityDiv);
+    cart.appendChild(productName);
+    cart.appendChild(productPrice);
+    cart.appendChild(cartImage);
+    cart.appendChild(addButton);
+    cart.appendChild(cartQuantity);
+    cart.appendChild(removeButton);
+    cart.appendChild(removeAllButton);
+    cart.appendChild(quantityDiv);
     quantityDiv.appendChild(totalAmount);
+    modalContainer.appendChild(cart);
   }
 }

@@ -1,26 +1,29 @@
-.modal-body {
-    display: flex;
-    flex-direction: row;
-    padding: 0;
-    border: 2px solid black;
-        &__cartImage {
-        width: 70px;
-        height: 70px;
-        margin-right: 8px;
-        }
-        &__addButton, &__removeButton {
-            height: 30px;
-            margin-right: 9px;
-           
-        }
-        &__priceText, &__priceName, &__totalAmount, &__cartQuantity {
-            height: 70px;
-            margin-right: 10px
-        }
-        &__totalAmount{
-            padding-top: 65px;
-            padding-left: 20px;
-    }
+.cart {
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+  border: 2px solid black;
+  &__cartImage {
+    width: 70px;
+    height: 70px;
+    margin-right: 8px;
+  }
+  &__addButton,
+  &__removeButton {
+    height: 30px;
+    margin-right: 9px;
+  }
+  &__priceText,
+  &__priceName,
+  &__totalAmount,
+  &__cartQuantity {
+    height: 70px;
+    margin-right: 10px;
+  }
+  &__totalAmount {
+    padding-top: 65px;
+    padding-left: 20px;
+  }
 }
 
 //kommentar
