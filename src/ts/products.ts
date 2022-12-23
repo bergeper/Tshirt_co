@@ -1,6 +1,6 @@
 import { Product } from "./models/Products";
 import { products } from "./services/productList";
-import { buttonAttributes } from "./helpers/cart";
+import { buttonAttributes, openCartModal } from "./helpers/cart";
 import { ProductCart } from "./models/ProductCart";
 
 buttonAttributes();
@@ -76,6 +76,7 @@ function createProductModal(product: Product) {
     const cartProduct: ProductCart = new ProductCart(productToCart, 1);
     cartProducts.push(cartProduct);
     localStorage.setItem("Cart", JSON.stringify(cartProducts) || "");
+    openCartModal(cartProduct);
   });
 
   productDescContainer.appendChild(clothingImage);
