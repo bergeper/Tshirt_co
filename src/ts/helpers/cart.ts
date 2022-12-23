@@ -78,17 +78,19 @@ export function openCartModal(cartProducts: ProductCart[]) {
       openCartModal(cartProducts);
     });
 
-    //add from cart
-
     removeButton.addEventListener("click", () => {
       // addQuantity(cartProducts[i]);
-      if (cartProducts[i].quantity === 1) {
+      if (cartProducts[i].quantity >= 2) {
         cartProducts[i].quantityPlus(-1);
         console.log(cartProducts[i]);
         localStorage.setItem("Cart", JSON.stringify(cartProducts) || "");
         openCartModal(cartProducts);
+      } else {
+        cartProducts.splice(i, 1); //varför går det inte att få en helt tom varukorg?
+        openCartModal(cartProducts);
       }
     });
+    //delete from cart here
 
     cart.appendChild(productName);
     cart.appendChild(productPrice);
