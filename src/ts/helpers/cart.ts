@@ -74,8 +74,8 @@ export function openCartModal(cartProducts: ProductCart[]) {
     let removeAllButton: HTMLElement = document.createElement("button");
     removeAllButton.className = "cart__removeAllButton";
     removeAllButton.innerHTML = "Rensa";
+    //add to cart
 
-    //add or remove from cart
     addButton.addEventListener("click", () => {
       // addQuantity(cartProducts[i]);
       console.log(cartProducts[i]);
@@ -83,6 +83,18 @@ export function openCartModal(cartProducts: ProductCart[]) {
       console.log(cartProducts[i]);
       localStorage.setItem("Cart", JSON.stringify(cartProducts) || "");
       openCartModal(cartProducts);
+    });
+
+    //add from cart
+
+    removeButton.addEventListener("click", () => {
+      // addQuantity(cartProducts[i]);
+      if (cartProducts[i].quantity === 1) {
+        cartProducts[i].quantityPlus(-1);
+        console.log(cartProducts[i]);
+        localStorage.setItem("Cart", JSON.stringify(cartProducts) || "");
+        openCartModal(cartProducts);
+      }
     });
 
     cart.appendChild(productName);
