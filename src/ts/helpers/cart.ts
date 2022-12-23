@@ -11,7 +11,7 @@ export function buttonAttributes() {
   clickOnCart.addEventListener("click", openCartModal);
 }
 
-export function openCartModal() {
+export function openCartModal(cartProduct: ProductCart) {
   cartProducts = getFromLocalStorage();
   // LOCALSTORAGE
   console.log(cartProducts);
@@ -64,7 +64,11 @@ export function openCartModal() {
 
     //add or remove from cart
     addButton.addEventListener("click", () => {
+      //console.log(cartProducts[i]);
+      cartProducts[i].quantityPlus();
       console.log(cartProducts[i]);
+      localStorage.setItem("cart", JSON.stringify(cartProducts) || "");
+      openCartModal(cartProducts);
     });
 
     cart.appendChild(productName);

@@ -4,10 +4,10 @@ export class ProductCart {
   constructor(public product: Product, public quantity: number) {
     this.quantity = quantity;
   }
-  quantityPlus(add: number) {
+  quantityPlus() {
     this.quantity += 1;
   }
   quantityMinus(remove: number) {
-    this.quantity -= 1;
+    this.quantity -= remove;
   }
 }
