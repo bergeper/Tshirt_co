@@ -8,10 +8,10 @@ export function buttonAttributes() {
   let clickOnCart = document.getElementById("cart__icon") as HTMLButtonElement;
   clickOnCart.setAttribute("data-bs-toggle", "modal");
   clickOnCart.setAttribute("data-bs-target", "#exampleModal");
-  clickOnCart.addEventListener("click", openCartModal);
+  //  clickOnCart.addEventListener("load", openCartModal);
 }
 
-export function openCartModal(cartProduct: ProductCart) {
+export function openCartModal(cartProduct: ProductCart[]) {
   cartProducts = getFromLocalStorage();
   // LOCALSTORAGE
   console.log(cartProducts);
@@ -65,7 +65,7 @@ export function openCartModal(cartProduct: ProductCart) {
     //add or remove from cart
     addButton.addEventListener("click", () => {
       //console.log(cartProducts[i]);
-      cartProducts[i].quantityPlus();
+      cartProducts[i].quantityPlus(1);
       console.log(cartProducts[i]);
       localStorage.setItem("cart", JSON.stringify(cartProducts) || "");
       openCartModal(cartProducts);

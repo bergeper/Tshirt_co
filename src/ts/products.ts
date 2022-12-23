@@ -76,7 +76,7 @@ function createProductModal(product: Product) {
     const cartProduct: ProductCart = new ProductCart(productToCart, 1);
     cartProducts.push(cartProduct);
     localStorage.setItem("Cart", JSON.stringify(cartProducts) || "");
-    openCartModal(cartProduct);
+    openCartModal(cartProducts);
   });
 
   productDescContainer.appendChild(clothingImage);
