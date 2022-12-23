@@ -1,9 +1,12 @@
 import { Product } from "./models/Products";
 import { products } from "./services/productList";
-import { buttonAttributes } from "./helpers/cart";
+import { buttonAttributes, openCartModal } from "./helpers/cart";
+import { ProductCart } from "./models/ProductCart";
 
 buttonAttributes();
 createHTMLForProducts();
+
+let cartProducts: ProductCart[] = [];
 
 function createHTMLForProducts() {
   for (let i = 0; i < products.length; i++) {
@@ -36,14 +39,18 @@ function createHTMLForProducts() {
 
     clothingDiv.appendChild(clothingName);
     clothingDiv.appendChild(clothingImage);
+    //console.log(products);
   }
 }
 
 function createProductModal(product: Product) {
+  let productToCart = product;
   let productDescContainer = document.getElementById(
     "productDescContainer"
   ) as HTMLDivElement;
   productDescContainer.innerHTML = "";
+
+  let addToCartBtn = document.getElementById("addToCart") as HTMLButtonElement;
 
   // Title of modal will be product name
   let clothingName = document.getElementById(
@@ -64,6 +71,13 @@ function createProductModal(product: Product) {
   clothingImage.alt = product.name;
   clothingSize.innerHTML = "Storlek: " + product.size;
   clothingPrice.innerHTML = "Pris: " + product.price.toString() + " Kr";
+
+  addToCartBtn.addEventListener("click", () => {
+    const cartProduct: ProductCart = new ProductCart(productToCart, 1);
+    cartProducts.push(cartProduct);
+    localStorage.setItem("Cart", JSON.stringify(cartProducts) || "");
+    openCartModal(cartProducts);
+  });
 
   productDescContainer.appendChild(clothingImage);
   productDescContainer.appendChild(clothingSize);

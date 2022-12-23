@@ -1,17 +1,13 @@
+import { Product } from "./Products";
+
 export class ProductCart {
-  quantity: number;
-  constructor(
-    public articleId: number,
-    public name: string,
-    public image: string,
-    public price: number // Lägg till listan om tid finns. public size: Size[],
-  ) {
-    this.quantity = 1;
+  constructor(public product: Product, public quantity: number) {
+    this.quantity = quantity;
   }
   quantityPlus(add: number) {
-    this.quantity += 1;
+    this.quantity += add;
   }
   quantityMinus(remove: number) {
-    this.quantity -= 1;
+    this.quantity -= remove;
   }
 }

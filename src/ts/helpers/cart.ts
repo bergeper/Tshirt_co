@@ -1,57 +1,106 @@
+import { ProductCart } from "../models/ProductCart";
+import { getFromLocalStorage } from "./addToCart";
+
+// cart List
+let cartProducts: ProductCart[] = [];
+
+//connect the cart button to the modal
 export function buttonAttributes() {
   let clickOnCart = document.getElementById("cart__icon") as HTMLButtonElement;
   clickOnCart.setAttribute("data-bs-toggle", "modal");
   clickOnCart.setAttribute("data-bs-target", "#exampleModal");
-  clickOnCart.addEventListener("click", openCartModal);
+  cartProducts = JSON.parse(localStorage.getItem("Cart") || "[]");
+  clickOnCart.addEventListener("click", () => {
+    openCartModal(cartProducts);
+  });
 }
 
-export function openCartModal() {
+export function openCartModal(cartProducts: ProductCart[]) {
+  // LOCALSTORAGE
+  cartProducts = getFromLocalStorage();
+
   let modalContainer = document.getElementById("modal-body") as HTMLDivElement; //get modalbody from html
-  modalContainer.innerHTML = ""; //empty container
-  let modalTitle = document.getElementById(
-    //gets the modaltitle from html
-    "exampleModalLabel"
-  ) as HTMLHeadingElement;
-  modalTitle.innerHTML = "Varukorg";
+  modalContainer.innerHTML = ""; //empty the container before loop
 
-  let cartHeading: HTMLHeadingElement = document.createElement("h5");
-  cartHeading.innerHTML = "Dina Varor:";
+  let cartFooter: HTMLDivElement = document.getElementById(
+    "cart-footer"
+  ) as HTMLDivElement;
 
-  let informationDiv: HTMLDivElement = document.createElement("div");
-  informationDiv.className = "cartDiv";
-  informationDiv.innerHTML = "";
-
-  let productName: HTMLParagraphElement = document.createElement("p");
-  productName.className = "priceName";
-  productName.innerHTML = "NAMNET";
-
-  let productPrice: HTMLParagraphElement = document.createElement("p");
-  productPrice.className = "priceText";
-  productPrice.innerHTML = "PRISET";
-
-  let productAttributes: HTMLDivElement = document.createElement("div");
-  productAttributes.className = "cartDiv__productAttributesDiv";
-
-  let cartImage: HTMLImageElement = document.createElement("img");
-  cartImage.className = "cartDiv__cartImage";
-  cartImage.src =
-    "https://www.shirtstore.se/pub_images/original/15348_r_20268.jpg?extend=copy&width=1280&method=fit&height=1280&type=webp";
-
-  let cartQuantity: HTMLParagraphElement = document.createElement("p");
-  cartQuantity.innerHTML = "Antal:.........";
   let totalAmount: HTMLParagraphElement = document.createElement("p");
-  totalAmount.innerHTML = "Total Summa:........";
+  totalAmount.innerHTML = "Totalt Summa:....";
+  totalAmount.className = "cart__totalAmount";
 
-  let quantityDiv: HTMLDivElement = document.createElement("div");
-  quantityDiv.className = "cartDiv__quantityDiv";
+  //Loop for cartProducts
+  for (let i = 0; i < cartProducts.length; i++) {
+    let modalTitle = document.getElementById(
+      "exampleModalLabel"
+    ) as HTMLHeadingElement;
+    modalTitle.innerHTML = "Varukorg";
 
-  productAttributes.appendChild(productName);
-  productAttributes.appendChild(productPrice);
-  modalContainer.appendChild(cartHeading);
-  modalContainer.appendChild(informationDiv);
-  informationDiv.appendChild(productAttributes);
-  informationDiv.appendChild(cartImage);
-  informationDiv.appendChild(quantityDiv);
-  quantityDiv.appendChild(cartQuantity);
-  quantityDiv.appendChild(totalAmount);
+    let cart: HTMLDivElement = document.createElement("div");
+    cart.className = "cart";
+
+    let productName: HTMLParagraphElement = document.createElement("p");
+    productName.className = "cart__priceName";
+    productName.innerHTML = cartProducts[i].product.name;
+
+    let productPrice: HTMLParagraphElement = document.createElement("p");
+    productPrice.className = "cart__priceText";
+    productPrice.innerHTML = cartProducts[i].product.price.toString();
+
+    let cartImage: HTMLImageElement = document.createElement("img");
+    cartImage.className = "cart__cartImage";
+    cartImage.src = cartProducts[i].product.image;
+
+    let cartQuantity: HTMLParagraphElement = document.createElement("p");
+    cartQuantity.innerHTML = cartProducts[i].quantity.toString();
+    cartQuantity.className = "cart__cartQuantity";
+
+    let quantityDiv: HTMLDivElement = document.createElement("div");
+    quantityDiv.className = "cart__quantityDiv";
+
+    //create - + buttons
+    let removeButton: HTMLButtonElement = document.createElement("button");
+    removeButton.className = "cart__removeButton";
+    removeButton.innerHTML = "-";
+
+    let addButton: HTMLButtonElement = document.createElement("button");
+    addButton.className = "cart__addButton";
+    addButton.innerHTML = "+";
+
+    let removeAllButton: HTMLElement = document.createElement("button");
+    removeAllButton.className = "cart__removeAllButton";
+    removeAllButton.innerHTML = "Rensa";
+
+    //add quantity to cart
+    addButton.addEventListener("click", () => {
+      // addQuantity(cartProducts[i]);
+      console.log(cartProducts[i]);
+      cartProducts[i].quantityPlus(1);
+      console.log(cartProducts[i]);
+      localStorage.setItem("Cart", JSON.stringify(cartProducts) || "");
+      openCartModal(cartProducts);
+    });
+
+    //remove cart item when quantity is 0
+    removeButton.addEventListener("click", () => {
+      cartProducts[i].quantityMinus(1);
+      if (cartProducts[i].quantity < 1) {
+        cartProducts.splice(i, 1); //varför går det inte att få en helt tom varukorg?
+      }
+      console.log(cartProducts[i]);
+      localStorage.setItem("Cart", JSON.stringify(cartProducts) || "");
+      openCartModal(cartProducts);
+    });
+    //delete from cart here
+
+    cart.appendChild(productName);
+    cart.appendChild(productPrice);
+    cart.appendChild(cartImage);
+    cart.appendChild(addButton);
+    cart.appendChild(cartQuantity);
+    cart.appendChild(removeButton);
+    cart.appendChild(removeAllButton);
+    modalContainer.appendChild(cart);
+  }
 }
