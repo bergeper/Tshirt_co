@@ -9,5 +9,3 @@ export function getFromLocalStorage(): ProductCart[] {
   });
   return cartProducts;
 }
-//gör en ny tom lista, skicka in ohc returna
-//productsInCart
