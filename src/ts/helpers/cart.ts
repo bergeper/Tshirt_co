@@ -3,6 +3,7 @@ import { getFromLocalStorage } from "./addToCart";
 
 let cartProducts: ProductCart[] = [];
 
+//connect the cart button to the modal
 export function buttonAttributes() {
   let clickOnCart = document.getElementById("cart__icon") as HTMLButtonElement;
   clickOnCart.setAttribute("data-bs-toggle", "modal");
@@ -16,7 +17,11 @@ export function openCartModal() {
   console.log(cartProducts);
 
   let modalContainer = document.getElementById("modal-body") as HTMLDivElement; //get modalbody from html
-  modalContainer.innerHTML = ""; //empty container
+  modalContainer.innerHTML = ""; //empty the container before loop
+
+  let totalAmount: HTMLParagraphElement = document.createElement("p");
+  totalAmount.innerHTML = "Totalt Summa:....";
+  totalAmount.className = "cart__totalAmount";
 
   //Loop for cartProducts
   for (let i = 0; i < cartProducts.length; i++) {
@@ -42,9 +47,6 @@ export function openCartModal() {
     let cartQuantity: HTMLParagraphElement = document.createElement("p");
     cartQuantity.innerHTML = cartProducts[i].quantity.toString();
     cartQuantity.className = "cart__cartQuantity";
-    let totalAmount: HTMLParagraphElement = document.createElement("p");
-    totalAmount.innerHTML = "Totalt Summa:....";
-    totalAmount.className = "cart__totalAmount";
 
     let quantityDiv: HTMLDivElement = document.createElement("div");
     quantityDiv.className = "cart__quantityDiv";
@@ -59,6 +61,11 @@ export function openCartModal() {
     removeAllButton.innerHTML = "Rensa";
     removeButton.innerHTML = "-";
     addButton.innerHTML = "+";
+
+    //add or remove from cart
+    addButton.addEventListener("click", () => {
+      console.log(cartProducts[i]);
+    });
 
     cart.appendChild(productName);
     cart.appendChild(productPrice);
