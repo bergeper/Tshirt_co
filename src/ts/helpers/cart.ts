@@ -1,9 +1,6 @@
 import { ProductCart } from "../models/ProductCart";
 import { getFromLocalStorage } from "./addToCart";
 
-// localStorage
-let cartProductsFromLS: ProductCart[] = [];
-
 // cart List
 let cartProducts: ProductCart[] = [];
 
@@ -20,11 +17,7 @@ export function buttonAttributes() {
 
 export function openCartModal(cartProducts: ProductCart[]) {
   // LOCALSTORAGE
-  cartProductsFromLS = JSON.parse(localStorage.getItem("Cart") || "[]");
-  cartProducts = cartProductsFromLS.map((product) => {
-    return new ProductCart(product.product, product.quantity);
-  });
-  // cartProducts = getFromLocalStorage();
+  cartProducts = getFromLocalStorage();
 
   let modalContainer = document.getElementById("modal-body") as HTMLDivElement; //get modalbody from html
   modalContainer.innerHTML = ""; //empty the container before loop
