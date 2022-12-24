@@ -22,6 +22,10 @@ export function openCartModal(cartProducts: ProductCart[]) {
   let modalContainer = document.getElementById("modal-body") as HTMLDivElement; //get modalbody from html
   modalContainer.innerHTML = ""; //empty the container before loop
 
+  let cartFooter: HTMLDivElement = document.getElementById(
+    "cart-footer"
+  ) as HTMLDivElement;
+
   let totalAmount: HTMLParagraphElement = document.createElement("p");
   totalAmount.innerHTML = "Totalt Summa:....";
   totalAmount.className = "cart__totalAmount";
@@ -67,8 +71,8 @@ export function openCartModal(cartProducts: ProductCart[]) {
     let removeAllButton: HTMLElement = document.createElement("button");
     removeAllButton.className = "cart__removeAllButton";
     removeAllButton.innerHTML = "Rensa";
-    //add to cart
 
+    //add quantity to cart
     addButton.addEventListener("click", () => {
       // addQuantity(cartProducts[i]);
       console.log(cartProducts[i]);
@@ -78,17 +82,17 @@ export function openCartModal(cartProducts: ProductCart[]) {
       openCartModal(cartProducts);
     });
 
-    //add from cart
-
+    //remove cart item when quantity is 0
     removeButton.addEventListener("click", () => {
-      // addQuantity(cartProducts[i]);
-      if (cartProducts[i].quantity === 1) {
-        cartProducts[i].quantityMinus(1);
-        console.log(cartProducts[i]);
-        localStorage.setItem("Cart", JSON.stringify(cartProducts) || "");
-        openCartModal(cartProducts);
+      cartProducts[i].quantityMinus(1);
+      if (cartProducts[i].quantity < 1) {
+        cartProducts.splice(i, 1); //varför går det inte att få en helt tom varukorg?
       }
+      console.log(cartProducts[i]);
+      localStorage.setItem("Cart", JSON.stringify(cartProducts) || "");
+      openCartModal(cartProducts);
     });
+    //delete from cart here
 
     cart.appendChild(productName);
     cart.appendChild(productPrice);
@@ -97,8 +101,6 @@ export function openCartModal(cartProducts: ProductCart[]) {
     cart.appendChild(cartQuantity);
     cart.appendChild(removeButton);
     cart.appendChild(removeAllButton);
-    cart.appendChild(quantityDiv);
-    quantityDiv.appendChild(totalAmount);
     modalContainer.appendChild(cart);
   }
 }
