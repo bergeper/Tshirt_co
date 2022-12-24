@@ -86,7 +86,9 @@ export function openCartModal(cartProducts: ProductCart[]) {
     removeButton.addEventListener("click", () => {
       cartProducts[i].quantityMinus(1);
       if (cartProducts[i].quantity < 1) {
-        cartProducts.splice(i, 1); //varför går det inte att få en helt tom varukorg?
+        // cartProducts.splice(i, 1); //varför går det inte att få en helt tom varukorg?
+        // Adds one quantity so it wont go negative.
+        cartProducts[i].quantityPlus(1);
       }
       console.log(cartProducts[i]);
       localStorage.setItem("Cart", JSON.stringify(cartProducts) || "");
@@ -103,4 +105,6 @@ export function openCartModal(cartProducts: ProductCart[]) {
     cart.appendChild(removeAllButton);
     modalContainer.appendChild(cart);
   }
+
+  // totalsum here
 }
