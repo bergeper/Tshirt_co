@@ -1,7 +1,7 @@
 # Tshirt_co
 
 
-###Instal
+### Install
 You need parcel and typescript validator for parcel.
 In terminal, do the following command.
 npm i
