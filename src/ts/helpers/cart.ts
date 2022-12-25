@@ -83,7 +83,16 @@ export function openCartModal(cartProducts: ProductCart[]) {
     });
 
     //remove cart item when quantity is 0
-    removeButton.addEventListener("click", () => {
+
+    function cart__removeButton(listPosition: number, list: ProductCart[]) {
+      for (let i = 0; i < cartProducts.length; i++) {
+        if (i === listPosition) {
+          cartProducts.splice(i, 1);
+          console.log(list);
+        }
+      }
+    }
+    /*     removeButton.addEventListener("click", () => {
       cartProducts[i].quantityMinus(1);
       if (cartProducts[i].quantity < 1) {
         cartProducts.splice(i, 1); //varför går det inte att få en helt tom varukorg?
@@ -91,7 +100,7 @@ export function openCartModal(cartProducts: ProductCart[]) {
       console.log(cartProducts[i]);
       localStorage.setItem("Cart", JSON.stringify(cartProducts) || "");
       openCartModal(cartProducts);
-    });
+    }); */
     //delete from cart here
 
     cart.appendChild(productName);
