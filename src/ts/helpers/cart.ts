@@ -107,4 +107,6 @@ export function openCartModal(cartProducts: ProductCart[]) {
   }
 
   // totalsum here
+
+  //( hej och hå )
 }
