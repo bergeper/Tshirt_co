@@ -32,4 +32,35 @@ body {
   justify-content: center;
   padding-top: 20%;
 }
-//kommntar
+
+.entryText {
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.entryLittleText {
+  color: coral;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 20%;
+}
+
+.informationFirstPage {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: auto;
+}
+
+.info {
+  background-color: lightblue;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  margin-top: auto;
+}
