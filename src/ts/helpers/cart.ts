@@ -121,7 +121,7 @@ export function openCartModal(cartProducts: ProductCart[]) {
     for (let i = 0; i < cartProducts.length; i++) {
       sum += cartProducts[i].product.price * cartProducts[i].quantity;
     }
-    totalSum.innerHTML = sum.toString() + " Kr";
+    totalSum.innerHTML = "Total: " + sum.toString() + " Kr";
   } else {
     totalSum.innerHTML = "Här vare tomt";
   }
