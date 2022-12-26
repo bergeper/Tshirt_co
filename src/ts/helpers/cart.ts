@@ -5,6 +5,7 @@ import { getFromLocalStorage } from "./addToCart";
 let cartProducts: ProductCart[] = [];
 
 //connect the cart button to the modal
+// Change function name.
 export function buttonAttributes() {
   let clickOnCart = document.getElementById("cart__icon") as HTMLButtonElement;
   clickOnCart.setAttribute("data-bs-toggle", "modal");
@@ -74,20 +75,15 @@ export function openCartModal(cartProducts: ProductCart[]) {
 
     //add quantity to cart
     addButton.addEventListener("click", () => {
-      // addQuantity(cartProducts[i]);
-      console.log(cartProducts[i]);
       cartProducts[i].quantityPlus(1);
-      console.log(cartProducts[i]);
       localStorage.setItem("Cart", JSON.stringify(cartProducts) || "");
       openCartModal(cartProducts);
     });
 
-    //remove cart item when quantity is 0
-
+    //remove quantity to cartitem
     removeButton.addEventListener("click", () => {
       cartProducts[i].quantityMinus(1);
       if (cartProducts[i].quantity < 1) {
-        // cartProducts.splice(i, 1); //varför går det inte att få en helt tom varukorg?
         // Adds one quantity so it wont go negative.
         cartProducts[i].quantityPlus(1);
       }
@@ -98,10 +94,11 @@ export function openCartModal(cartProducts: ProductCart[]) {
 
     //radera varukorgen - ni får se vad ni tycker om den här funktionen. Ni kan radera den också om ni inte tycker den är ok. //Carro
     removeAllButton.addEventListener("click", () => {
-      window.localStorage.clear(); //tömmer
-      window.location.reload(); //uppdaterar sidan
+      localStorage.clear(); //tömmer
+      //window.location.reload(); //uppdaterar sidan
       alert("Du har rensat varukorgen!"); //message att jag har tömt varukorgen
       console.log("Du har rensat varukorgen!"); //console.
+      openCartModal(cartProducts);
     });
 
     cart.appendChild(productName);
@@ -115,8 +112,20 @@ export function openCartModal(cartProducts: ProductCart[]) {
   }
 
   // totalsum here
-
-  //( hej och hå )
+  let sum = 0;
+  let totalSum: HTMLParagraphElement = document.createElement(
+    "totalsum"
+  ) as HTMLParagraphElement;
+  // totalSum.innerHTML = "";
+  if (cartProducts.length > 0) {
+    for (let i = 0; i < cartProducts.length; i++) {
+      sum += cartProducts[i].product.price * cartProducts[i].quantity;
+    }
+    totalSum.innerHTML = sum.toString() + " Kr";
+  } else {
+    totalSum.innerHTML = "Här vare tomt";
+  }
+  modalContainer.appendChild(totalSum);
 }
 function emptyCart(cartProducts: ProductCart[]) {
   throw new Error("Function not implemented.");
