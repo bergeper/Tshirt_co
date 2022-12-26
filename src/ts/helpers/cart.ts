@@ -92,12 +92,8 @@ export function openCartModal(cartProducts: ProductCart[]) {
       openCartModal(cartProducts);
     });
 
-    //Remove item for cart
-    removeAllButton.addEventListener("click", () => {
-      cartProducts.splice(i, 1);
-      localStorage.setItem("Cart", JSON.stringify(cartProducts) || "");
-      openCartModal(cartProducts);
-    });
+    //radera varukorgen - ni får se vad ni tycker om den här funktionen. Ni kan radera den också om ni inte tycker den är ok. //Carro
+    removeAllButton.addEventListener("click", () => {});
 
     //
     //localStorage.clear(); //tömmer
