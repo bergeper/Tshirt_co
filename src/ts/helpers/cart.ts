@@ -83,6 +83,7 @@ export function openCartModal(cartProducts: ProductCart[]) {
     });
 
     //remove cart item when quantity is 0
+
     removeButton.addEventListener("click", () => {
       cartProducts[i].quantityMinus(1);
       if (cartProducts[i].quantity < 1) {
@@ -94,7 +95,14 @@ export function openCartModal(cartProducts: ProductCart[]) {
       localStorage.setItem("Cart", JSON.stringify(cartProducts) || "");
       openCartModal(cartProducts);
     });
-    //delete from cart here
+
+    //radera varukorgen - ni får se vad ni tycker om den här funktionen. Ni kan radera den också om ni inte tycker den är ok. //Carro
+    removeAllButton.addEventListener("click", () => {
+      window.localStorage.clear(); //tömmer
+      window.location.reload(); //uppdaterar sidan
+      alert("Du har rensat varukorgen!"); //message att jag har tömt varukorgen
+      console.log("Du har rensat varukorgen!"); //console.
+    });
 
     cart.appendChild(productName);
     cart.appendChild(productPrice);
@@ -109,4 +117,7 @@ export function openCartModal(cartProducts: ProductCart[]) {
   // totalsum here
 
   //( hej och hå )
+}
+function emptyCart(cartProducts: ProductCart[]) {
+  throw new Error("Function not implemented.");
 }
