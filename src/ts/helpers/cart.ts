@@ -94,12 +94,20 @@ export function openCartModal(cartProducts: ProductCart[]) {
 
     //radera varukorgen - ni får se vad ni tycker om den här funktionen. Ni kan radera den också om ni inte tycker den är ok. //Carro
     removeAllButton.addEventListener("click", () => {
-      localStorage.clear(); //tömmer
-      //window.location.reload(); //uppdaterar sidan
-      alert("Du har rensat varukorgen!"); //message att jag har tömt varukorgen
-      console.log("Du har rensat varukorgen!"); //console.
-      openCartModal(cartProducts);
+      for (let i = 0; i < list.length; i++) {
+        if (i === listPosition) {
+          list.splice(i, 1);
+          console.log(list);
+        }
+      }
     });
+
+    //
+    //localStorage.clear(); //tömmer
+    //window.location.reload(); //uppdaterar sidan
+    //alert("Du har rensat varukorgen!"); //message att jag har tömt varukorgen
+    //console.log("Du har rensat varukorgen!"); //console.
+    //openCartModal(cartProducts);
 
     cart.appendChild(productName);
     cart.appendChild(productPrice);
@@ -127,6 +135,7 @@ export function openCartModal(cartProducts: ProductCart[]) {
   }
   modalContainer.appendChild(totalSum);
 }
+
 function emptyCart(cartProducts: ProductCart[]) {
   throw new Error("Function not implemented.");
 }
