@@ -98,8 +98,10 @@ export function openCartModal(cartProducts: ProductCart[]) {
 
     //radera varukorgen - ni får se vad ni tycker om den här funktionen. Ni kan radera den också om ni inte tycker den är ok. //Carro
     removeAllButton.addEventListener("click", () => {
-      window.localStorage.clear();
-      window.location.reload();
+      window.localStorage.clear(); //tömmer
+      window.location.reload(); //uppdaterar sidan
+      alert("Du har rensat varukorgen!"); //message att jag har tömt varukorgen
+      console.log("Du har rensat varukorgen!"); //console.
     });
 
     cart.appendChild(productName);
