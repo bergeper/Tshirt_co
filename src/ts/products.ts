@@ -73,6 +73,7 @@ function createProductModal(product: Product) {
   clothingPrice.innerHTML = "Pris: " + product.price.toString() + " Kr";
 
   addToCartBtn.addEventListener("click", () => {
+    // If( products in cart contains same ID, add one to quantity instead of pushing into list)
     const cartProduct: ProductCart = new ProductCart(productToCart, 1);
     cartProducts.push(cartProduct);
     localStorage.setItem("Cart", JSON.stringify(cartProducts) || "");
