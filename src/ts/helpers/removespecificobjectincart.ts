@@ -10,4 +10,4 @@ function removeButton(listPosition: number, list:ProductCart[]){
     }
   }  */
 
-//Kanske denna kod fungerar för att ta bort specifikt objekt i varukorgen?
+//Kanske denna kod fungerar för att ta bort specifikt objekt i varukorgen, ned till 0?
