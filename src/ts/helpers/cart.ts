@@ -92,7 +92,7 @@ export function openCartModal(cartProducts: ProductCart[]) {
       openCartModal(cartProducts);
     });
 
-    //Remove item for cart
+    //Remove item for Cart
     removeAllButton.addEventListener("click", () => {
       cartProducts.splice(i, 1);
       localStorage.setItem("Cart", JSON.stringify(cartProducts) || "");
