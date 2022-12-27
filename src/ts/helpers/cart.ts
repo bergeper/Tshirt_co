@@ -99,11 +99,6 @@ export function openCartModal(cartProducts: ProductCart[]) {
       localStorage.setItem("Cart", JSON.stringify(cartProducts) || "");
       openCartModal(cartProducts);
     });
-    /*       localStorage.clear(); //tömmer
-      window.location.reload(); //uppdaterar sidan
-      alert("Du har rensat varukorgen!"); //message att jag har tömt varukorgen
-      console.log("Du har rensat varukorgen!"); //console.
-      openCartModal(cartProducts); */
 
     cart.appendChild(productName);
     cart.appendChild(productPrice);
