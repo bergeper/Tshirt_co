@@ -6,7 +6,6 @@
   &__title {
     font-size: 30px;
   }
-
   &__image {
     max-width: 400px;
   }
@@ -34,20 +33,16 @@ background: darkolivegreen;
   .productDiv {
     margin: 5px;
     background-color: rgba(248, 249, 252, 0.779);
-    
-    //border: rgb(119, 146, 101) 1px solid;
-    //border: 3px solid rgb(119, 146, 101);
     &__title {
-      font-family: proxima-nova,sans-serif;
+      font-family: sans-serif;
       font-size: 14px;
       font-weight: lighter;
-      //border-bottom: darkolivegreen solid 2px;
       color: rgb(0, 0, 0);
+      text-align: center;
      }
       &__image {
       width: 183px;
       padding: 8px;
-      
     }
     &__price {
       font-weight: lighter;
@@ -55,7 +50,6 @@ background: darkolivegreen;
       border: solid black 1px;
       padding-left: 5px;
     }
-
   }
 }
 
