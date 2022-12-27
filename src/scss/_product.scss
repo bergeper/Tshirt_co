@@ -17,21 +17,32 @@
     font-size: 20px;
   }
 }
+
+.productPageTitle {
+color:white;
+background-color: darkolivegreen;
+font-weight: lighter;
+background: darkolivegreen;
+
+}
+
 .product {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 
   .productDiv {
-    background-color: rgb(255, 255, 255);
     margin: 5px;
-    border: lightblue 1px solid;
+    background-color: rgba(248, 249, 252, 0.779);
+    
+    //border: rgb(119, 146, 101) 1px solid;
+    //border: 3px solid rgb(119, 146, 101);
     &__title {
-      color:black;
       font-family: proxima-nova,sans-serif;
       font-size: 14px;
-      border: lightblue 1px solid;
-      background-color: rgb(169, 207, 224);
+      font-weight: lighter;
+      //border-bottom: darkolivegreen solid 2px;
+      color: rgb(0, 0, 0);
      }
       &__image {
       width: 183px;
