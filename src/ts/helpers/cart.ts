@@ -1,4 +1,5 @@
 import { ProductCart } from "../models/ProductCart";
+import { products } from "../services/productList";
 import { getFromLocalStorage } from "./addToCart";
 
 // cart List
@@ -98,13 +99,11 @@ export function openCartModal(cartProducts: ProductCart[]) {
       localStorage.setItem("Cart", JSON.stringify(cartProducts) || "");
       openCartModal(cartProducts);
     });
-
-    //
-    //localStorage.clear(); //tömmer
-    //window.location.reload(); //uppdaterar sidan
-    //alert("Du har rensat varukorgen!"); //message att jag har tömt varukorgen
-    //console.log("Du har rensat varukorgen!"); //console.
-    //openCartModal(cartProducts);
+    /*       localStorage.clear(); //tömmer
+      window.location.reload(); //uppdaterar sidan
+      alert("Du har rensat varukorgen!"); //message att jag har tömt varukorgen
+      console.log("Du har rensat varukorgen!"); //console.
+      openCartModal(cartProducts); */
 
     cart.appendChild(productName);
     cart.appendChild(productPrice);
@@ -115,6 +114,20 @@ export function openCartModal(cartProducts: ProductCart[]) {
     cart.appendChild(removeAllButton);
     modalContainer.appendChild(cart);
   }
+
+  //Put erase all here.
+  let removeAllProducts = document.getElementById(
+    "removeAllProducts"
+  ) as HTMLDivElement;
+  removeAllProducts.addEventListener("click", () => {
+    window.localStorage.clear();
+    /*     window.location.reload(); */
+    openCartModal(cartProducts);
+    //Trying an optional code;
+    /*     let product = document.getElementById("products") as HTMLParagraphElement;
+    product.innerHTML = "";
+    products.length = 0; */
+  });
 
   // totalsum here
   let sum = 0;
