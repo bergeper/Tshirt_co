@@ -72,10 +72,14 @@ body {
 }
 
 .startPageButton {
-  color: black;
+  color: white;
  border: none;
   //border-radius: 30px;
   background: linear-gradient(145deg, rgba(85, 107, 47, 0.643), darkolivegreen);
   box-shadow:  20px 10px 90px darkolivegreen,
                3px -8px 60px darkolivegreen;
+.startPageButton:hover{
+color: darkolivegreen;
+ 
+}
 }
