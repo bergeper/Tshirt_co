@@ -98,13 +98,11 @@ export function openCartModal(cartProducts: ProductCart[]) {
       localStorage.setItem("Cart", JSON.stringify(cartProducts) || "");
       openCartModal(cartProducts);
     });
-
-    //
-    //localStorage.clear(); //tömmer
-    //window.location.reload(); //uppdaterar sidan
-    //alert("Du har rensat varukorgen!"); //message att jag har tömt varukorgen
-    //console.log("Du har rensat varukorgen!"); //console.
-    //openCartModal(cartProducts);
+    /*       localStorage.clear(); //tömmer
+      window.location.reload(); //uppdaterar sidan
+      alert("Du har rensat varukorgen!"); //message att jag har tömt varukorgen
+      console.log("Du har rensat varukorgen!"); //console.
+      openCartModal(cartProducts); */
 
     cart.appendChild(productName);
     cart.appendChild(productPrice);
@@ -115,6 +113,7 @@ export function openCartModal(cartProducts: ProductCart[]) {
     cart.appendChild(removeAllButton);
     modalContainer.appendChild(cart);
   }
+  //Put erase all here.
 
   // totalsum here
   let sum = 0;
