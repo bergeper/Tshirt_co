@@ -11,8 +11,12 @@ let cartProducts: ProductCart[] = [];
 
 function createHTMLForProducts() {
   for (let i = 0; i < products.length; i++) {
-    let clothingDiv = document.getElementById(
+    let productsContainer = document.getElementById(
       "productsContainer"
+    ) as HTMLDivElement;
+
+    let clothingDiv: HTMLDivElement = document.createElement(
+      "div"
     ) as HTMLDivElement;
 
     let clothingName: HTMLHeadingElement = document.createElement(
@@ -47,6 +51,7 @@ function createHTMLForProducts() {
     clothingDiv.appendChild(clothingName);
     clothingDiv.appendChild(clothingImage);
     clothingDiv.appendChild(clothingPrice);
+    productsContainer.appendChild(clothingDiv);
     //console.log(products);
   }
 }
