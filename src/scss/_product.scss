@@ -49,6 +49,12 @@ background: darkolivegreen;
       padding: 8px;
       
     }
+    &__price {
+      font-weight: lighter;
+      font-size: 14px;
+      border: solid black 1px;
+      padding-left: 5px;
+    }
 
   }
 }
