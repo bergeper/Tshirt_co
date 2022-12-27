@@ -88,21 +88,23 @@ function createProductModal(productItem: Product) {
   clothingPrice.innerHTML = "Pris: " + productItem.price.toString() + " Kr";
 
   // Creating new object based on cart-class
-  // const cartProduct: ProductCart = new ProductCart(productToCart, 1);
-  // cartProducts = getFromLocalStorage();
-  // cartProducts.push(cartProduct);
+  const cartProduct: ProductCart = new ProductCart(productToCart, 1);
+  cartProducts = getFromLocalStorage();
+  cartProducts.push(cartProduct);
   // localStorage.setItem("Cart", JSON.stringify(cartProducts) || "");
   // openCartModal(cartProducts);
 
   addToCartBtn.addEventListener("click", () => {
-    cartProductToCart(productToCart);
+    //cartProductToCart(productToCart);
+    localStorage.setItem("Cart", JSON.stringify(cartProducts) || "");
+    openCartModal(cartProducts);
   });
 
   productDescContainer.appendChild(clothingImage);
   productDescContainer.appendChild(clothingSize);
   productDescContainer.appendChild(clothingPrice);
 }
-
+/*
 function cartProductToCart(productToCart: Product) {
   let quantity: number = 1;
   if (cartProducts.length > 0) {
@@ -126,3 +128,4 @@ function cartProductToCart(productToCart: Product) {
     }
   }
 }
+*/
