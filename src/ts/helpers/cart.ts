@@ -1,4 +1,5 @@
 import { ProductCart } from "../models/ProductCart";
+import { products } from "../services/productList";
 import { getFromLocalStorage } from "./addToCart";
 
 // cart List
@@ -113,7 +114,20 @@ export function openCartModal(cartProducts: ProductCart[]) {
     cart.appendChild(removeAllButton);
     modalContainer.appendChild(cart);
   }
+
   //Put erase all here.
+  let removeAllProducts = document.getElementById(
+    "removeAllProducts"
+  ) as HTMLDivElement;
+  removeAllProducts.addEventListener("click", () => {
+    window.localStorage.clear();
+    /*     window.location.reload(); */
+    openCartModal(cartProducts);
+    //Trying an optional code;
+    /*     let product = document.getElementById("products") as HTMLParagraphElement;
+    product.innerHTML = "";
+    products.length = 0; */
+  });
 
   // totalsum here
   let sum = 0;
