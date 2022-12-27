@@ -7,7 +7,9 @@ import { getFromLocalStorage } from "./helpers/addToCart";
 buttonAttributes();
 createHTMLForProducts();
 
+// Getting products from localStorage
 let cartProducts: ProductCart[] = [];
+cartProducts = getFromLocalStorage();
 
 function createHTMLForProducts() {
   for (let i = 0; i < products.length; i++) {
@@ -56,8 +58,8 @@ function createHTMLForProducts() {
   }
 }
 
-function createProductModal(product: Product) {
-  let productToCart = product;
+function createProductModal(productItem: Product) {
+  let productToCart = productItem;
   let productDescContainer = document.getElementById(
     "productDescContainer"
   ) as HTMLDivElement;
@@ -65,11 +67,11 @@ function createProductModal(product: Product) {
 
   let addToCartBtn = document.getElementById("addToCart") as HTMLButtonElement;
 
-  // Title of modal will be product name
+  // Title of modal will be productItem name
   let clothingName = document.getElementById(
     "productName"
   ) as HTMLHeadingElement;
-  clothingName.innerHTML = product.name;
+  clothingName.innerHTML = productItem.name;
 
   let clothingImage: HTMLImageElement = document.createElement("img");
   let clothingSize: HTMLParagraphElement = document.createElement("p");
@@ -80,20 +82,22 @@ function createProductModal(product: Product) {
   clothingSize.classList.add("productmodal__size");
   clothingPrice.classList.add("productmodal__price");
 
-  clothingImage.src = product.image;
-  clothingImage.alt = product.name;
-  clothingSize.innerHTML = "Storlek: " + product.size;
-  clothingPrice.innerHTML = "Pris: " + product.price.toString() + " Kr";
+  clothingImage.src = productItem.image;
+  clothingImage.alt = productItem.name;
+  clothingSize.innerHTML = "Storlek: " + productItem.size;
+  clothingPrice.innerHTML = "Pris: " + productItem.price.toString() + " Kr";
 
   // Creating new object based on cart-class
   const cartProduct: ProductCart = new ProductCart(productToCart, 1);
   cartProducts = getFromLocalStorage();
   cartProducts.push(cartProduct);
+  // localStorage.setItem("Cart", JSON.stringify(cartProducts) || "");
+  // openCartModal(cartProducts);
 
   addToCartBtn.addEventListener("click", () => {
+    //cartProductToCart(productToCart);
     localStorage.setItem("Cart", JSON.stringify(cartProducts) || "");
     openCartModal(cartProducts);
-    console.log(cartProducts);
   });
 
   productDescContainer.appendChild(clothingImage);
@@ -101,9 +105,27 @@ function createProductModal(product: Product) {
   productDescContainer.appendChild(clothingPrice);
 }
 /*
-function cartProductToCart(cartProducts: ProductCart[]) {
-  localStorage.setItem("Cart", JSON.stringify(cartProducts) || "");
-  openCartModal(cartProducts);
-  console.log(cartProducts);
+function cartProductToCart(productToCart: Product) {
+  let quantity: number = 1;
+  if (cartProducts.length > 0) {
+    for (let i = 0; i < cartProducts.length; i++) {
+      if (productToCart.articleId == cartProducts[i].product.articleId) {
+        let quantity: number = 0;
+        const cartProduct: ProductCart = new ProductCart(
+          productToCart,
+          quantity
+        );
+        cartProducts.push(cartProduct);
+        localStorage.setItem("Cart", JSON.stringify(cartProducts) || "");
+      } else {
+        const cartProduct: ProductCart = new ProductCart(
+          productToCart,
+          quantity
+        );
+        cartProducts.push(cartProduct);
+        localStorage.setItem("Cart", JSON.stringify(cartProducts) || "");
+      }
+    }
+  }
 }
 */
