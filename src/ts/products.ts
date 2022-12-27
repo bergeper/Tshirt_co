@@ -91,24 +91,19 @@ function createProductModal(product: Product) {
   cartProducts.push(cartProduct);
 
   addToCartBtn.addEventListener("click", () => {
-    //console.log(cartProducts);
-    //for (let i = 0; i < cartProducts.length; i++) {
-    //  if (cartProduct === cartProducts[i]) {
-    //    cartProducts[i].quantityPlus(1);
-    //    openCartModal(cartProducts);
-    //  } else {
-    //    openCartModal(cartProducts);
-    //  }
-    // }
     localStorage.setItem("Cart", JSON.stringify(cartProducts) || "");
     openCartModal(cartProducts);
     console.log(cartProducts);
-    // If( products in cart contains same ID, add one to quantity instead of pushing into list)
   });
 
   productDescContainer.appendChild(clothingImage);
   productDescContainer.appendChild(clothingSize);
   productDescContainer.appendChild(clothingPrice);
 }
-
-function cartProductToCart(cartProduct: ProductCart) {}
+/*
+function cartProductToCart(cartProducts: ProductCart[]) {
+  localStorage.setItem("Cart", JSON.stringify(cartProducts) || "");
+  openCartModal(cartProducts);
+  console.log(cartProducts);
+}
+*/
