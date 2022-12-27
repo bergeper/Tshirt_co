@@ -121,9 +121,8 @@ export function openCartModal(cartProducts: ProductCart[]) {
   ) as HTMLDivElement;
   removeAllProducts.addEventListener("click", () => {
     window.localStorage.clear();
-    /*     window.location.reload(); */
     openCartModal(cartProducts);
-    //Trying an optional code;
+    //Trying an optional code that I didn't quite understand.;
     /*     let product = document.getElementById("products") as HTMLParagraphElement;
     product.innerHTML = "";
     products.length = 0; */
