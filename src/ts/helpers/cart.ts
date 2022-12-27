@@ -72,7 +72,7 @@ export function openCartModal(cartProducts: ProductCart[]) {
 
     let removeAllButton: HTMLElement = document.createElement("button");
     removeAllButton.className = "cart__removeAllButton";
-    removeAllButton.innerHTML = "Rensa";
+    removeAllButton.innerHTML = `<i class="bi bi-trash trashIcon"</i>`;
 
     //add quantity to cart
     addButton.addEventListener("click", () => {
