@@ -22,13 +22,19 @@ function createHTMLForProducts() {
       "img"
     ) as HTMLImageElement;
 
+    let clothingPrice: HTMLImageElement = document.createElement(
+      "p"
+    ) as HTMLImageElement;
+
     clothingName.innerHTML = products[i].name;
     clothingImage.src = products[i].image;
     clothingImage.alt = products[i].name;
+    clothingPrice.innerHTML = products[i].price.toString() + " Kr";
 
     clothingDiv.classList.add("productDiv");
     clothingName.classList.add("productDiv__title");
     clothingImage.classList.add("productDiv__image");
+    clothingPrice.classList.add("productDiv__price");
 
     clothingImage.addEventListener("click", () => {
       createProductModal(products[i]);
@@ -39,6 +45,7 @@ function createHTMLForProducts() {
 
     clothingDiv.appendChild(clothingName);
     clothingDiv.appendChild(clothingImage);
+    clothingDiv.appendChild(clothingPrice);
     //console.log(products);
   }
 }
