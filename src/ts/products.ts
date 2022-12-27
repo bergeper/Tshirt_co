@@ -2,6 +2,7 @@ import { Product } from "./models/Products";
 import { products } from "./services/productList";
 import { buttonAttributes, openCartModal } from "./helpers/cart";
 import { ProductCart } from "./models/ProductCart";
+import { getFromLocalStorage } from "./helpers/addToCart";
 
 buttonAttributes();
 createHTMLForProducts();
@@ -79,10 +80,13 @@ function createProductModal(product: Product) {
   clothingSize.innerHTML = "Storlek: " + product.size;
   clothingPrice.innerHTML = "Pris: " + product.price.toString() + " Kr";
 
+  // Creating new object based on cart-class
+  const cartProduct: ProductCart = new ProductCart(productToCart, 1);
+  cartProducts = getFromLocalStorage();
+  cartProducts.push(cartProduct);
+
   addToCartBtn.addEventListener("click", () => {
     // If( products in cart contains same ID, add one to quantity instead of pushing into list)
-    const cartProduct: ProductCart = new ProductCart(productToCart, 1);
-    cartProducts.push(cartProduct);
     localStorage.setItem("Cart", JSON.stringify(cartProducts) || "");
     openCartModal(cartProducts);
   });
