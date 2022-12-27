@@ -92,6 +92,7 @@ function createProductModal(product: Product) {
 
   addToCartBtn.addEventListener("click", () => {
     // If( products in cart contains same ID, add one to quantity instead of pushing into list)
+    console.log(cartProducts.length);
     localStorage.setItem("Cart", JSON.stringify(cartProducts) || "");
     openCartModal(cartProducts);
   });
