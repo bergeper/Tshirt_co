@@ -17,6 +17,21 @@
     font-size: 20px;
   }
 }
-.productDiv__image {
-  width: 320px;
+.product {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  
+ 
+  .productDiv {
+    background-color: rgb(175, 209, 220);
+    border: black solid 1px;
+    margin: 5px;
+  }
 }
+.productDiv__image {
+  width: 175px;
+  padding: 8px;
+  
+}
+
