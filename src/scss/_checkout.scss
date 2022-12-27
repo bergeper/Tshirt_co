@@ -4,6 +4,7 @@
   justify-content: space-evenly;
   padding: 0;
   border: 2px solid black;
+  padding: 10px;
   &__cartImage {
     width: 70px;
     height: 70px;
@@ -21,10 +22,17 @@
     height: 70px;
     margin-right: 10px;
   }
-  &__totalAmount {
-    padding-top: 65px;
-    padding-left: 20px;
+  &__removeAllButton {
+    border: none;
+    background-color: white;
+    padding: 0;
+    margin: 0
   }
 }
-
+.trashIcon {
+  font-size: 20px;
+  padding: 0;
+  margin: 0;
+  font-weight: lighter;
+}
 //kommentar

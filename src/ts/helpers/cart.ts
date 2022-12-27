@@ -72,7 +72,7 @@ export function openCartModal(cartProducts: ProductCart[]) {
 
     let removeAllButton: HTMLElement = document.createElement("button");
     removeAllButton.className = "cart__removeAllButton";
-    removeAllButton.innerHTML = "Rensa";
+    removeAllButton.innerHTML = `<i class="bi bi-trash trashIcon"</i>`;
 
     //add quantity to cart
     addButton.addEventListener("click", () => {
@@ -99,11 +99,6 @@ export function openCartModal(cartProducts: ProductCart[]) {
       localStorage.setItem("Cart", JSON.stringify(cartProducts) || "");
       openCartModal(cartProducts);
     });
-    /*       localStorage.clear(); //tömmer
-      window.location.reload(); //uppdaterar sidan
-      alert("Du har rensat varukorgen!"); //message att jag har tömt varukorgen
-      console.log("Du har rensat varukorgen!"); //console.
-      openCartModal(cartProducts); */
 
     cart.appendChild(productName);
     cart.appendChild(productPrice);

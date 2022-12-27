@@ -60,7 +60,7 @@ export const products: Product[] = [
   ),
   new Product(
     9,
-    "Vuitton Gucci Louis",
+    "Vuitton Louis",
     "https://dl.dropboxusercontent.com/s/l7b8312vqs213qa/vuittonguccilouis.png?dl=0",
     9999,
     "Large"

@@ -6,7 +6,6 @@
   &__title {
     font-size: 30px;
   }
-
   &__image {
     max-width: 400px;
   }
@@ -17,6 +16,40 @@
     font-size: 20px;
   }
 }
-.productDiv__image {
-  width: 320px;
+
+.productPageTitle {
+color:white;
+background-color: darkolivegreen;
+font-weight: lighter;
+background: darkolivegreen;
+
 }
+
+.product {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  .productDiv {
+    margin: 5px;
+    background-color: rgba(248, 249, 252, 0.779);
+    &__title {
+      font-family: sans-serif;
+      font-size: 14px;
+      font-weight: lighter;
+      color: rgb(0, 0, 0);
+      text-align: center;
+     }
+      &__image {
+      width: 183px;
+      padding: 8px;
+    }
+    &__price {
+      font-weight: lighter;
+      font-size: 14px;
+      border: solid black 1px;
+      padding-left: 5px;
+    }
+  }
+}
+
