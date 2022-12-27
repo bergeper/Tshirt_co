@@ -148,3 +148,4 @@ export function openCartModal(cartProducts: ProductCart[]) {
 function emptyCart(cartProducts: ProductCart[]) {
   throw new Error("Function not implemented.");
 }
+//hello
