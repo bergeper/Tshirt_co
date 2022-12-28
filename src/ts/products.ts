@@ -88,44 +88,19 @@ function createProductModal(productItem: Product) {
   clothingPrice.innerHTML = "Pris: " + productItem.price.toString() + " Kr";
 
   // Creating new object based on cart-class
-  const cartProduct: ProductCart = new ProductCart(productToCart, 1);
-  cartProducts = getFromLocalStorage();
-  cartProducts.push(cartProduct);
-  // localStorage.setItem("Cart", JSON.stringify(cartProducts) || "");
-  // openCartModal(cartProducts);
+  // const cartProduct: ProductCart = new ProductCart(productToCart, 1);
+  const newCartProduct: ProductCart = new ProductCart(productToCart, 1);
+  cartProducts.push(newCartProduct);
 
   addToCartBtn.addEventListener("click", () => {
-    //cartProductToCart(productToCart);
     localStorage.setItem("Cart", JSON.stringify(cartProducts) || "");
     openCartModal(cartProducts);
+    //cartProductToCart(productToCart);
   });
 
   productDescContainer.appendChild(clothingImage);
   productDescContainer.appendChild(clothingSize);
   productDescContainer.appendChild(clothingPrice);
 }
-/*
-function cartProductToCart(productToCart: Product) {
-  let quantity: number = 1;
-  if (cartProducts.length > 0) {
-    for (let i = 0; i < cartProducts.length; i++) {
-      if (productToCart.articleId == cartProducts[i].product.articleId) {
-        let quantity: number = 0;
-        const cartProduct: ProductCart = new ProductCart(
-          productToCart,
-          quantity
-        );
-        cartProducts.push(cartProduct);
-        localStorage.setItem("Cart", JSON.stringify(cartProducts) || "");
-      } else {
-        const cartProduct: ProductCart = new ProductCart(
-          productToCart,
-          quantity
-        );
-        cartProducts.push(cartProduct);
-        localStorage.setItem("Cart", JSON.stringify(cartProducts) || "");
-      }
-    }
-  }
-}
-*/
+
+function cartProductToCart(cartProduct: Product) {}
