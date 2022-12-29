@@ -114,15 +114,14 @@ function createHTMLForProducts() {
 // }
 
 function cartProductToCart(cartProduct: Product) {
-  const cartProductToLSt: ProductCart = new ProductCart(1, cartProduct);
+  const cartProductToLS: ProductCart = new ProductCart(1, cartProduct);
   let found = false;
-
   if (cartProducts.length === 0) {
     found = false;
   } else {
     for (let i = 0; i < cartProducts.length; i++) {
       if (
-        cartProducts[i].product.articleId === cartProductToLSt.product.articleId
+        cartProducts[i].product.articleId === cartProductToLS.product.articleId
       ) {
         console.log(cartProducts);
         cartProducts[i].quantity++;
@@ -133,10 +132,9 @@ function cartProductToCart(cartProduct: Product) {
       }
     }
   }
-
   if (found === false) {
     console.log("hittar inte id");
-    cartProducts.push(cartProductToLSt);
+    cartProducts.push(cartProductToLS);
     localStorage.setItem("Cart", JSON.stringify(cartProducts));
   }
 }
