@@ -90,12 +90,12 @@ function createProductModal(productItem: Product) {
   clothingPrice.innerHTML = "Pris: " + productItem.price.toString() + " Kr";
 
   // Creating new object based on cart-class
-  // const cartProduct: ProductCart = new ProductCart(productToCart, 1);
+  const cartProduct: ProductCart = new ProductCart(productToCart, 1);
   // cartProducts.push(newCartProduct);
 
   addToCartBtn.addEventListener("click", () => {
     //localStorage.setItem("Cart", JSON.stringify(cartProducts) || "");
-    cartProductToCart(productToCart);
+    cartProductToCart(cartProduct);
     //cartProductToCart(productToCart);
   });
 
@@ -104,17 +104,14 @@ function createProductModal(productItem: Product) {
   productDescContainer.appendChild(clothingPrice);
 }
 
-function cartProductToCart(cartProduct: Product) {
-  let productToCart: ProductCart = new ProductCart(cartProduct, 1);
+function cartProductToCart(cartProduct: ProductCart) {
   let found = false;
 
   if (cartProducts.length === 0) {
     found = false;
   } else {
     for (let i = 0; i < cartProducts.length; i++) {
-      if (
-        cartProducts[i].product.articleId === productToCart.product.articleId
-      ) {
+      if (cartProducts[i].product.articleId === cartProduct.product.articleId) {
         cartProducts[i].quantity++;
         localStorage.setItem("Cart", JSON.stringify(cartProducts));
         console.log("den finns i listan");
@@ -126,7 +123,7 @@ function cartProductToCart(cartProduct: Product) {
 
   if (found === false) {
     console.log("hittar inte id");
-    cartProducts.push(productToCart);
+    cartProducts.push(cartProduct);
     localStorage.setItem("Cart", JSON.stringify(cartProducts));
   }
 }

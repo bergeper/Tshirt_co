@@ -1,9 +1,12 @@
 body {
   background-color: rgb(211, 212, 217);
+  margin: 0;
+  box-sizing: border-box;
 }
 
 .wrapper {
   width: 100%;
+  min-height: 100vh;
 
   .product-button-wraper {
     display: flex;
@@ -48,10 +51,10 @@ body {
   align-items: center;
   justify-content: center;
   padding-bottom: 20%;
-   font-weight:400;
-   padding: 20px;
-   text-align: center;
-   margin-bottom: 60px;
+  font-weight: 400;
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 60px;
 }
 
 .informationFirstPage {
@@ -73,13 +76,11 @@ body {
 
 .startPageButton {
   color: white;
- border: none;
+  border: none;
   //border-radius: 30px;
   background: linear-gradient(145deg, rgba(85, 107, 47, 0.643), darkolivegreen);
-  box-shadow:  20px 10px 90px darkolivegreen,
-               3px -8px 60px darkolivegreen;
-.startPageButton:hover{
-color: darkolivegreen;
- 
-}
+  box-shadow: 20px 10px 90px darkolivegreen, 3px -8px 60px darkolivegreen;
+  .startPageButton:hover {
+    color: darkolivegreen;
+  }
 }

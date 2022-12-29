@@ -86,6 +86,7 @@ export function openCartModal(cartProducts: ProductCart[]) {
       cartProducts[i].quantityMinus(1);
       if (cartProducts[i].quantity < 1) {
         // Adds one quantity so it wont go negative.
+        // Dont want it to be removed.
         cartProducts[i].quantityPlus(1);
       }
       console.log(cartProducts[i]);
