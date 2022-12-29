@@ -36,7 +36,7 @@ function createHTMLForProducts() {
       "p"
     ) as HTMLImageElement;
 
-    let addToCartBtn: HTMLButtonElement = document.createElement(
+    let clothingBtn: HTMLButtonElement = document.createElement(
       "button"
     ) as HTMLButtonElement;
 
@@ -44,14 +44,14 @@ function createHTMLForProducts() {
     clothingImage.src = products[i].image;
     clothingImage.alt = products[i].name;
     clothingPrice.innerHTML = products[i].price.toString() + " Kr";
-    addToCartBtn.innerHTML = "LOLOLOLOL";
+    clothingBtn.innerHTML = "Lägg till i varukorg";
 
     clothingDiv.classList.add("productDiv");
     clothingName.classList.add("productDiv__title");
     clothingImage.classList.add("productDiv__image");
     clothingPrice.classList.add("productDiv__price");
 
-    addToCartBtn.addEventListener("click", () => {
+    clothingBtn.addEventListener("click", () => {
       cartProductToCart(products[i]);
     });
 
@@ -61,12 +61,12 @@ function createHTMLForProducts() {
     clothingDiv.appendChild(clothingName);
     clothingDiv.appendChild(clothingImage);
     clothingDiv.appendChild(clothingPrice);
-    clothingDiv.appendChild(addToCartBtn);
+    clothingDiv.appendChild(clothingBtn);
     productsContainer.appendChild(clothingDiv);
     //console.log(products);
   }
 }
-
+// Hur ska vi lösa detta? Bara köra produktbeskrivning?
 // function createProductModal(productItem: Product) {
 //   let productToCart = productItem;
 //   let productDescContainer = document.getElementById(
