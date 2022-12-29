@@ -3,7 +3,8 @@
 
 ### Install
 You need parcel and typescript validator for parcel.
-In terminal, do the following command.
+So you will need to node installed on your computer.
+In terminal, do the following command to install everything thats in package.json.
 npm i
 
 
