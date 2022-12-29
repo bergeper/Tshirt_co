@@ -7,5 +7,8 @@
     "@parcel/transformer-typescript-tsc": "^2.8.2",
     "@parcel/validator-typescript": "^2.8.2",
     "bootstrap": "^5.2.3"
+  },
+  "scripts": {
+    "start": "npx parcel src/index.html src/pages/about.html src/pages/checkout.html src/pages/products.html --no-cache"
   }
 }
