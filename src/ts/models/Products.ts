@@ -7,6 +7,7 @@ export class Product {
     public image: string,
     public price: number,
     // Lägg till listan om tid finns. public size: Size[],
-    public size: string
+    public size: string,
+    public desc: string
   ) {}
 }

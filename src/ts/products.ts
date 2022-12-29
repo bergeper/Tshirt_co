@@ -57,14 +57,15 @@ function createHTMLForProducts() {
     clothingBtn.classList.add("productDiv__btn--add");
     clothingDescBtn.classList.add("productDiv__btn--desc");
 
+    // Product to cart
     clothingBtn.addEventListener("click", () => {
       cartProductToCart(products[i]);
     });
 
+    // Product Desc
     clothingDescBtn.addEventListener("click", () => {
       createProductModal(products[i]);
     });
-
     clothingDescBtn.setAttribute("data-bs-toggle", "modal");
     clothingDescBtn.setAttribute("data-bs-target", "#productModal");
 
@@ -77,7 +78,7 @@ function createHTMLForProducts() {
     //console.log(products);
   }
 }
-// Hur ska vi lösa detta? Bara köra produktbeskrivning?
+// Product Desc
 function createProductModal(productItem: Product) {
   let productDescContainer = document.getElementById(
     "productDescContainer"
@@ -91,24 +92,25 @@ function createProductModal(productItem: Product) {
   clothingName.innerHTML = productItem.name;
 
   let clothingImage: HTMLImageElement = document.createElement("img");
-  let clothingSize: HTMLParagraphElement = document.createElement("p");
   let clothingPrice: HTMLParagraphElement = document.createElement("p");
+  let clothingDesc: HTMLParagraphElement = document.createElement("p");
 
   clothingName.classList.add("productmodal__title");
   clothingImage.classList.add("productmodal__image");
-  clothingSize.classList.add("productmodal__size");
   clothingPrice.classList.add("productmodal__price");
+  clothingDesc.classList.add("productmodal__desc");
 
   clothingImage.src = productItem.image;
   clothingImage.alt = productItem.name;
-  clothingSize.innerHTML = "Storlek: " + productItem.size;
+  clothingDesc.innerHTML = productItem.desc;
   clothingPrice.innerHTML = "Pris: " + productItem.price.toString() + " Kr";
 
   productDescContainer.appendChild(clothingImage);
-  productDescContainer.appendChild(clothingSize);
+  productDescContainer.appendChild(clothingDesc);
   productDescContainer.appendChild(clothingPrice);
 }
 
+// Add product to cart
 function cartProductToCart(cartProduct: Product) {
   // getting list from localStorage
   let cartProducts: ProductCart[] = [];
