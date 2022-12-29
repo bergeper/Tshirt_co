@@ -9,10 +9,9 @@ createHTMLForProducts();
 // remove when done.
 localStorage.clear();
 // Getting products from localStorage
-let cartProducts: ProductCart[] = JSON.parse(
-  localStorage.getItem("product") || "[]"
-);
-// cartProducts = getFromLocalStorage();
+let cartProducts: ProductCart[] = [];
+//JSON.parse(localStorage.getItem("product") || "[]");
+cartProducts = getFromLocalStorage();
 
 function createHTMLForProducts() {
   for (let i = 0; i < products.length; i++) {
@@ -36,6 +35,10 @@ function createHTMLForProducts() {
       "p"
     ) as HTMLImageElement;
 
+    let clothingSize: HTMLImageElement = document.createElement(
+      "p"
+    ) as HTMLImageElement;
+
     let clothingBtn: HTMLButtonElement = document.createElement(
       "button"
     ) as HTMLButtonElement;
@@ -55,8 +58,8 @@ function createHTMLForProducts() {
       cartProductToCart(products[i]);
     });
 
-    clothingImage.setAttribute("data-bs-toggle", "modal");
-    clothingImage.setAttribute("data-bs-target", "#productModal");
+    //clothingImage.setAttribute("data-bs-toggle", "modal");
+    //clothingImage.setAttribute("data-bs-target", "#productModal");
 
     clothingDiv.appendChild(clothingName);
     clothingDiv.appendChild(clothingImage);
