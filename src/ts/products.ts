@@ -6,12 +6,6 @@ import { getFromLocalStorage } from "./helpers/addToCart";
 
 buttonAttributes();
 createHTMLForProducts();
-// remove when done.
-//localStorage.clear();
-// Getting products from localStorage
-let cartProducts: ProductCart[] = [];
-//JSON.parse(localStorage.getItem("product") || "[]");
-cartProducts = getFromLocalStorage();
 
 function createHTMLForProducts() {
   for (let i = 0; i < products.length; i++) {
@@ -46,6 +40,8 @@ function createHTMLForProducts() {
     clothingName.innerHTML = products[i].name;
     clothingImage.src = products[i].image;
     clothingImage.alt = products[i].name;
+    // add this
+    clothingSize.innerHTML = "Storlek: " + products[i].size;
     clothingPrice.innerHTML = products[i].price.toString() + " Kr";
     clothingBtn.innerHTML = "Lägg till i varukorg";
 
@@ -114,8 +110,14 @@ function createHTMLForProducts() {
 // }
 
 function cartProductToCart(cartProduct: Product) {
+  // getting list from localStorage
+  let cartProducts: ProductCart[] = [];
+  cartProducts = getFromLocalStorage();
+
+  // Creating a new object based on class ProductCart
   const cartProductToLS: ProductCart = new ProductCart(1, cartProduct);
-  let found = false;
+
+  let found: boolean = false;
   if (cartProducts.length === 0) {
     found = false;
   } else {
@@ -123,7 +125,7 @@ function cartProductToCart(cartProduct: Product) {
       if (
         cartProducts[i].product.articleId === cartProductToLS.product.articleId
       ) {
-        console.log(cartProducts);
+        console.log("Om id hittas: ", cartProducts);
         cartProducts[i].quantity++;
         localStorage.setItem("Cart", JSON.stringify(cartProducts));
         console.log("den finns i listan");
@@ -133,7 +135,7 @@ function cartProductToCart(cartProduct: Product) {
     }
   }
   if (found === false) {
-    console.log("hittar inte id");
+    console.log("Om id inte hittas: ", cartProducts);
     cartProducts.push(cartProductToLS);
     localStorage.setItem("Cart", JSON.stringify(cartProducts));
   }
