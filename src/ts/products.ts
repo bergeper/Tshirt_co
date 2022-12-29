@@ -8,8 +8,10 @@ buttonAttributes();
 createHTMLForProducts();
 
 // Getting products from localStorage
-let cartProducts: ProductCart[] = [];
-cartProducts = getFromLocalStorage();
+let cartProducts: ProductCart[] = JSON.parse(
+  localStorage.getItem("product") || "[]"
+);
+// cartProducts = getFromLocalStorage();
 
 function createHTMLForProducts() {
   for (let i = 0; i < products.length; i++) {
