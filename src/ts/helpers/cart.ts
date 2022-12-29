@@ -89,7 +89,6 @@ export function openCartModal(cartProducts: ProductCart[]) {
         // Dont want it to be removed.
         cartProducts[i].quantityPlus(1);
       }
-      console.log(cartProducts[i]);
       localStorage.setItem("Cart", JSON.stringify(cartProducts) || "");
       openCartModal(cartProducts);
     });
