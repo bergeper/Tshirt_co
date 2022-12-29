@@ -1,5 +1,4 @@
 import { ProductCart } from "../models/ProductCart";
-import { products } from "../services/productList";
 import { getFromLocalStorage } from "./addToCart";
 
 // cart List
