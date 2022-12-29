@@ -18,17 +18,17 @@
 }
 
 .productPageTitle {
-color:white;
-background-color: darkolivegreen;
-font-weight: lighter;
-background: darkolivegreen;
-
+  color: white;
+  background-color: darkolivegreen;
+  font-weight: lighter;
+  background: darkolivegreen;
 }
 
 .product {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
 
   .productDiv {
     margin: 5px;
@@ -39,8 +39,8 @@ background: darkolivegreen;
       font-weight: lighter;
       color: rgb(0, 0, 0);
       text-align: center;
-     }
-      &__image {
+    }
+    &__image {
       width: 183px;
       padding: 8px;
     }
@@ -52,4 +52,3 @@ background: darkolivegreen;
     }
   }
 }
-
