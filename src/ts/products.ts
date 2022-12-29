@@ -37,6 +37,10 @@ function createHTMLForProducts() {
       "button"
     ) as HTMLButtonElement;
 
+    let clothingDescBtn: HTMLButtonElement = document.createElement(
+      "button"
+    ) as HTMLButtonElement;
+
     clothingName.innerHTML = products[i].name;
     clothingImage.src = products[i].image;
     clothingImage.alt = products[i].name;
@@ -44,70 +48,66 @@ function createHTMLForProducts() {
     clothingSize.innerHTML = "Storlek: " + products[i].size;
     clothingPrice.innerHTML = products[i].price.toString() + " Kr";
     clothingBtn.innerHTML = "Lägg till i varukorg";
+    clothingDescBtn.innerHTML = "Produkt Beskrivning";
 
     clothingDiv.classList.add("productDiv");
     clothingName.classList.add("productDiv__title");
     clothingImage.classList.add("productDiv__image");
     clothingPrice.classList.add("productDiv__price");
+    clothingBtn.classList.add("productDiv__btn--add");
+    clothingDescBtn.classList.add("productDiv__btn--desc");
 
     clothingBtn.addEventListener("click", () => {
       cartProductToCart(products[i]);
     });
 
-    //clothingImage.setAttribute("data-bs-toggle", "modal");
-    //clothingImage.setAttribute("data-bs-target", "#productModal");
+    clothingDescBtn.addEventListener("click", () => {
+      createProductModal(products[i]);
+    });
+
+    clothingDescBtn.setAttribute("data-bs-toggle", "modal");
+    clothingDescBtn.setAttribute("data-bs-target", "#productModal");
 
     clothingDiv.appendChild(clothingName);
     clothingDiv.appendChild(clothingImage);
     clothingDiv.appendChild(clothingPrice);
     clothingDiv.appendChild(clothingBtn);
+    clothingDiv.appendChild(clothingDescBtn);
     productsContainer.appendChild(clothingDiv);
     //console.log(products);
   }
 }
 // Hur ska vi lösa detta? Bara köra produktbeskrivning?
-// function createProductModal(productItem: Product) {
-//   let productToCart = productItem;
-//   let productDescContainer = document.getElementById(
-//     "productDescContainer"
-//   ) as HTMLDivElement;
-//   productDescContainer.innerHTML = "";
+function createProductModal(productItem: Product) {
+  let productDescContainer = document.getElementById(
+    "productDescContainer"
+  ) as HTMLDivElement;
+  productDescContainer.innerHTML = "";
 
-//   let addToCartBtn = document.getElementById("addToCart") as HTMLButtonElement;
+  // Title of modal will be productItem name
+  let clothingName = document.getElementById(
+    "productName"
+  ) as HTMLHeadingElement;
+  clothingName.innerHTML = productItem.name;
 
-//   // Title of modal will be productItem name
-//   let clothingName = document.getElementById(
-//     "productName"
-//   ) as HTMLHeadingElement;
-//   clothingName.innerHTML = productItem.name;
+  let clothingImage: HTMLImageElement = document.createElement("img");
+  let clothingSize: HTMLParagraphElement = document.createElement("p");
+  let clothingPrice: HTMLParagraphElement = document.createElement("p");
 
-//   let clothingImage: HTMLImageElement = document.createElement("img");
-//   let clothingSize: HTMLParagraphElement = document.createElement("p");
-//   let clothingPrice: HTMLParagraphElement = document.createElement("p");
+  clothingName.classList.add("productmodal__title");
+  clothingImage.classList.add("productmodal__image");
+  clothingSize.classList.add("productmodal__size");
+  clothingPrice.classList.add("productmodal__price");
 
-//   clothingName.classList.add("productmodal__title");
-//   clothingImage.classList.add("productmodal__image");
-//   clothingSize.classList.add("productmodal__size");
-//   clothingPrice.classList.add("productmodal__price");
+  clothingImage.src = productItem.image;
+  clothingImage.alt = productItem.name;
+  clothingSize.innerHTML = "Storlek: " + productItem.size;
+  clothingPrice.innerHTML = "Pris: " + productItem.price.toString() + " Kr";
 
-//   clothingImage.src = productItem.image;
-//   clothingImage.alt = productItem.name;
-//   clothingSize.innerHTML = "Storlek: " + productItem.size;
-//   clothingPrice.innerHTML = "Pris: " + productItem.price.toString() + " Kr";
-
-//   // Creating new object based on cart-class
-//   // cartProducts.push(newCartProduct);
-
-//   addToCartBtn.addEventListener("click", () => {
-//     //localStorage.setItem("Cart", JSON.stringify(cartProducts) || "");
-//     cartProductToCart(productToCart);
-//     //cartProductToCart(productToCart);
-//   });
-
-//   productDescContainer.appendChild(clothingImage);
-//   productDescContainer.appendChild(clothingSize);
-//   productDescContainer.appendChild(clothingPrice);
-// }
+  productDescContainer.appendChild(clothingImage);
+  productDescContainer.appendChild(clothingSize);
+  productDescContainer.appendChild(clothingPrice);
+}
 
 function cartProductToCart(cartProduct: Product) {
   // getting list from localStorage
