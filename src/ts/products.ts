@@ -7,7 +7,7 @@ import { getFromLocalStorage } from "./helpers/addToCart";
 buttonAttributes();
 createHTMLForProducts();
 // remove when done.
-localStorage.clear();
+//localStorage.clear();
 // Getting products from localStorage
 let cartProducts: ProductCart[] = [];
 //JSON.parse(localStorage.getItem("product") || "[]");
