@@ -89,12 +89,11 @@ function createProductModal(productItem: Product) {
 
   // Creating new object based on cart-class
   // const cartProduct: ProductCart = new ProductCart(productToCart, 1);
-  const newCartProduct: ProductCart = new ProductCart(productToCart, 1);
-  cartProducts.push(newCartProduct);
+  // cartProducts.push(newCartProduct);
 
   addToCartBtn.addEventListener("click", () => {
-    localStorage.setItem("Cart", JSON.stringify(cartProducts) || "");
-    openCartModal(cartProducts);
+    //localStorage.setItem("Cart", JSON.stringify(cartProducts) || "");
+    cartProductToCart(productToCart);
     //cartProductToCart(productToCart);
   });
 
@@ -103,4 +102,29 @@ function createProductModal(productItem: Product) {
   productDescContainer.appendChild(clothingPrice);
 }
 
-function cartProductToCart(cartProduct: Product) {}
+function cartProductToCart(cartProduct: Product) {
+  let productToCart: ProductCart = new ProductCart(cartProduct, 1);
+  let found = false;
+
+  if (cartProducts.length === 0) {
+    found = false;
+  } else {
+    for (let i = 0; i < cartProducts.length; i++) {
+      if (
+        cartProducts[i].product.articleId === productToCart.product.articleId
+      ) {
+        cartProducts[i].quantity++;
+        localStorage.setItem("Cart", JSON.stringify(cartProducts));
+        console.log("den finns i listan");
+        found = true;
+        return;
+      }
+    }
+  }
+
+  if (found === false) {
+    console.log("hittar inte id");
+    cartProducts.push(productToCart);
+    localStorage.setItem("Cart", JSON.stringify(cartProducts));
+  }
+}
