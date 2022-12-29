@@ -75,6 +75,7 @@ export function openCartModal(cartProducts: ProductCart[]) {
 
     //add quantity to cart
     addButton.addEventListener("click", () => {
+      //cartProducts[i].quantity++;
       cartProducts[i].quantityPlus(1);
       localStorage.setItem("Cart", JSON.stringify(cartProducts) || "");
       openCartModal(cartProducts);
@@ -82,6 +83,7 @@ export function openCartModal(cartProducts: ProductCart[]) {
 
     //remove quantity to cartitem
     removeButton.addEventListener("click", () => {
+      //cartProducts[i].quantity--;
       cartProducts[i].quantityMinus(1);
       if (cartProducts[i].quantity < 1) {
         // Adds one quantity so it wont go negative.
