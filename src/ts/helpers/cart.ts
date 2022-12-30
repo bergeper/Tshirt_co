@@ -110,6 +110,7 @@ export function openCartModal(cartProducts: ProductCart[]) {
     cart.appendChild(removeAllButton);
     modalContainer.appendChild(cart);
   }
+  let showCart = document.getElementById("showCart") as HTMLDivElement;
 
   //Put erase all here.
   let removeAllProducts = document.getElementById(
