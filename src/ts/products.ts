@@ -59,14 +59,15 @@ function createHTMLForProducts() {
       "option"
     ) as HTMLOptionElement;
     chooseSize.name = "chooseSize";
+    chooseSize.id = "chooseSize";
 
-    chooseSizeOpt1.value = "Small";
+    chooseSizeOpt1.value = "1";
     chooseSizeOpt1.text = "Small";
     //chooseSizeOpt2.value = products[i].size.medium;
-    chooseSizeOpt2.value = "Medium";
+    chooseSizeOpt2.value = "2";
     chooseSizeOpt2.text = "Medium";
     //chooseSizeOpt3.value = products[i].size.large;
-    chooseSizeOpt3.value = "Large";
+    chooseSizeOpt3.value = "3";
     chooseSizeOpt3.text = "Large";
 
     clothingName.innerHTML = products[i].name;
@@ -87,18 +88,15 @@ function createHTMLForProducts() {
     // Product to cart
     clothingBtn.addEventListener("click", (e) => {
       e.preventDefault();
-
-      if (chooseSize) {
-        if (chooseSizeOpt1) {
-          products[i].size.sizeSmall();
-        }
-        if (chooseSizeOpt2) {
-          products[i].size.sizeMedium();
-        }
-      } else {
+      if (chooseSize.value === "1") {
+        products[i].size.sizeSmall();
+      }
+      if (chooseSize.value === "2") {
+        products[i].size.sizeMedium();
+      }
+      if (chooseSize.value === "3") {
         products[i].size.sizeLarge();
       }
-
       cartProductToCart(products[i]);
     });
 
