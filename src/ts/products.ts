@@ -172,7 +172,7 @@ function cartProductToCart(cartProduct: Product) {
   } else {
     for (let i = 0; i < cartProducts.length; i++) {
       if (
-        cartProducts[i].product.articleId === cartProductToLS.product.articleId
+        cartProducts[i].product.size.size === cartProductToLS.product.size.size
       ) {
         // changing the quantity instead of adding another of the same item.
         console.log("Om id hittas: ", cartProducts);
