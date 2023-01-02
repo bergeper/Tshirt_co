@@ -3,6 +3,7 @@ import { products } from "./services/productList";
 import { buttonAttributes, openCartModal } from "./helpers/cart";
 import { ProductCart } from "./models/ProductCart";
 import { getFromLocalStorage } from "./helpers/addToCart";
+import { Size } from "./models/Size";
 
 buttonAttributes();
 createHTMLForProducts();
@@ -41,11 +42,37 @@ function createHTMLForProducts() {
       "button"
     ) as HTMLButtonElement;
 
+    // Choose size
+    let sizeForm: HTMLFormElement = document.createElement(
+      "form"
+    ) as HTMLFormElement;
+    let chooseSize: HTMLSelectElement = document.createElement(
+      "select"
+    ) as HTMLSelectElement;
+    let chooseSizeOpt1: HTMLOptionElement = document.createElement(
+      "option"
+    ) as HTMLOptionElement;
+    let chooseSizeOpt2: HTMLOptionElement = document.createElement(
+      "option"
+    ) as HTMLOptionElement;
+    let chooseSizeOpt3: HTMLOptionElement = document.createElement(
+      "option"
+    ) as HTMLOptionElement;
+    chooseSize.name = "chooseSize";
+
+    chooseSizeOpt1.value = "Small";
+    chooseSizeOpt1.text = "Small";
+    //chooseSizeOpt2.value = products[i].size.medium;
+    chooseSizeOpt2.value = "Medium";
+    chooseSizeOpt2.text = "Medium";
+    //chooseSizeOpt3.value = products[i].size.large;
+    chooseSizeOpt3.value = "Large";
+    chooseSizeOpt3.text = "Large";
+
     clothingName.innerHTML = products[i].name;
     clothingImage.src = products[i].image;
     clothingImage.alt = products[i].name;
     // add this
-    clothingSize.innerHTML = "Storlek: " + products[i].size;
     clothingPrice.innerHTML = "Pris: " + products[i].price.toString() + " Kr";
     clothingBtn.innerHTML = "Lägg till i varukorg";
     clothingDescBtn.innerHTML = "Produkt Beskrivning";
@@ -58,7 +85,20 @@ function createHTMLForProducts() {
     clothingDescBtn.classList.add("productDiv__btn--desc");
 
     // Product to cart
-    clothingBtn.addEventListener("click", () => {
+    clothingBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      if (chooseSize) {
+        if (chooseSizeOpt1) {
+          products[i].size.sizeSmall();
+        }
+        if (chooseSizeOpt2) {
+          products[i].size.sizeMedium();
+        }
+      } else {
+        products[i].size.sizeLarge();
+      }
+
       cartProductToCart(products[i]);
     });
 
@@ -72,7 +112,15 @@ function createHTMLForProducts() {
     clothingDiv.appendChild(clothingName);
     clothingDiv.appendChild(clothingImage);
     clothingDiv.appendChild(clothingPrice);
-    clothingDiv.appendChild(clothingBtn);
+    clothingDiv.appendChild(clothingSize);
+
+    chooseSize.appendChild(chooseSizeOpt1);
+    chooseSize.appendChild(chooseSizeOpt2);
+    chooseSize.appendChild(chooseSizeOpt3);
+    sizeForm.appendChild(chooseSize);
+    sizeForm.appendChild(clothingBtn);
+
+    clothingDiv.appendChild(sizeForm);
     clothingDiv.appendChild(clothingDescBtn);
     productsContainer.appendChild(clothingDiv);
     //console.log(products);
@@ -145,3 +193,5 @@ function cartProductToCart(cartProduct: Product) {
     localStorage.setItem("Cart", JSON.stringify(cartProducts));
   }
 }
+
+function chooseSize(cartProduct: Product) {}

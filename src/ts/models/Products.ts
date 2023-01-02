@@ -6,8 +6,22 @@ export class Product {
     public name: string,
     public image: string,
     public price: number,
-    // Lägg till listan om tid finns. public size: Size,
-    public size: string,
-    public desc: string
-  ) {}
+    public desc: string,
+    public releaseDate: string,
+    public size: Size
+  ) {
+    this.size = size;
+  }
+  /*
+  this.size = size;
+  sizeSmall() {
+    this.size = "Small";
+  }
+  sizeMediun() {
+    this.size = "Medium";
+  }
+  sizeLarge() {
+    this.size = "Large";
+  }
+  */
 }
