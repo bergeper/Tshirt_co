@@ -28,7 +28,7 @@
   </head>
   <body>
     <header>
-      <nav class="navbar navbar-expand-lg bg-light">
+      <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
           <a class="navbar-brand" href="../index.html">T-Shirt Co</a>
           <button class="cart__button" id="cart__icon">
@@ -67,11 +67,11 @@
       </nav>
     </header>
     <main class="wrapper">
-      <h2 class="productPageTitle">Produkter</h2>
-
+      <div class="hero">
+        <h2 class="productPageTitle">Produkter</h2>
+      </div>
       <!-- Loops out products from JS -->
-      <div id="productsContainer" class="product"></div>
-
+      <div id="productsContainer" class="products"></div>
       <!-- MODAL FOR SHOPPING CART! -->
       <div
         class="modal fade"
@@ -120,7 +120,6 @@
           </div>
         </div>
       </div>
-
       <!-- MODAL FOR PRODUCT DESCRIPTION -->
       <div
         class="modal fade"
@@ -143,7 +142,6 @@
         </div>
       </div>
     </main>
-
     <footer class="information">
       <section class="contact">
         <div class="info">
@@ -159,6 +157,6 @@
           <p>© Copyright T-shirt & Co</p>
         </div>
       </section>
-      </footer>
+    </footer>
   </body>
 </html>

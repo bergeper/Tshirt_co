@@ -39,53 +39,53 @@
 }
 /////////////////////////////////////////form
 
-
-.deliveryForm { //the form container
+.deliveryForm {
+  //the form container
   display: flex;
   flex-direction: column;
   background-color: rgb(171, 179, 158);
   margin-top: 40px;
   max-width: 600px;
-  .deliveryOptionsForm{ //the form
-  display: flex;
-  flex-wrap: wrap;
-  label {
-    margin-right: 5px;
-    padding-left: 5px;
-  }
+  .deliveryOptionsForm {
+    //the form
+    display: flex;
+    flex-wrap: wrap;
+    label {
+      margin-right: 5px;
+      padding-left: 5px;
+    }
   }
   .zipInput {
     max-width: 60px;
   }
-
 }
-.cartForm{
+.cartForm {
   display: flex;
   flex-direction: column;
   margin-left: 10px;
 }
 
 .payOutForm {
-background-color: rgb(171, 179, 158);
-margin-top: 40px;
-max-width: 600px;
- input {
-  max-width: 370px;
- }
- .paymentDiv {
-  padding-left: 15px;
-  input{
-    margin-right: 10px;
-    margin-left: 10px;
+  background-color: rgb(171, 179, 158);
+  margin-top: 40px;
+  max-width: 600px;
+  input {
+    max-width: 370px;
   }
- }
- .payButton {
-  font-weight:lighter ;
-  border: none;
-  margin-left: 230px;
-  width: 110px;
-  height: 30px;
-  margin-bottom: 30px;
-  border-radius: 10%;
- }
+  .paymentDiv {
+    padding-left: 15px;
+    input {
+      margin-right: 10px;
+      margin-left: 10px;
+    }
+  }
+  .payButton {
+    font-weight: lighter;
+    border: none;
+    margin-left: 230px;
+    width: 110px;
+    height: 30px;
+    margin-bottom: 30px;
+    border-radius: 10%;
+  }
 }

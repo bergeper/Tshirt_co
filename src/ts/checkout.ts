@@ -124,7 +124,7 @@ function render() {
     }
     totalSum.innerHTML = "Total: " + sum.toString() + " Kr";
   } else {
-    totalSum.innerHTML = "Här vare tomt";
+    totalSum.innerHTML = "Varukorgen är tom.";
   }
   sumContainer.appendChild(totalSum);
 }

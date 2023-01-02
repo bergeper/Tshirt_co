@@ -28,7 +28,7 @@
   </head>
   <body>
     <header>
-      <nav class="navbar navbar-expand-lg bg-light">
+      <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
           <a class="navbar-brand" href="../index.html">T-Shirt Co</a>
           <button class="cart__button" id="cart__icon">
@@ -67,7 +67,7 @@
       </nav>
     </header>
     <main class="wrapper">
-      <h3>Kassa</h3>
+      <h3 class="productPageTitle">Kassa</h3>
       <div class="showCart" id="showCart">
         <div id="checkout-container"></div>
         <div id="sum"></div>
@@ -99,41 +99,40 @@
      aria-labelledby="exampleModalLabel"
      aria-hidden="true"
      >
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">
-                Din varukorg är tom!
-              </h1>
-              <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-              ></button>
-            </div>
-            <div class="modal-body" id="modal-body">...</div>
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">
+              Din varukorg är tom!
+            </h1>
+            <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body" id="modal-body">...</div>
             <div class="modal-footer">
-              <div id="cart-footer"></div>
               <button
               type="button"
               id="removeAllProducts"
               class="btn btn-secondary"
               >
-             Töm varukorg
+              Töm varukorg
             </button>
             <button
-           type="button"
-           class="btn btn-secondary"
-           data-bs-dismiss="modal"
-           >
-             Fortsätt shoppa
-          </button>
-          <a href="/src/pages/checkout.html">
-            <button type="button" class="btn btn-secondary">
-               Till Kassan
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+            Fortsätt shoppa
             </button>
-          </a>
+            <a href="/src/pages/checkout.html">
+              <button type="button" class="btn btn-secondary">
+                 Till Kassan
+              </button>
+            </a>
          <!-- <button type="button" class="btn btn-primary">.Save changes</button> -->
         </div>
       </div>

@@ -141,7 +141,7 @@ export function openCartModal(cartProducts: ProductCart[]) {
     }
     totalSum.innerHTML = "Total: " + sum.toString() + " Kr";
   } else {
-    totalSum.innerHTML = "Här vare tomt";
+    totalSum.innerHTML = "Varukorgen är tom.";
   }
   modalContainer.appendChild(totalSum);
 }

@@ -30,10 +30,6 @@ function createHTMLForProducts() {
       "p"
     ) as HTMLImageElement;
 
-    let clothingSize: HTMLImageElement = document.createElement(
-      "p"
-    ) as HTMLImageElement;
-
     let clothingBtn: HTMLButtonElement = document.createElement(
       "button"
     ) as HTMLButtonElement;
@@ -63,17 +59,14 @@ function createHTMLForProducts() {
 
     chooseSizeOpt1.value = "1";
     chooseSizeOpt1.text = "Small";
-    //chooseSizeOpt2.value = products[i].size.medium;
     chooseSizeOpt2.value = "2";
     chooseSizeOpt2.text = "Medium";
-    //chooseSizeOpt3.value = products[i].size.large;
     chooseSizeOpt3.value = "3";
     chooseSizeOpt3.text = "Large";
 
     clothingName.innerHTML = products[i].name;
     clothingImage.src = products[i].image;
     clothingImage.alt = products[i].name;
-    // add this
     clothingPrice.innerHTML = "Pris: " + products[i].price.toString() + " Kr";
     clothingBtn.innerHTML = "Lägg till i varukorg";
     clothingDescBtn.innerHTML = "Produkt Beskrivning";
@@ -84,6 +77,10 @@ function createHTMLForProducts() {
     clothingPrice.classList.add("productDiv__price");
     clothingBtn.classList.add("productDiv__btn--add");
     clothingDescBtn.classList.add("productDiv__btn--desc");
+
+    sizeForm.classList.add("productDiv__form");
+    chooseSize.classList.add("productDiv__form--select");
+    clothingBtn.classList.add("productDiv__form--btn");
 
     // Product to cart
     clothingBtn.addEventListener("click", (e) => {
@@ -110,7 +107,6 @@ function createHTMLForProducts() {
     clothingDiv.appendChild(clothingName);
     clothingDiv.appendChild(clothingImage);
     clothingDiv.appendChild(clothingPrice);
-    clothingDiv.appendChild(clothingSize);
 
     chooseSize.appendChild(chooseSizeOpt1);
     chooseSize.appendChild(chooseSizeOpt2);
@@ -192,5 +188,3 @@ function cartProductToCart(cartProduct: Product) {
     localStorage.setItem("Cart", JSON.stringify(cartProducts));
   }
 }
-
-function chooseSize(cartProduct: Product) {}

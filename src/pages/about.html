@@ -28,7 +28,7 @@
   </head>
   <body>
     <header>
-      <nav class="navbar navbar-expand-lg bg-light">
+      <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
           <a class="navbar-brand" href="../index.html">T-Shirt Co</a>
           <button class="cart__button" id="cart__icon">
@@ -66,10 +66,8 @@
         </div>
       </nav>
     </header>
+    <h2 class="productPageTitle">ABOUT US</h2>
     <div class="aboutus">
-      <h2>
-        ABOUT US
-      </h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi in auctor purus, eget cursus lectus. 
         In vulputate, tortor quis dignissim molestie, diam lacus blandit lacus, vitae semper nisi sem in diam. 
         Sed id efficitur enim, eget commodo tellus. Suspendisse nec velit et arcu malesuada commodo. 
@@ -92,52 +90,52 @@
           <p>© Copyright T-shirt & Co</p>
         </div>
       </section>
-      <div
-        class="modal fade"
-        id="exampleModal"
-        tabindex="-1"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">
-                Din varukorg är tom!
-              </h1>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div class="modal-body" id="modal-body">...</div>
-            <div class="modal-footer">
-              <div id="cart-footer"></div>
-              <button
-                type="button"
-                id="removeAllProducts"
-                class="btn btn-secondary"
-              >
-                Töm varukorg
+    </footer>
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">
+              Din varukorg är tom!
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body" id="modal-body">...</div>
+          <div class="modal-footer">
+            <div id="cart-footer"></div>
+            <button
+              type="button"
+              id="removeAllProducts"
+              class="btn btn-secondary"
+            >
+              Töm varukorg
+            </button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Fortsätt shoppa
+            </button>
+            <a href="/src/pages/checkout.html">
+              <button type="button" class="btn btn-secondary">
+                Till Kassan
               </button>
-              <button
-                type="button"
-                class="btn btn-secondary"
-                data-bs-dismiss="modal"
-              >
-                Fortsätt shoppa
-              </button>
-              <a href="/src/pages/checkout.html">
-                <button type="button" class="btn btn-secondary">
-                  Till Kassan
-                </button>
-              </a>
-              <!-- <button type="button" class="btn btn-primary">.Save changes</button> -->
-            </div>
+            </a>
+            <!-- <button type="button" class="btn btn-primary">.Save changes</button> -->
           </div>
         </div>
-    </footer>
+      </div>
   </body>
 </html>
