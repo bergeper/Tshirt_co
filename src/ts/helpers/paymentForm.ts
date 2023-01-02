@@ -1,5 +1,5 @@
 // Payment form here
-
+//let userName = "";
 export function payoutForm() {
   let checkoutContainer: HTMLDivElement = document.getElementById(
     "payOutForm"
@@ -22,16 +22,23 @@ export function payoutForm() {
   let invoiceButton: HTMLInputElement = document.createElement("input");
   let cardLabel: HTMLLabelElement = document.createElement("label");
   let invoiceLabel: HTMLLabelElement = document.createElement("label");
+  let paymentLabel: HTMLLabelElement = document.createElement("label");
+  let paymenInput: HTMLInputElement = document.createElement("input");
 
   fNameInput.setAttribute("name", "firstname");
   emailInput.setAttribute("placeholder", "james.bond@exampel.se");
+  paymenInput.setAttribute("placeholder", "123456789 XXXX");
   emailInput.setAttribute("type", "email");
   cardButton.setAttribute("type", "radio");
   invoiceButton.setAttribute("type", "radio");
   cardButton.setAttribute("name", "paymentOptions");
   invoiceButton.setAttribute("name", "paymentOptions");
+  payButton.setAttribute("type", "submit");
+  payButton.setAttribute("value", "");
 
   checkoutForm.className = "cartForm";
+  paymentOptionDiv.className = "paymentDiv";
+  payButton.className = "payButton";
 
   checkoutTitle.innerHTML = "Betalning";
   labelFirstName.innerHTML = "Förnamn: ";
@@ -42,6 +49,13 @@ export function payoutForm() {
   paymentOptionLabel.innerHTML = "Betalningsalternativ: ";
   cardLabel.innerHTML = "Kort";
   invoiceLabel.innerHTML = "Faktura";
+  paymentLabel.innerHTML = "Kortnummer: ";
+
+  let userName: string = fNameInput.value;
+  console.log(userName);
+  payButton.addEventListener("click", () => {
+    helloUser(userName);
+  });
 
   checkoutForm.appendChild(checkoutTitle);
   checkoutForm.appendChild(labelFirstName);
@@ -52,6 +66,8 @@ export function payoutForm() {
   checkoutForm.appendChild(emailInput);
   checkoutForm.appendChild(labelCode);
   checkoutForm.appendChild(codeInput);
+  checkoutForm.appendChild(paymentLabel);
+  checkoutForm.appendChild(paymenInput);
   checkoutForm.appendChild(paymentOptionLabel);
   paymentOptionDiv.appendChild(cardLabel);
   paymentOptionDiv.appendChild(cardButton);
@@ -59,7 +75,7 @@ export function payoutForm() {
   paymentOptionDiv.appendChild(invoiceButton);
   checkoutContainer.appendChild(checkoutForm);
   checkoutContainer.appendChild(paymentOptionDiv);
-  checkoutContainer.appendChild(payButton);
+  checkoutForm.appendChild(payButton);
 }
 ////////payment form ends here
 
@@ -103,3 +119,7 @@ deliveryForm.appendChild(deliveryInputLabelTwo);
 deliveryForm.appendChild(deliveryinputTwo);
 deliveryContainer.appendChild(deliveryLabel);
 deliveryContainer.appendChild(deliveryForm);
+
+function helloUser(userName: string) {
+  console.log(userName);
+}

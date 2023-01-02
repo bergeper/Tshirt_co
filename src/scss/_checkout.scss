@@ -40,13 +40,13 @@
 /////////////////////////////////////////form
 
 
-.deliveryForm {
+.deliveryForm { //the form container
   display: flex;
   flex-direction: column;
   background-color: rgb(171, 179, 158);
   margin-top: 40px;
   max-width: 600px;
-  .deliveryOptionsForm{
+  .deliveryOptionsForm{ //the form
   display: flex;
   flex-wrap: wrap;
   label {
@@ -72,5 +72,20 @@ max-width: 600px;
  input {
   max-width: 370px;
  }
+ .paymentDiv {
+  padding-left: 15px;
+  input{
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+ }
+ .payButton {
+  font-weight:lighter ;
+  border: none;
+  margin-left: 230px;
+  width: 110px;
+  height: 30px;
+  margin-bottom: 30px;
+  border-radius: 10%;
+ }
 }
-
