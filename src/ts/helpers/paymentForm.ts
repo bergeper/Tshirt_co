@@ -75,7 +75,7 @@ export function payoutForm() {
   paymentOptionDiv.appendChild(invoiceButton);
   checkoutContainer.appendChild(checkoutForm);
   checkoutContainer.appendChild(paymentOptionDiv);
-  checkoutForm.appendChild(payButton);
+  checkoutContainer.appendChild(payButton);
 }
 ////////payment form ends here
 
