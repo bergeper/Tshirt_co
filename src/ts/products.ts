@@ -174,7 +174,9 @@ function cartProductToCart(cartProduct: Product) {
       if (
         // if the same product exists with the same size
 
-        cartProducts[i].product.size.size === cartProductToLS.product.size.size
+        cartProducts[i].product.size.size ===
+          cartProductToLS.product.size.size &&
+        cartProducts[i].product.articleId === cartProductToLS.product.articleId
       ) {
         // changing the quantity instead of adding another of the same item.
         console.log("Om id hittas: ", cartProducts);
