@@ -3,6 +3,7 @@ const cartProducts = getFromLocalStorage();
 import { buttonAttributes, openCartModal } from "./helpers/cart";
 import { getFromLocalStorage } from "./helpers/addToCart";
 import { ProductCart } from "./models/ProductCart";
+import { payoutForm } from "./helpers/paymentForm";
 
 buttonAttributes(); //anropar funktionen som i sin tur anropar funktionen som hämtar modalen
 
@@ -124,3 +125,4 @@ function render() {
 }
 
 render();
+payoutForm();
