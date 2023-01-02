@@ -1,6 +1,6 @@
 const cartProducts = getFromLocalStorage();
 
-import { buttonAttributes } from "./helpers/cart";
+import { buttonAttributes, openCartModal } from "./helpers/cart";
 import { getFromLocalStorage } from "./helpers/addToCart";
 import { ProductCart } from "./models/ProductCart";
 
