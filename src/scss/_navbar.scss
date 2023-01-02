@@ -1,4 +1,8 @@
 .navbar {
   background-color: rgba(85, 122, 72, 0.779);
   color: white;
+  &__color {
+    color: white;
+    font-weight: bold;
+  }
 }
