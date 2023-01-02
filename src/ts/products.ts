@@ -172,6 +172,8 @@ function cartProductToCart(cartProduct: Product) {
   } else {
     for (let i = 0; i < cartProducts.length; i++) {
       if (
+        // if the same product exists with the same size
+
         cartProducts[i].product.size.size === cartProductToLS.product.size.size
       ) {
         // changing the quantity instead of adding another of the same item.
