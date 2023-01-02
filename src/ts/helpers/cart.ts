@@ -42,11 +42,15 @@ export function openCartModal(cartProducts: ProductCart[]) {
     cart.className = "cart";
 
     let productName: HTMLParagraphElement = document.createElement("p");
-    productName.className = "cart__priceName";
+    productName.className = "cart__productName";
     productName.innerHTML = cartProducts[i].product.name;
 
+    let productSize: HTMLParagraphElement = document.createElement("p");
+    productSize.className = "cart__productSize";
+    productSize.innerHTML = cartProducts[i].product.size.size;
+
     let productPrice: HTMLParagraphElement = document.createElement("p");
-    productPrice.className = "cart__priceText";
+    productPrice.className = "cart__productPrice";
     productPrice.innerHTML = cartProducts[i].product.price.toString();
 
     let cartImage: HTMLImageElement = document.createElement("img");
@@ -102,6 +106,7 @@ export function openCartModal(cartProducts: ProductCart[]) {
     });
 
     cart.appendChild(productName);
+    cart.appendChild(productSize);
     cart.appendChild(productPrice);
     cart.appendChild(cartImage);
     cart.appendChild(addButton);
