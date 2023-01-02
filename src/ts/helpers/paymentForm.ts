@@ -13,8 +13,6 @@ export function payoutForm() {
   let lNameInput: HTMLInputElement = document.createElement("input");
   let labelEmail: HTMLLabelElement = document.createElement("label");
   let emailInput: HTMLInputElement = document.createElement("input");
-  let labelAdress: HTMLLabelElement = document.createElement("label");
-  let adressInput: HTMLInputElement = document.createElement("input");
   let labelCode: HTMLLabelElement = document.createElement("label");
   let codeInput: HTMLInputElement = document.createElement("input");
   let payButton: HTMLButtonElement = document.createElement("button");
@@ -26,7 +24,7 @@ export function payoutForm() {
   let invoiceLabel: HTMLLabelElement = document.createElement("label");
 
   fNameInput.setAttribute("name", "firstname");
-  fNameInput.setAttribute("placeholder", "Förnamn");
+  emailInput.setAttribute("placeholder", "james.bond@exampel.se");
   emailInput.setAttribute("type", "email");
   cardButton.setAttribute("type", "radio");
   invoiceButton.setAttribute("type", "radio");
@@ -39,7 +37,6 @@ export function payoutForm() {
   labelFirstName.innerHTML = "Förnamn: ";
   labelLastName.innerHTML = "Efternamn: ";
   labelEmail.innerHTML = "Email: ";
-  labelAdress.innerHTML = "Adress: ";
   labelCode.innerHTML = "Rabattkod: ";
   payButton.innerHTML = "Betala";
   paymentOptionLabel.innerHTML = "Betalningsalternativ: ";
@@ -53,8 +50,6 @@ export function payoutForm() {
   checkoutForm.appendChild(lNameInput);
   checkoutForm.appendChild(labelEmail);
   checkoutForm.appendChild(emailInput);
-  checkoutForm.appendChild(labelAdress);
-  checkoutForm.appendChild(adressInput);
   checkoutForm.appendChild(labelCode);
   checkoutForm.appendChild(codeInput);
   checkoutForm.appendChild(paymentOptionLabel);
@@ -66,3 +61,45 @@ export function payoutForm() {
   checkoutContainer.appendChild(paymentOptionDiv);
   checkoutContainer.appendChild(payButton);
 }
+////////payment form ends here
+
+let deliveryContainer: HTMLDivElement = document.getElementById(
+  "deliveryForm"
+) as HTMLDivElement;
+let deliveryLabel: HTMLHeadingElement = document.createElement("h3");
+let deliveryForm: HTMLFormElement = document.createElement("form");
+let deliveryAdressLabel: HTMLLabelElement = document.createElement("label");
+let deliveryAdressInput: HTMLInputElement = document.createElement("input");
+let deliveryZipLabel: HTMLLabelElement = document.createElement("label");
+let deliveryZipInput: HTMLInputElement = document.createElement("input");
+let deliveryInputLabelOne: HTMLLabelElement = document.createElement("label");
+let deliveryInputLabelTwo: HTMLLabelElement = document.createElement("label");
+let deliveryinputOne: HTMLInputElement = document.createElement("input");
+let deliveryinputTwo: HTMLInputElement = document.createElement("input");
+
+deliveryLabel.innerHTML = "Fraktsätt";
+deliveryAdressLabel.innerHTML = "Adress: ";
+deliveryInputLabelOne.innerHTML = "Postombud: ";
+deliveryInputLabelTwo.innerHTML = "Brevlåda: ";
+deliveryZipLabel.innerHTML = "Postkod: ";
+
+deliveryForm.className = "deliveryOptionsForm";
+deliveryZipInput.className = "zipInput";
+
+deliveryAdressInput.setAttribute("placeholder", "Medieinstitutsgatan 25");
+deliveryZipInput.setAttribute("placeholder", "123 45");
+deliveryinputOne.setAttribute("type", "radio");
+deliveryinputTwo.setAttribute("type", "radio");
+deliveryinputOne.setAttribute("name", "delivery");
+deliveryinputTwo.setAttribute("name", "delivery");
+
+deliveryForm.appendChild(deliveryAdressLabel);
+deliveryForm.appendChild(deliveryAdressInput);
+deliveryForm.appendChild(deliveryZipLabel);
+deliveryForm.appendChild(deliveryZipInput);
+deliveryForm.appendChild(deliveryInputLabelOne);
+deliveryForm.appendChild(deliveryinputOne);
+deliveryForm.appendChild(deliveryInputLabelTwo);
+deliveryForm.appendChild(deliveryinputTwo);
+deliveryContainer.appendChild(deliveryLabel);
+deliveryContainer.appendChild(deliveryForm);

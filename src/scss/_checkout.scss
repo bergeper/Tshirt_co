@@ -39,13 +39,38 @@
 }
 /////////////////////////////////////////form
 
-.payOutForm {
-background-color: white;
 
+.deliveryForm {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(171, 179, 158);
+  margin-top: 40px;
+  max-width: 600px;
+  .deliveryOptionsForm{
+  display: flex;
+  flex-wrap: wrap;
+  label {
+    margin-right: 5px;
+    padding-left: 5px;
+  }
+  }
+  .zipInput {
+    max-width: 60px;
+  }
 
 }
-
 .cartForm{
   display: flex;
   flex-direction: column;
+  margin-left: 10px;
 }
+
+.payOutForm {
+background-color: rgb(171, 179, 158);
+margin-top: 40px;
+max-width: 600px;
+ input {
+  max-width: 370px;
+ }
+}
+
