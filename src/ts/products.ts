@@ -179,10 +179,8 @@ function cartProductToCart(cartProduct: Product) {
         cartProducts[i].product.articleId === cartProductToLS.product.articleId
       ) {
         // changing the quantity instead of adding another of the same item.
-        console.log("Om id hittas: ", cartProducts);
         cartProducts[i].quantity++;
         localStorage.setItem("Cart", JSON.stringify(cartProducts));
-        console.log("den finns i listan");
         found = true;
         return;
       }
@@ -190,7 +188,6 @@ function cartProductToCart(cartProduct: Product) {
   }
   // if the product does not exist in localStorage
   if (found === false) {
-    console.log("Om id inte hittas: ", cartProducts);
     cartProducts.push(cartProductToLS);
     localStorage.setItem("Cart", JSON.stringify(cartProducts));
   }
