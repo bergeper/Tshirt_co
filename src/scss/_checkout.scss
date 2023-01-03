@@ -17,9 +17,12 @@
   }
 }
 
-.checkout-cart {
+.checkoutCart {
   @include mix.tablet {
     width: 50vw;
+  }
+  &__title {
+    font-size: larger;
   }
 }
 

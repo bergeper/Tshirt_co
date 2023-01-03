@@ -15,11 +15,16 @@ function render() {
 
   sumContainer.innerHTML = "";
 
-  for (let i = 0; i < cartProducts.length; i++) {
-    let checkoutContainer = document.getElementById(
-      "checkout-container"
-    ) as HTMLDivElement;
+  let checkoutContainer = document.getElementById(
+    "checkout-container"
+  ) as HTMLDivElement;
 
+  let checkoutContainerTitle: HTMLHeadingElement = document.createElement("h3");
+  checkoutContainerTitle.innerHTML = "Dina varor";
+  checkoutContainer.className = "checkoutCart__title";
+  checkoutContainer.appendChild(checkoutContainerTitle);
+
+  for (let i = 0; i < cartProducts.length; i++) {
     let cart: HTMLDivElement = document.createElement("div");
     cart.className = "checkout";
 
