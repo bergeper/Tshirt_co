@@ -1,4 +1,8 @@
 // Payment form here
+
+import { ProductCart } from "../models/ProductCart";
+import { getFromLocalStorage } from "./addToCart";
+
 //let userName = "";
 export function payoutForm() {
   let checkoutContainer: HTMLDivElement = document.getElementById(
@@ -46,7 +50,7 @@ export function payoutForm() {
   labelLastName.innerHTML = "Efternamn: ";
   labelEmail.innerHTML = "Email: ";
   labelCode.innerHTML = "Rabattkod: ";
-  payButton.innerHTML = "Betala";
+  payButton.innerHTML = "Gå Vidare";
   paymentOptionLabel.innerHTML = "Betalningsalternativ: ";
   cardLabel.innerHTML = "Kort";
   invoiceLabel.innerHTML = "Faktura";
@@ -184,12 +188,26 @@ function payWithInvoice(
 }
 
 function helloUser(userName: string, orderConfirmationDiv: HTMLDivElement) {
-  let mainWrapper: HTMLDivElement = document.getElementById(
-    "orderConfirmation"
-  ) as HTMLDivElement;
-  mainWrapper.innerHTML = "";
-  (orderConfirmationDiv.innerHTML = "Tack för din beställning " + userName),
-    "!";
-  mainWrapper.appendChild(orderConfirmationDiv);
-  console.log(userName);
+  let orderedItems: ProductCart[] = [];
+  orderedItems = getFromLocalStorage();
+
+  for (let i = 0; i < orderedItems.length; i++) {
+    orderedItems[i].product.name;
+    orderedItems[i].product.image;
+
+    let mainWrapper: HTMLDivElement = document.getElementById(
+      "orderConfirmation"
+    ) as HTMLDivElement;
+    let orderText: HTMLSpanElement = document.createElement("span");
+    let orderTitle: HTMLHeadElement = document.createElement("h3");
+
+    mainWrapper.innerHTML = "";
+    (orderConfirmationDiv.innerHTML = "Tack för din beställning " + userName),
+      "!";
+    orderTitle.innerHTML = orderedItems[i].product.name;
+
+    orderConfirmationDiv.appendChild(orderTitle);
+    orderConfirmationDiv.appendChild(orderText);
+    mainWrapper.appendChild(orderConfirmationDiv);
+  }
 }
