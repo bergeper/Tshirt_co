@@ -1,3 +1,5 @@
+@use "mixins/breakpoints" as mix;
+
 .productPageTitle {
   color: white;
   font-weight: lighter;
@@ -38,7 +40,7 @@
   width: 100%;
   align-items: center;
   justify-content: center;
-  padding-top: 30px;
+  padding: 30px;
 }
 
 .entryText {
@@ -88,7 +90,8 @@
     rgb(85, 107, 47)
   );
   &:hover {
-    color: rgba(85, 107, 47, 0.573);
+    background-color: orange;
+    scale: 1.1;
   }
 }
 
@@ -97,4 +100,8 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  @include mix.tablet {
+    background-size: cover;
+    background-position: top;
+  }
 }
