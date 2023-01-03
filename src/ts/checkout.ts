@@ -1,5 +1,3 @@
-const cartProducts = getFromLocalStorage();
-
 import { buttonAttributes, openCartModal } from "./helpers/cart";
 import { getFromLocalStorage } from "./helpers/addToCart";
 import { ProductCart } from "./models/ProductCart";
@@ -17,21 +15,21 @@ function render() {
 
   sumContainer.innerHTML = "";
 
+  let checkoutContainer = document.getElementById(
+    "checkout-container"
+  ) as HTMLDivElement;
+
+  let checkoutContainerTitle: HTMLHeadingElement = document.createElement("h3");
+  checkoutContainerTitle.innerHTML = "Dina varor";
+  checkoutContainerTitle.className = "checkout__title";
+  checkoutContainer.appendChild(checkoutContainerTitle);
+
   for (let i = 0; i < cartProducts.length; i++) {
-    let checkoutContainer = document.getElementById(
-      "checkout-container"
-    ) as HTMLDivElement;
-
-    let modalTitle = document.getElementById(
-      "exampleModalLabel"
-    ) as HTMLHeadingElement;
-    modalTitle.innerHTML = "Varukorg";
-
     let cart: HTMLDivElement = document.createElement("div");
     cart.className = "checkout";
 
     let procuctContainer: HTMLDivElement = document.createElement("div");
-    procuctContainer.className = "cart__product";
+    procuctContainer.className = "checkout__product";
 
     let productName: HTMLParagraphElement = document.createElement("p");
     productName.className = "checkout__product--name";
@@ -65,7 +63,7 @@ function render() {
     addButton.className = "checkout__addButton";
     addButton.innerHTML = "+";
 
-    let removeAllButton: HTMLElement = document.createElement("button");
+    let removeAllButton: HTMLButtonElement = document.createElement("button");
     removeAllButton.className = "checkout__removeAllButton";
     removeAllButton.innerHTML = `<i class="bi bi-trash trashIcon"</i>`;
 
@@ -120,6 +118,7 @@ function render() {
   let totalSum: HTMLParagraphElement = document.createElement(
     "totalsum"
   ) as HTMLParagraphElement;
+  totalSum.className = "checkout__totalSum";
   // totalSum.innerHTML = "";
   if (cartProducts.length > 0) {
     for (let i = 0; i < cartProducts.length; i++) {
