@@ -120,6 +120,7 @@ function render() {
   let totalSum: HTMLParagraphElement = document.createElement(
     "totalsum"
   ) as HTMLParagraphElement;
+  totalSum.className = "checkout__totalSum";
   // totalSum.innerHTML = "";
   if (cartProducts.length > 0) {
     for (let i = 0; i < cartProducts.length; i++) {
