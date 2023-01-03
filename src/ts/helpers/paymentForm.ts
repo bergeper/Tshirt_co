@@ -43,7 +43,7 @@ export function payoutForm() {
 
   checkoutForm.className = "payOutFormContainer__cartForm";
   paymentOptionDiv.className = "payOutFormContainer__paymentDiv";
-  payButton.className = "payOutFormContainer__paymentDiv--payButton";
+  payButton.className = "payOutFormContainer__extendendDiv--payButton";
 
   checkoutTitle.innerHTML = "Betalning";
   labelFirstName.innerHTML = "Förnamn: ";
@@ -200,7 +200,7 @@ function helloUser(userName: string) {
   let orderMessage: HTMLHeadingElement = document.createElement("h3");
   orderMessage.innerHTML = "Tack för din beställning " + userName;
 
-  mainWrapper.appendChild(orderMessage);
+  orderContainer.appendChild(orderMessage);
 
   for (let i = 0; i < orderedItems.length; i++) {
     let orderDiv: HTMLDivElement = document.createElement("div");
