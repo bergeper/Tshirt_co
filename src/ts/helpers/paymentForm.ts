@@ -238,5 +238,5 @@ function helloUser(userName: string) {
   } else {
     totalSum.innerHTML = "Varukorgen är tom.";
   }
-  mainWrapper.appendChild(totalSum);
+  orderContainer.appendChild(totalSum);
 }
