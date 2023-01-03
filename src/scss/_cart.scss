@@ -1,3 +1,5 @@
+@use "variables" as var;
+
 // Shopping cart
 .cart {
   display: flex;
@@ -49,7 +51,7 @@
 }
 
 .modal-color {
-  background-color: rgba(85, 122, 72, 0.298);
+  background-color: var.$secondary-color;
   border: none;
 }
 
@@ -58,10 +60,12 @@
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-
-  padding: 0;
-  border: 2px solid black;
+  align-items: center;
+  border-radius: 10px;
+  margin: 10px;
+  background-color: var.$secondary-color;
   padding: 10px;
+  margin-bottom: 2px;
   &__cartImage {
     width: 70px;
     height: 70px;
@@ -72,17 +76,9 @@
     height: 30px;
     margin-right: 9px;
   }
-  &__productPrice,
-  &__productName,
-  &__productSize,
-  &__totalAmount,
-  &__cartQuantity {
-    height: 70px;
-    margin-right: 10px;
-  }
   &__removeAllButton {
     border: none;
-    background-color: white;
+    background-color: rgba(0, 0, 0, 0);
     padding: 0;
     margin: 0;
   }

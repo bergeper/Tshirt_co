@@ -1,5 +1,7 @@
+@use "variables" as var;
+
 .navbar {
-  background-color: rgba(85, 122, 72, 0.779);
+  background-color: var.$primary-color;
   color: white;
   &__color {
     color: white;
