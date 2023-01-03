@@ -43,7 +43,7 @@ export function payoutForm() {
 
   checkoutForm.className = "payOutFormContainer__cartForm";
   paymentOptionDiv.className = "payOutFormContainer__paymentDiv";
-  payButton.className = "payButton";
+  payButton.className = "payOutFormContainer__paymentDiv--payButton";
 
   checkoutTitle.innerHTML = "Betalning";
   labelFirstName.innerHTML = "Förnamn: ";
