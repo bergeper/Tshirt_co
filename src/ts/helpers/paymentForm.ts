@@ -57,7 +57,8 @@ export function payoutForm() {
     helloUser(userName);
   });
 
-  checkoutForm.appendChild(checkoutTitle);
+  checkoutContainer.appendChild(checkoutTitle);
+  checkoutContainer.appendChild(paymentOptionDiv);
   checkoutForm.appendChild(labelFirstName);
   checkoutForm.appendChild(fNameInput);
   checkoutForm.appendChild(labelLastName);
@@ -74,8 +75,8 @@ export function payoutForm() {
   paymentOptionDiv.appendChild(invoiceLabel);
   paymentOptionDiv.appendChild(invoiceButton);
   checkoutContainer.appendChild(checkoutForm);
-  checkoutContainer.appendChild(paymentOptionDiv);
-  checkoutContainer.appendChild(payButton);
+
+  checkoutForm.appendChild(payButton);
 }
 ////////payment form ends here
 
