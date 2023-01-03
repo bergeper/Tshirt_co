@@ -146,11 +146,10 @@ function payWithCard(
   paymentInput: HTMLInputElement,
   fNameInput: HTMLInputElement
 ) {
-  let orderConfirmationDiv: HTMLDivElement = document.createElement("div");
   payButton.addEventListener("click", (event) => {
     event.preventDefault();
     let userName: string = fNameInput.value;
-    helloUser(userName, orderConfirmationDiv);
+    helloUser(userName);
   });
   let extendedDiv: HTMLDivElement = document.createElement("div");
 
@@ -170,12 +169,11 @@ function payWithInvoice(
   invoicePersonalNumber: HTMLInputElement
 ) {
   let extendedDiv: HTMLDivElement = document.createElement("div");
-  let orderConfirmationDiv: HTMLDivElement = document.createElement("div");
   extendedDiv.className = "extendedDiv";
   payButton.addEventListener("click", (event) => {
     event.preventDefault();
     let userName: string = fNameInput.value;
-    helloUser(userName, orderConfirmationDiv);
+    helloUser(userName);
   });
 
   invoiceLabel.innerHTML = "Personnummer:";
@@ -187,27 +185,58 @@ function payWithInvoice(
   checkoutContainer.appendChild(extendedDiv);
 }
 
-function helloUser(userName: string, orderConfirmationDiv: HTMLDivElement) {
+function helloUser(userName: string) {
   let orderedItems: ProductCart[] = [];
   orderedItems = getFromLocalStorage();
 
+  let mainWrapper: HTMLDivElement = document.getElementById(
+    "orderConfirmation"
+  ) as HTMLDivElement;
+  mainWrapper.innerHTML = "";
+
+  let orderContainer: HTMLDivElement = document.createElement("div");
+  // Add className here.
+
+  let orderMessage: HTMLHeadingElement = document.createElement("h3");
+  orderMessage.innerHTML = "Tack för din beställning " + userName;
+
+  mainWrapper.appendChild(orderMessage);
+
   for (let i = 0; i < orderedItems.length; i++) {
-    orderedItems[i].product.name;
-    orderedItems[i].product.image;
-
-    let mainWrapper: HTMLDivElement = document.getElementById(
-      "orderConfirmation"
-    ) as HTMLDivElement;
-    let orderText: HTMLSpanElement = document.createElement("span");
+    let orderDiv: HTMLDivElement = document.createElement("div");
     let orderTitle: HTMLHeadElement = document.createElement("h3");
+    let orderImage: HTMLImageElement = document.createElement("img");
+    let orderPrice: HTMLHeadingElement = document.createElement("h3");
 
-    mainWrapper.innerHTML = "";
-    (orderConfirmationDiv.innerHTML = "Tack för din beställning " + userName),
-      "!";
+    orderDiv.classList.add("checkout");
+    orderTitle.classList.add("checkout__product--name");
+    orderImage.classList.add("checkout__cartImage");
+    orderPrice.classList.add("checkout__product--price");
+
     orderTitle.innerHTML = orderedItems[i].product.name;
+    orderImage.src = orderedItems[i].product.image;
+    orderPrice.innerHTML = orderedItems[i].product.price.toString();
 
-    orderConfirmationDiv.appendChild(orderTitle);
-    orderConfirmationDiv.appendChild(orderText);
-    mainWrapper.appendChild(orderConfirmationDiv);
+    orderDiv.appendChild(orderTitle);
+    orderDiv.appendChild(orderImage);
+    orderDiv.appendChild(orderPrice);
+    orderContainer.appendChild(orderDiv);
   }
+  mainWrapper.appendChild(orderContainer);
+  // totalsum here
+  let sum = 0;
+  let totalSum: HTMLParagraphElement = document.createElement(
+    "totalsum"
+  ) as HTMLParagraphElement;
+  totalSum.className = "checkout__totalSum";
+  // totalSum.innerHTML = "";
+  if (orderedItems.length > 0) {
+    for (let i = 0; i < orderedItems.length; i++) {
+      sum += orderedItems[i].product.price * orderedItems[i].quantity;
+    }
+    totalSum.innerHTML = "Total: " + sum.toString() + " Kr";
+  } else {
+    totalSum.innerHTML = "Varukorgen är tom.";
+  }
+  mainWrapper.appendChild(totalSum);
 }
