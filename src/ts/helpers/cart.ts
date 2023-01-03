@@ -1,5 +1,5 @@
 import { ProductCart } from "../models/ProductCart";
-import { getFromLocalStorage } from "./addToCart";
+import { getFromLocalStorage } from "./localStorage";
 
 // cart List
 let cartProducts: ProductCart[] = [];
