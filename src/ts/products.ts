@@ -73,7 +73,7 @@ function createHTMLForProducts() {
     clothingImage.alt = products[i].name;
     clothingPrice.innerHTML = "Pris: " + products[i].price.toString() + " Kr";
     clothingBtn.innerHTML = "Lägg till i varukorg";
-    clothingDescBtn.innerHTML = "Produkt Beskrivning";
+    clothingDescBtn.innerHTML = "Produktbeskrivning";
 
     clothingDiv.classList.add("productDiv");
     clothingName.classList.add("productDiv__title");
