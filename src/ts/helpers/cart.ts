@@ -138,6 +138,7 @@ export function openCartModal(cartProducts: ProductCart[]) {
   let totalSum: HTMLParagraphElement = document.createElement(
     "totalsum"
   ) as HTMLParagraphElement;
+  totalSum.className = "cart__totalSum";
   // totalSum.innerHTML = "";
   if (cartProducts.length > 0) {
     for (let i = 0; i < cartProducts.length; i++) {
