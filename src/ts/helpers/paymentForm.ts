@@ -52,7 +52,6 @@ export function payoutForm() {
   paymentLabel.innerHTML = "Kortnummer: ";
 
   checkoutContainer.appendChild(checkoutTitle);
-  checkoutContainer.appendChild(paymentOptionDiv);
   checkoutForm.appendChild(labelFirstName);
   checkoutForm.appendChild(fNameInput);
   checkoutForm.appendChild(labelLastName);
@@ -64,6 +63,7 @@ export function payoutForm() {
   checkoutForm.appendChild(paymentLabel);
   checkoutForm.appendChild(paymenInput);
   checkoutForm.appendChild(paymentOptionLabel);
+  checkoutForm.appendChild(paymentOptionDiv);
   paymentOptionDiv.appendChild(cardLabel);
   paymentOptionDiv.appendChild(cardButton);
   paymentOptionDiv.appendChild(invoiceLabel);
