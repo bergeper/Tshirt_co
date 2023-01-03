@@ -70,30 +70,7 @@ export function payoutForm() {
   checkoutContainer.appendChild(checkoutForm);
   checkoutContainer.appendChild(paymentOptionDiv);
 
-  cardButton.addEventListener("click", () => {
-    payWithCard(
-      checkoutContainer,
-      payButton,
-      paymentLabel,
-      paymentInput,
-      fNameInput
-    );
-  });
-
-  invoiceButton.addEventListener("click", () => {
-    payWithInvoice(
-      checkoutContainer,
-      payButton,
-      fNameInput,
-      invoiceExtendedLabel,
-      invoicePersonalNumber
-    );
-  });
-}
-
-////////payment form ends here
-
-export function deliveryForm() {
+  //delivery form starts here
   let deliveryContainer: HTMLDivElement = document.getElementById(
     "deliveryForm"
   ) as HTMLDivElement;
@@ -134,7 +111,29 @@ export function deliveryForm() {
   deliveryForm.appendChild(deliveryinputTwo);
   deliveryContainer.appendChild(deliveryLabel);
   deliveryContainer.appendChild(deliveryForm);
+
+  cardButton.addEventListener("click", () => {
+    payWithCard(
+      checkoutContainer,
+      payButton,
+      paymentLabel,
+      paymentInput,
+      fNameInput
+    );
+  });
+
+  invoiceButton.addEventListener("click", () => {
+    payWithInvoice(
+      checkoutContainer,
+      payButton,
+      fNameInput,
+      invoiceExtendedLabel,
+      invoicePersonalNumber
+    );
+  });
 }
+
+////////payment form ends here
 
 function payWithCard(
   checkoutContainer: HTMLDivElement,
@@ -158,6 +157,7 @@ function payWithCard(
   extendedDiv.appendChild(payButton);
   checkoutContainer.appendChild(extendedDiv);
 }
+
 function payWithInvoice(
   checkoutContainer: HTMLDivElement,
   payButton: HTMLButtonElement,
