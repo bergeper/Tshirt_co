@@ -1,12 +1,35 @@
-/////////////////////////////////////////form
+@use "mixins/breakpoints" as mix;
+@use "variables" as var;
 
+.checkout-container {
+  display: flex;
+  flex-direction: column;
+  @include mix.tablet {
+    flex-direction: row;
+  }
+}
+
+.checkout-form {
+  display: flex;
+  flex-direction: column;
+  @include mix.tablet {
+    width: 50vw;
+  }
+}
+
+.checkout-cart {
+  @include mix.tablet {
+    width: 50vw;
+  }
+}
+
+/////////////////////////////////////////form
 .deliveryForm {
   //the form container
   display: flex;
   flex-direction: column;
   background-color: rgb(171, 179, 158);
   margin-top: 40px;
-  max-width: 600px;
   .deliveryOptionsForm {
     //the form
     display: flex;
@@ -29,7 +52,6 @@
 .payOutForm {
   background-color: rgb(171, 179, 158);
   margin-top: 40px;
-  max-width: 600px;
   input {
     max-width: 370px;
   }

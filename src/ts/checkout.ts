@@ -1,5 +1,3 @@
-const cartProducts = getFromLocalStorage();
-
 import { buttonAttributes, openCartModal } from "./helpers/cart";
 import { getFromLocalStorage } from "./helpers/addToCart";
 import { ProductCart } from "./models/ProductCart";
@@ -22,16 +20,11 @@ function render() {
       "checkout-container"
     ) as HTMLDivElement;
 
-    let modalTitle = document.getElementById(
-      "exampleModalLabel"
-    ) as HTMLHeadingElement;
-    modalTitle.innerHTML = "Varukorg";
-
     let cart: HTMLDivElement = document.createElement("div");
     cart.className = "checkout";
 
     let procuctContainer: HTMLDivElement = document.createElement("div");
-    procuctContainer.className = "cart__product";
+    procuctContainer.className = "checkout__product";
 
     let productName: HTMLParagraphElement = document.createElement("p");
     productName.className = "checkout__product--name";
