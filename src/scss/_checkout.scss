@@ -55,18 +55,13 @@
   &__paymentForm {
       padding-left: 15px;
   }
-  input {
-    max-width: 370px;
-  }
- 
     input {
-      margin-right: 10px;
+    max-width: 370px;
+    margin-right: 10px;
       margin-left: 10px;
-    }
   }
-}
-
-.extendedDiv {
+  }
+ &__extendedDiv {
   display: flex;
   flex-direction: column;
   margin-right: 10px;
@@ -80,4 +75,5 @@
     margin-bottom: 30px;
     border-radius: 10%;
   }
+}
 }
