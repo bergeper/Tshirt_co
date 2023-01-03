@@ -41,17 +41,20 @@ export function openCartModal(cartProducts: ProductCart[]) {
     let cart: HTMLDivElement = document.createElement("div");
     cart.className = "cart";
 
+    let procuctContainer: HTMLDivElement = document.createElement("div");
+    procuctContainer.className = "cart__product";
+
     let productName: HTMLParagraphElement = document.createElement("p");
-    productName.className = "cart__productName";
+    productName.className = "cart__product--name";
     productName.innerHTML = cartProducts[i].product.name;
 
     let productSize: HTMLParagraphElement = document.createElement("p");
-    productSize.className = "cart__productSize";
+    productSize.className = "cart__product--size";
     productSize.innerHTML = cartProducts[i].product.size.size;
 
     let productPrice: HTMLParagraphElement = document.createElement("p");
-    productPrice.className = "cart__productPrice";
-    productPrice.innerHTML = cartProducts[i].product.price.toString();
+    productPrice.className = "cart__product--price";
+    productPrice.innerHTML = cartProducts[i].product.price.toString() + " kr";
 
     let cartImage: HTMLImageElement = document.createElement("img");
     cartImage.className = "cart__cartImage";
@@ -105,9 +108,10 @@ export function openCartModal(cartProducts: ProductCart[]) {
       openCartModal(cartProducts);
     });
 
-    cart.appendChild(productName);
-    cart.appendChild(productSize);
-    cart.appendChild(productPrice);
+    procuctContainer.appendChild(productName);
+    procuctContainer.appendChild(productSize);
+    procuctContainer.appendChild(productPrice);
+    cart.appendChild(procuctContainer);
     cart.appendChild(cartImage);
     cart.appendChild(addButton);
     cart.appendChild(cartQuantity);
