@@ -169,7 +169,7 @@ function payWithInvoice(
   invoicePersonalNumber: HTMLInputElement
 ) {
   let extendedDiv: HTMLDivElement = document.createElement("div");
-  extendedDiv.className = "payOutContainer__extendedDiv";
+  extendedDiv.className = "payOutFormContainer__extendedDiv";
   payButton.addEventListener("click", (event) => {
     event.preventDefault();
     let userName: string = fNameInput.value;
