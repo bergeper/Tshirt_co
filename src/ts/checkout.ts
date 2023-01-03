@@ -21,7 +21,7 @@ function render() {
 
   let checkoutContainerTitle: HTMLHeadingElement = document.createElement("h3");
   checkoutContainerTitle.innerHTML = "Dina varor";
-  checkoutContainer.className = "checkoutCart__title";
+  checkoutContainerTitle.className = "checkout__title";
   checkoutContainer.appendChild(checkoutContainerTitle);
 
   for (let i = 0; i < cartProducts.length; i++) {
@@ -63,7 +63,7 @@ function render() {
     addButton.className = "checkout__addButton";
     addButton.innerHTML = "+";
 
-    let removeAllButton: HTMLElement = document.createElement("button");
+    let removeAllButton: HTMLButtonElement = document.createElement("button");
     removeAllButton.className = "checkout__removeAllButton";
     removeAllButton.innerHTML = `<i class="bi bi-trash trashIcon"</i>`;
 
