@@ -12,6 +12,7 @@ function render() {
   let checkoutContainer = document.getElementById(
     "checkout-container"
   ) as HTMLDivElement;
+  checkoutContainer.innerHTML = "";
 
   let cartContainer: HTMLDivElement = document.createElement("div");
   cartContainer.classList.add("checkoutContainer");
