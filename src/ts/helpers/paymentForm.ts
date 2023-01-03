@@ -194,13 +194,15 @@ function helloUser(userName: string) {
   ) as HTMLDivElement;
   mainWrapper.innerHTML = "";
 
+  let orderContainer: HTMLDivElement = document.createElement("div");
+  // Add className here.
+
   let orderMessage: HTMLHeadingElement = document.createElement("h3");
   orderMessage.innerHTML = "Tack för din beställning " + userName;
 
   mainWrapper.appendChild(orderMessage);
 
   for (let i = 0; i < orderedItems.length; i++) {
-    let orderContainer: HTMLDivElement = document.createElement("div");
     let orderDiv: HTMLDivElement = document.createElement("div");
     let orderTitle: HTMLHeadElement = document.createElement("h3");
     let orderImage: HTMLImageElement = document.createElement("img");
@@ -219,8 +221,8 @@ function helloUser(userName: string) {
     orderDiv.appendChild(orderImage);
     orderDiv.appendChild(orderPrice);
     orderContainer.appendChild(orderDiv);
-    mainWrapper.appendChild(orderContainer);
   }
+  mainWrapper.appendChild(orderContainer);
   // totalsum here
   let sum = 0;
   let totalSum: HTMLParagraphElement = document.createElement(
