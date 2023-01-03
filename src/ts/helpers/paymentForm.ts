@@ -34,7 +34,7 @@ export function payoutForm() {
   cardButton.setAttribute("name", "paymentOptions");
   invoiceButton.setAttribute("name", "paymentOptions");
   payButton.setAttribute("type", "submit");
-  payButton.setAttribute("value", "");
+  fNameInput.setAttribute("value", "");
 
   checkoutForm.className = "cartForm";
   paymentOptionDiv.className = "paymentDiv";
@@ -53,7 +53,8 @@ export function payoutForm() {
 
   let userName: string = fNameInput.value;
   console.log(userName);
-  payButton.addEventListener("click", (event) => {
+
+  checkoutForm.addEventListener("submit", (event) => {
     event.preventDefault();
     helloUser(userName);
   });
