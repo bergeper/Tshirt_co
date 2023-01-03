@@ -9,15 +9,12 @@ function render() {
   let cartProducts: ProductCart[] = [];
   cartProducts = getFromLocalStorage();
 
-  let sumContainer = document.getElementById(
-    "checkout-container"
-  ) as HTMLDivElement;
-
-  sumContainer.innerHTML = "";
-
   let checkoutContainer = document.getElementById(
     "checkout-container"
   ) as HTMLDivElement;
+
+  let cartContainer: HTMLDivElement = document.createElement("div");
+  cartContainer.classList.add("checkoutContainer");
 
   let checkoutContainerTitle: HTMLHeadingElement = document.createElement("h3");
   checkoutContainerTitle.innerHTML = "Dina varor";
@@ -41,7 +38,7 @@ function render() {
 
     let productPrice: HTMLParagraphElement = document.createElement("p");
     productPrice.className = "checkout__product--price";
-    productPrice.innerHTML = cartProducts[i].product.price.toString();
+    productPrice.innerHTML = cartProducts[i].product.price.toString() + " kr";
 
     let cartImage: HTMLImageElement = document.createElement("img");
     cartImage.className = "checkout__cartImage";
@@ -104,9 +101,9 @@ function render() {
     cart.appendChild(cartQuantity);
     cart.appendChild(removeButton);
     cart.appendChild(removeAllButton);
-    checkoutContainer.appendChild(cart);
+    cartContainer.appendChild(cart);
   }
-
+  checkoutContainer.appendChild(cartContainer);
   //Put erase all here.
   let removeAllProducts = document.getElementById(
     "removeAllProducts"
@@ -128,7 +125,7 @@ function render() {
   } else {
     totalSum.innerHTML = "Varukorgen är tom.";
   }
-  sumContainer.appendChild(totalSum);
+  cartContainer.appendChild(totalSum);
 }
 
 render();
