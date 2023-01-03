@@ -143,10 +143,11 @@ function payWithCard(
   paymentInput: HTMLInputElement,
   fNameInput: HTMLInputElement
 ) {
+  let orderConfirmationDiv: HTMLDivElement = document.createElement("div");
   payButton.addEventListener("click", (event) => {
     event.preventDefault();
     let userName: string = fNameInput.value;
-    helloUser(userName);
+    helloUser(userName, orderConfirmationDiv);
   });
   let extendedDiv: HTMLDivElement = document.createElement("div");
 
@@ -165,11 +166,12 @@ function payWithInvoice(
   invoicePersonalNumber: HTMLInputElement
 ) {
   let extendedDiv: HTMLDivElement = document.createElement("div");
+  let orderConfirmationDiv: HTMLDivElement = document.createElement("div");
   extendedDiv.className = "extendedDiv";
   payButton.addEventListener("click", (event) => {
     event.preventDefault();
     let userName: string = fNameInput.value;
-    helloUser(userName);
+    helloUser(userName, orderConfirmationDiv);
   });
 
   invoiceLabel.innerHTML = "Personnummer:";
@@ -181,6 +183,13 @@ function payWithInvoice(
   checkoutContainer.appendChild(extendedDiv);
 }
 
-function helloUser(userName: string) {
+function helloUser(userName: string, orderConfirmationDiv: HTMLDivElement) {
+  let mainWrapper: HTMLElement = document.getElementById(
+    "mainWrapper"
+  ) as HTMLElement;
+
+  (orderConfirmationDiv.innerHTML = "Tack för din beställning " + userName),
+    "!";
+  mainWrapper.appendChild(orderConfirmationDiv);
   console.log(userName);
 }
