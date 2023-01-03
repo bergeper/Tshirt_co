@@ -4,7 +4,6 @@ export function payoutForm() {
   let checkoutContainer: HTMLDivElement = document.getElementById(
     "payOutForm"
   ) as HTMLDivElement;
-
   let checkoutForm: HTMLFormElement = document.createElement("form");
   let checkoutTitle: HTMLHeadingElement = document.createElement("h3");
   let labelFirstName: HTMLLabelElement = document.createElement("label");
@@ -23,11 +22,13 @@ export function payoutForm() {
   let cardLabel: HTMLLabelElement = document.createElement("label");
   let invoiceLabel: HTMLLabelElement = document.createElement("label");
   let paymentLabel: HTMLLabelElement = document.createElement("label");
-  let paymenInput: HTMLInputElement = document.createElement("input");
+  let paymentInput: HTMLInputElement = document.createElement("input");
+  let invoiceExtendedLabel: HTMLLabelElement = document.createElement("label");
+  let invoicePersonalNumber: HTMLInputElement = document.createElement("input");
 
   fNameInput.setAttribute("name", "firstname");
   emailInput.setAttribute("placeholder", "james.bond@exampel.se");
-  paymenInput.setAttribute("placeholder", "123456789 XXXX");
+  paymentInput.setAttribute("placeholder", "123456789 XXXX");
   emailInput.setAttribute("type", "email");
   cardButton.setAttribute("type", "radio");
   invoiceButton.setAttribute("type", "radio");
@@ -52,7 +53,6 @@ export function payoutForm() {
   paymentLabel.innerHTML = "Kortnummer: ";
 
   checkoutContainer.appendChild(checkoutTitle);
-  checkoutContainer.appendChild(paymentOptionDiv);
   checkoutForm.appendChild(labelFirstName);
   checkoutForm.appendChild(fNameInput);
   checkoutForm.appendChild(labelLastName);
@@ -61,23 +61,35 @@ export function payoutForm() {
   checkoutForm.appendChild(emailInput);
   checkoutForm.appendChild(labelCode);
   checkoutForm.appendChild(codeInput);
-  checkoutForm.appendChild(paymentLabel);
-  checkoutForm.appendChild(paymenInput);
   checkoutForm.appendChild(paymentOptionLabel);
   paymentOptionDiv.appendChild(cardLabel);
   paymentOptionDiv.appendChild(cardButton);
   paymentOptionDiv.appendChild(invoiceLabel);
   paymentOptionDiv.appendChild(invoiceButton);
-  checkoutForm.appendChild(payButton);
   checkoutContainer.appendChild(checkoutForm);
+  checkoutContainer.appendChild(paymentOptionDiv);
 
-  checkoutForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    let userName: string = fNameInput.value;
-    console.log(userName);
-    helloUser(userName);
+  cardButton.addEventListener("click", () => {
+    payWithCard(
+      checkoutContainer,
+      payButton,
+      paymentLabel,
+      paymentInput,
+      fNameInput
+    );
+  });
+
+  invoiceButton.addEventListener("click", () => {
+    payWithInvoice(
+      checkoutContainer,
+      payButton,
+      fNameInput,
+      invoiceExtendedLabel,
+      invoicePersonalNumber
+    );
   });
 }
+
 ////////payment form ends here
 
 export function deliveryForm() {
@@ -121,6 +133,51 @@ export function deliveryForm() {
   deliveryForm.appendChild(deliveryinputTwo);
   deliveryContainer.appendChild(deliveryLabel);
   deliveryContainer.appendChild(deliveryForm);
+}
+
+function payWithCard(
+  checkoutContainer: HTMLDivElement,
+  payButton: HTMLButtonElement,
+  paymentLabel: HTMLLabelElement,
+  paymentInput: HTMLInputElement,
+  fNameInput: HTMLInputElement
+) {
+  payButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    let userName: string = fNameInput.value;
+    helloUser(userName);
+  });
+  let extendedDiv: HTMLDivElement = document.createElement("div");
+
+  extendedDiv.className = "extendedDiv";
+
+  extendedDiv.appendChild(paymentLabel);
+  extendedDiv.appendChild(paymentInput);
+  extendedDiv.appendChild(payButton);
+  checkoutContainer.appendChild(extendedDiv);
+}
+function payWithInvoice(
+  checkoutContainer: HTMLDivElement,
+  payButton: HTMLButtonElement,
+  fNameInput: HTMLInputElement,
+  invoiceLabel: HTMLLabelElement,
+  invoicePersonalNumber: HTMLInputElement
+) {
+  let extendedDiv: HTMLDivElement = document.createElement("div");
+  extendedDiv.className = "extendedDiv";
+  payButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    let userName: string = fNameInput.value;
+    helloUser(userName);
+  });
+
+  invoiceLabel.innerHTML = "Personnummer:";
+  invoicePersonalNumber.setAttribute("placeholder", "XXXXXX - XXXX");
+
+  extendedDiv.appendChild(invoiceLabel);
+  extendedDiv.appendChild(invoicePersonalNumber);
+  extendedDiv.appendChild(payButton);
+  checkoutContainer.appendChild(extendedDiv);
 }
 
 function helloUser(userName: string) {
