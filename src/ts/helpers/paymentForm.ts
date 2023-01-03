@@ -169,7 +169,7 @@ function payWithInvoice(
   invoicePersonalNumber: HTMLInputElement
 ) {
   let extendedDiv: HTMLDivElement = document.createElement("div");
-  extendedDiv.className = "payOutContainer__extendedDiv";
+  extendedDiv.className = "payOutFormContainer__extendedDiv";
   payButton.addEventListener("click", (event) => {
     event.preventDefault();
     let userName: string = fNameInput.value;
@@ -195,7 +195,7 @@ function helloUser(userName: string) {
   mainWrapper.innerHTML = "";
 
   let orderContainer: HTMLDivElement = document.createElement("div");
-  orderContainer.classList.add("checkoutContainer");
+  orderContainer.classList.add("orderContainer");
 
   let orderMessage: HTMLHeadingElement = document.createElement("h3");
   orderMessage.innerHTML = "Tack för din beställning " + userName;
