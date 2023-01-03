@@ -62,6 +62,7 @@ export function payoutForm() {
   checkoutForm.appendChild(labelCode);
   checkoutForm.appendChild(codeInput);
   checkoutForm.appendChild(paymentOptionLabel);
+  checkoutForm.appendChild(paymentOptionDiv);
   paymentOptionDiv.appendChild(cardLabel);
   paymentOptionDiv.appendChild(cardButton);
   paymentOptionDiv.appendChild(invoiceLabel);
