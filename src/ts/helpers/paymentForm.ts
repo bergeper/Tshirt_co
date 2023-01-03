@@ -51,14 +51,6 @@ export function payoutForm() {
   invoiceLabel.innerHTML = "Faktura";
   paymentLabel.innerHTML = "Kortnummer: ";
 
-  let userName: string = fNameInput.value;
-  console.log(userName);
-
-  checkoutForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    helloUser(userName);
-  });
-
   checkoutContainer.appendChild(checkoutTitle);
   checkoutContainer.appendChild(paymentOptionDiv);
   checkoutForm.appendChild(labelFirstName);
@@ -78,6 +70,13 @@ export function payoutForm() {
   paymentOptionDiv.appendChild(invoiceButton);
   checkoutForm.appendChild(payButton);
   checkoutContainer.appendChild(checkoutForm);
+
+  checkoutForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    let userName: string = fNameInput.value;
+    console.log(userName);
+    helloUser(userName);
+  });
 }
 ////////payment form ends here
 
