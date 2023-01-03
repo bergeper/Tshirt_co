@@ -8,6 +8,10 @@
 .wrapper {
   width: 100%;
   min-height: 100vh;
+  //background-image:
+  background-image: url("https://dl.dropboxusercontent.com//s/sv6usld9vegclbp/bg-image.jpg?dl=0");
+  background-size: cover;
+  background-repeat: no-repeat;
 
   .product-button-wraper {
     display: flex;
