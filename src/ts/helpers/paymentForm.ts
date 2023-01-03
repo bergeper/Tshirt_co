@@ -1,7 +1,7 @@
 // Payment form here
 
 import { ProductCart } from "../models/ProductCart";
-import { getFromLocalStorage } from "./addToCart";
+import { getFromLocalStorage } from "./localStorage";
 
 //let userName = "";
 export function payoutForm() {

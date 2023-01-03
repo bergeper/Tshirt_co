@@ -9,3 +9,7 @@ export function getFromLocalStorage(): ProductCart[] {
   });
   return cartProducts;
 }
+
+export function clearLocalStorage() {
+  window.localStorage.clear();
+}

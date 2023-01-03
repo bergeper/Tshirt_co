@@ -2,7 +2,7 @@ import { Product } from "./models/Products";
 import { products } from "./services/productList";
 import { buttonAttributes, openCartModal } from "./helpers/cart";
 import { ProductCart } from "./models/ProductCart";
-import { getFromLocalStorage } from "./helpers/addToCart";
+import { getFromLocalStorage } from "./helpers/localStorage";
 import { Size } from "./models/Size";
 
 buttonAttributes();

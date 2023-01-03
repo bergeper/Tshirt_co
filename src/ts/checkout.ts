@@ -1,5 +1,5 @@
 import { buttonAttributes, openCartModal } from "./helpers/cart";
-import { getFromLocalStorage } from "./helpers/addToCart";
+import { getFromLocalStorage } from "./helpers/localStorage";
 import { ProductCart } from "./models/ProductCart";
 import { payoutForm } from "./helpers/paymentForm";
 
