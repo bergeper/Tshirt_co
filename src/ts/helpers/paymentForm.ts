@@ -6,7 +6,7 @@ import { getFromLocalStorage } from "./addToCart";
 //let userName = "";
 export function payoutForm() {
   let checkoutContainer: HTMLDivElement = document.getElementById(
-    "payOutForm"
+    "payOutFormContainer"
   ) as HTMLDivElement;
   let checkoutForm: HTMLFormElement = document.createElement("form");
   let checkoutTitle: HTMLHeadingElement = document.createElement("h3");
@@ -41,8 +41,8 @@ export function payoutForm() {
   payButton.setAttribute("type", "submit");
   fNameInput.setAttribute("value", "");
 
-  checkoutForm.className = "cartForm";
-  paymentOptionDiv.className = "paymentDiv";
+  checkoutForm.className = "payOutFormContainer__cartForm";
+  paymentOptionDiv.className = "payOutFormContainer__paymentDiv";
   payButton.className = "payButton";
 
   checkoutTitle.innerHTML = "Betalning";
@@ -76,7 +76,7 @@ export function payoutForm() {
 
   //delivery form starts here
   let deliveryContainer: HTMLDivElement = document.getElementById(
-    "deliveryForm"
+    "deliveryFormContainer"
   ) as HTMLDivElement;
   let deliveryLabel: HTMLHeadingElement = document.createElement("h3");
   let deliveryForm: HTMLFormElement = document.createElement("form");
@@ -95,8 +95,8 @@ export function payoutForm() {
   deliveryInputLabelTwo.innerHTML = "Brevlåda: ";
   deliveryZipLabel.innerHTML = "Postkod: ";
 
-  deliveryForm.className = "deliveryOptionsForm";
-  deliveryZipInput.className = "zipInput";
+  deliveryForm.className = "deliveryForm";
+  deliveryZipInput.className = "deliveryForm__zip";
 
   deliveryAdressInput.setAttribute("placeholder", "Medieinstitutsgatan 25");
   deliveryZipInput.setAttribute("placeholder", "123 45");

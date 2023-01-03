@@ -23,40 +23,43 @@
   }
 }
 
-/////////////////////////////////////////form
-.deliveryForm {
+
+.deliveryFormContainer {
   //the form container
   display: flex;
   flex-direction: column;
   background-color: rgb(171, 179, 158);
   margin-top: 40px;
-  .deliveryOptionsForm {
+  .deliveryForm {
     //the form
     display: flex;
-    flex-wrap: wrap;
-    label {
+    flex-wrap: wrap; 
+    &__zip {
+      max-width: 60px;
+    }
+    label { //all labels in deliveryForm
       margin-right: 5px;
       padding-left: 5px;
     }
   }
-  .zipInput {
-    max-width: 60px;
-  }
-}
-.cartForm {
-  display: flex;
-  flex-direction: column;
-  margin-left: 10px;
 }
 
-.payOutForm {
+
+
+.payOutFormContainer {
   background-color: rgb(171, 179, 158);
   margin-top: 40px;
+  &__cartForm {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+  &__paymentForm {
+      padding-left: 15px;
+  }
   input {
     max-width: 370px;
   }
-  .paymentDiv {
-    padding-left: 15px;
+ 
     input {
       margin-right: 10px;
       margin-left: 10px;
