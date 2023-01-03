@@ -184,10 +184,10 @@ function payWithInvoice(
 }
 
 function helloUser(userName: string, orderConfirmationDiv: HTMLDivElement) {
-  let mainWrapper: HTMLElement = document.getElementById(
-    "mainWrapper"
-  ) as HTMLElement;
-
+  let mainWrapper: HTMLDivElement = document.getElementById(
+    "orderConfirmation"
+  ) as HTMLDivElement;
+  mainWrapper.innerHTML = "";
   (orderConfirmationDiv.innerHTML = "Tack för din beställning " + userName),
     "!";
   mainWrapper.appendChild(orderConfirmationDiv);
