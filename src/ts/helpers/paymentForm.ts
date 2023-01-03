@@ -53,7 +53,8 @@ export function payoutForm() {
 
   let userName: string = fNameInput.value;
   console.log(userName);
-  payButton.addEventListener("click", () => {
+  payButton.addEventListener("click", (event) => {
+    event.preventDefault();
     helloUser(userName);
   });
 
@@ -74,52 +75,53 @@ export function payoutForm() {
   paymentOptionDiv.appendChild(cardButton);
   paymentOptionDiv.appendChild(invoiceLabel);
   paymentOptionDiv.appendChild(invoiceButton);
-  checkoutContainer.appendChild(checkoutForm);
-
   checkoutForm.appendChild(payButton);
+  checkoutContainer.appendChild(checkoutForm);
 }
 ////////payment form ends here
 
-let deliveryContainer: HTMLDivElement = document.getElementById(
-  "deliveryForm"
-) as HTMLDivElement;
-let deliveryLabel: HTMLHeadingElement = document.createElement("h3");
-let deliveryForm: HTMLFormElement = document.createElement("form");
-let deliveryAdressLabel: HTMLLabelElement = document.createElement("label");
-let deliveryAdressInput: HTMLInputElement = document.createElement("input");
-let deliveryZipLabel: HTMLLabelElement = document.createElement("label");
-let deliveryZipInput: HTMLInputElement = document.createElement("input");
-let deliveryInputLabelOne: HTMLLabelElement = document.createElement("label");
-let deliveryInputLabelTwo: HTMLLabelElement = document.createElement("label");
-let deliveryinputOne: HTMLInputElement = document.createElement("input");
-let deliveryinputTwo: HTMLInputElement = document.createElement("input");
+export function deliveryForm() {
+  let deliveryContainer: HTMLDivElement = document.getElementById(
+    "deliveryForm"
+  ) as HTMLDivElement;
+  let deliveryLabel: HTMLHeadingElement = document.createElement("h3");
+  let deliveryForm: HTMLFormElement = document.createElement("form");
+  let deliveryAdressLabel: HTMLLabelElement = document.createElement("label");
+  let deliveryAdressInput: HTMLInputElement = document.createElement("input");
+  let deliveryZipLabel: HTMLLabelElement = document.createElement("label");
+  let deliveryZipInput: HTMLInputElement = document.createElement("input");
+  let deliveryInputLabelOne: HTMLLabelElement = document.createElement("label");
+  let deliveryInputLabelTwo: HTMLLabelElement = document.createElement("label");
+  let deliveryinputOne: HTMLInputElement = document.createElement("input");
+  let deliveryinputTwo: HTMLInputElement = document.createElement("input");
 
-deliveryLabel.innerHTML = "Fraktsätt";
-deliveryAdressLabel.innerHTML = "Adress: ";
-deliveryInputLabelOne.innerHTML = "Postombud: ";
-deliveryInputLabelTwo.innerHTML = "Brevlåda: ";
-deliveryZipLabel.innerHTML = "Postkod: ";
+  deliveryLabel.innerHTML = "Fraktsätt";
+  deliveryAdressLabel.innerHTML = "Adress: ";
+  deliveryInputLabelOne.innerHTML = "Postombud: ";
+  deliveryInputLabelTwo.innerHTML = "Brevlåda: ";
+  deliveryZipLabel.innerHTML = "Postkod: ";
 
-deliveryForm.className = "deliveryOptionsForm";
-deliveryZipInput.className = "zipInput";
+  deliveryForm.className = "deliveryOptionsForm";
+  deliveryZipInput.className = "zipInput";
 
-deliveryAdressInput.setAttribute("placeholder", "Medieinstitutsgatan 25");
-deliveryZipInput.setAttribute("placeholder", "123 45");
-deliveryinputOne.setAttribute("type", "radio");
-deliveryinputTwo.setAttribute("type", "radio");
-deliveryinputOne.setAttribute("name", "delivery");
-deliveryinputTwo.setAttribute("name", "delivery");
+  deliveryAdressInput.setAttribute("placeholder", "Medieinstitutsgatan 25");
+  deliveryZipInput.setAttribute("placeholder", "123 45");
+  deliveryinputOne.setAttribute("type", "radio");
+  deliveryinputTwo.setAttribute("type", "radio");
+  deliveryinputOne.setAttribute("name", "delivery");
+  deliveryinputTwo.setAttribute("name", "delivery");
 
-deliveryForm.appendChild(deliveryAdressLabel);
-deliveryForm.appendChild(deliveryAdressInput);
-deliveryForm.appendChild(deliveryZipLabel);
-deliveryForm.appendChild(deliveryZipInput);
-deliveryForm.appendChild(deliveryInputLabelOne);
-deliveryForm.appendChild(deliveryinputOne);
-deliveryForm.appendChild(deliveryInputLabelTwo);
-deliveryForm.appendChild(deliveryinputTwo);
-deliveryContainer.appendChild(deliveryLabel);
-deliveryContainer.appendChild(deliveryForm);
+  deliveryForm.appendChild(deliveryAdressLabel);
+  deliveryForm.appendChild(deliveryAdressInput);
+  deliveryForm.appendChild(deliveryZipLabel);
+  deliveryForm.appendChild(deliveryZipInput);
+  deliveryForm.appendChild(deliveryInputLabelOne);
+  deliveryForm.appendChild(deliveryinputOne);
+  deliveryForm.appendChild(deliveryInputLabelTwo);
+  deliveryForm.appendChild(deliveryinputTwo);
+  deliveryContainer.appendChild(deliveryLabel);
+  deliveryContainer.appendChild(deliveryForm);
+}
 
 function helloUser(userName: string) {
   console.log(userName);
