@@ -30,16 +30,19 @@ function render() {
     let cart: HTMLDivElement = document.createElement("div");
     cart.className = "checkout";
 
+    let procuctContainer: HTMLDivElement = document.createElement("div");
+    procuctContainer.className = "cart__product";
+
     let productName: HTMLParagraphElement = document.createElement("p");
-    productName.className = "checkout__productName";
+    productName.className = "checkout__product--name";
     productName.innerHTML = cartProducts[i].product.name;
 
     let productSize: HTMLParagraphElement = document.createElement("p");
-    productSize.className = "checkout__productSize";
+    productSize.className = "checkout__product--size";
     productSize.innerHTML = cartProducts[i].product.size.size;
 
     let productPrice: HTMLParagraphElement = document.createElement("p");
-    productPrice.className = "checkout__productPrice";
+    productPrice.className = "checkout__product--price";
     productPrice.innerHTML = cartProducts[i].product.price.toString();
 
     let cartImage: HTMLImageElement = document.createElement("img");
@@ -94,9 +97,10 @@ function render() {
       render();
     });
 
-    cart.appendChild(productName);
-    cart.appendChild(productSize);
-    cart.appendChild(productPrice);
+    procuctContainer.appendChild(productName);
+    procuctContainer.appendChild(productSize);
+    procuctContainer.appendChild(productPrice);
+    cart.appendChild(procuctContainer);
     cart.appendChild(cartImage);
     cart.appendChild(addButton);
     cart.appendChild(cartQuantity);
