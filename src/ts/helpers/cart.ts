@@ -1,5 +1,5 @@
 import { ProductCart } from "../models/ProductCart";
-import { getFromLocalStorage } from "./localStorage";
+import { clearLocalStorage, getFromLocalStorage } from "./localStorage";
 
 // cart List
 let cartProducts: ProductCart[] = [];
@@ -125,7 +125,7 @@ export function openCartModal(cartProducts: ProductCart[]) {
     "removeAllProducts"
   ) as HTMLDivElement;
   removeAllProducts.addEventListener("click", () => {
-    window.localStorage.clear();
+    clearLocalStorage();
     openCartModal(cartProducts);
   });
 
