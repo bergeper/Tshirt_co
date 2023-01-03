@@ -29,6 +29,8 @@
   background-color: rgba(85, 122, 72, 0.779);
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   &__title {
     font-size: 1.4rem;
     font-weight: lighter;
@@ -45,12 +47,21 @@
     padding-left: 5px;
   }
   &__form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &--label {
+      display: inline;
+      font-weight: lighter;
+      font-size: 1.2rem;
+      padding-left: 5px;
+    }
     &--btn {
       padding: 5px;
       margin: 5px;
+      border: none;
       border-radius: 10px;
-      border: 2px solid black;
-      width: 60%;
+
       &:hover {
         background-color: black;
         color: white;
@@ -60,8 +71,8 @@
       padding: 5px;
       margin: 5px;
       border-radius: 10px;
-      border: 2px solid black;
-      width: 32%;
+      border: none;
+
       &:hover {
         background-color: black;
         color: white;
@@ -72,7 +83,8 @@
     margin: 5px;
     padding: 5px;
     border-radius: 10px;
-    border: 2px solid black;
+    width: 100%;
+    border: none;
     &:hover {
       background-color: black;
       color: white;
