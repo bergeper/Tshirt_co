@@ -195,7 +195,7 @@ function helloUser(userName: string) {
   mainWrapper.innerHTML = "";
 
   let orderContainer: HTMLDivElement = document.createElement("div");
-  // Add className here.
+  orderContainer.classList.add("checkoutContainer");
 
   let orderMessage: HTMLHeadingElement = document.createElement("h3");
   orderMessage.innerHTML = "Tack för din beställning " + userName;
