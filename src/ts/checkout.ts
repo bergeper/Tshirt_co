@@ -28,42 +28,42 @@ function render() {
     modalTitle.innerHTML = "Varukorg";
 
     let cart: HTMLDivElement = document.createElement("div");
-    cart.className = "cart";
+    cart.className = "checkout";
 
     let productName: HTMLParagraphElement = document.createElement("p");
-    productName.className = "cart__productName";
+    productName.className = "checkout__productName";
     productName.innerHTML = cartProducts[i].product.name;
 
     let productSize: HTMLParagraphElement = document.createElement("p");
-    productSize.className = "cart__productSize";
+    productSize.className = "checkout__productSize";
     productSize.innerHTML = cartProducts[i].product.size.size;
 
     let productPrice: HTMLParagraphElement = document.createElement("p");
-    productPrice.className = "cart__productPrice";
+    productPrice.className = "checkout__productPrice";
     productPrice.innerHTML = cartProducts[i].product.price.toString();
 
     let cartImage: HTMLImageElement = document.createElement("img");
-    cartImage.className = "cart__cartImage";
+    cartImage.className = "checkout__cartImage";
     cartImage.src = cartProducts[i].product.image;
 
     let cartQuantity: HTMLParagraphElement = document.createElement("p");
     cartQuantity.innerHTML = cartProducts[i].quantity.toString();
-    cartQuantity.className = "cart__cartQuantity";
+    cartQuantity.className = "checkout__cartQuantity";
 
     let quantityDiv: HTMLDivElement = document.createElement("div");
-    quantityDiv.className = "cart__quantityDiv";
+    quantityDiv.className = "checkout__quantityDiv";
 
     //create - + buttons
     let removeButton: HTMLButtonElement = document.createElement("button");
-    removeButton.className = "cart__removeButton";
+    removeButton.className = "checkout__removeButton";
     removeButton.innerHTML = "-";
 
     let addButton: HTMLButtonElement = document.createElement("button");
-    addButton.className = "cart__addButton";
+    addButton.className = "checkout__addButton";
     addButton.innerHTML = "+";
 
     let removeAllButton: HTMLElement = document.createElement("button");
-    removeAllButton.className = "cart__removeAllButton";
+    removeAllButton.className = "checkout__removeAllButton";
     removeAllButton.innerHTML = `<i class="bi bi-trash trashIcon"</i>`;
 
     //add quantity to cart
