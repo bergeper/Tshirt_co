@@ -54,6 +54,10 @@ function createHTMLForProducts() {
     let chooseSizeOpt3: HTMLOptionElement = document.createElement(
       "option"
     ) as HTMLOptionElement;
+    let chooseSizeLabel: HTMLLabelElement = document.createElement(
+      "label"
+    ) as HTMLLabelElement;
+    chooseSizeLabel.innerHTML = "Välj Storlek: ";
     chooseSize.name = "chooseSize";
     chooseSize.id = "chooseSize";
 
@@ -79,6 +83,7 @@ function createHTMLForProducts() {
     clothingDescBtn.classList.add("productDiv__btn--desc");
 
     sizeForm.classList.add("productDiv__form");
+    chooseSizeLabel.classList.add("productDiv__form--label");
     chooseSize.classList.add("productDiv__form--select");
     clothingBtn.classList.add("productDiv__form--btn");
 
@@ -111,6 +116,7 @@ function createHTMLForProducts() {
     chooseSize.appendChild(chooseSizeOpt1);
     chooseSize.appendChild(chooseSizeOpt2);
     chooseSize.appendChild(chooseSizeOpt3);
+    sizeForm.appendChild(chooseSizeLabel);
     sizeForm.appendChild(chooseSize);
     sizeForm.appendChild(clothingBtn);
 

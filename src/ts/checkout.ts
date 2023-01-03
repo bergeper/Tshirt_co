@@ -102,7 +102,6 @@ function render() {
     cart.appendChild(cartQuantity);
     cart.appendChild(removeButton);
     cart.appendChild(removeAllButton);
-    console.log("tjooo", cart);
     checkoutContainer.appendChild(cart);
   }
 
