@@ -76,7 +76,7 @@ export function openCartModal(cartProducts: ProductCart[]) {
     addButton.className = "cart__addButton";
     addButton.innerHTML = "+";
 
-    let removeAllButton: HTMLElement = document.createElement("button");
+    let removeAllButton: HTMLButtonElement = document.createElement("button");
     removeAllButton.className = "cart__removeAllButton";
     removeAllButton.innerHTML = `<i class="bi bi-trash trashIcon"</i>`;
 
