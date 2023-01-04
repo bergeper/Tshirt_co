@@ -98,6 +98,7 @@ export function payoutForm() {
   checkoutForm.appendChild(deliveryinputTwo);
 
   //payment
+
   checkoutContainer.appendChild(checkoutTitle);
   checkoutForm.appendChild(labelFirstName);
   checkoutForm.appendChild(fNameInput);
@@ -109,12 +110,8 @@ export function payoutForm() {
   checkoutForm.appendChild(codeInput);
   checkoutForm.appendChild(paymentOptionLabel);
   checkoutForm.appendChild(paymentOptionDiv);
-  paymentOptionDiv.appendChild(cardLabel);
-  paymentOptionDiv.appendChild(cardButton);
-  paymentOptionDiv.appendChild(invoiceLabel);
-  paymentOptionDiv.appendChild(invoiceButton);
-  checkoutContainer.appendChild(checkoutForm);
   checkoutContainer.appendChild(paymentOptionDiv);
+  checkoutContainer.appendChild(checkoutForm);
 
   //delivery form starts here
 

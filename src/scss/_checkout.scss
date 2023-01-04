@@ -61,6 +61,10 @@
       margin-bottom: 30px;
       border-radius: 10%;
     }
+    &__paymentDiv {
+      display: flex;
+      background-color: orange;
+    }
   }
   &__cartForm {
     display: flex;
