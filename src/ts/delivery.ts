@@ -1,6 +1,6 @@
 import { getCustomerFromLocalStorage } from "./helpers/customerLS";
 import { clearLocalStorage, getFromLocalStorage } from "./helpers/localStorage";
-import { Customer } from "./models/customer";
+import { Customer } from "./models/Customer";
 import { ProductCart } from "./models/ProductCart";
 
 let mainWrapper: HTMLDivElement = document.getElementById(

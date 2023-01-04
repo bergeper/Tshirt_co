@@ -13,6 +13,7 @@
 .checkout-form {
   display: flex;
   flex-direction: column;
+  margin-top: 8px;
   @include mix.tablet {
     width: 50vw;
   }
@@ -43,43 +44,11 @@
     }
   }
 }
-/*
-.payOutFormContainer {
-  background-color: rgb(171, 179, 158);
-  margin-top: 40px;
-  &__extendedDiv {
-    display: flex;
-    flex-direction: column;
-    margin-right: 10px;
-    margin-left: 10px;
-    &--payButton {
-      font-weight: lighter;
-      border: none;
-      height: 30px;
-      margin-bottom: 30px;
-      border-radius: 10%;
-    }
-    &__paymentDiv {
-      display: flex;
-      background-color: orange;
-    }
-  }
-  &__cartForm {
-    display: flex;
-    flex-direction: column;
-    margin-left: 10px;
-    &__paymentForm {
-      padding-left: 15px;
-    }
-    input {
-      max-width: 370px;
-      margin-right: 10px;
-      margin-left: 10px;
-    }
-  }
-}
-*/
 
 .checkout-form {
   background-color: var.$secondary-color;
+}
+
+.bgtitle {
+  background-color: white;
 }

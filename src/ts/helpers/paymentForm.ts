@@ -1,6 +1,5 @@
 // Payment form here
-
-import { Customer } from "../models/customer";
+import { Customer } from "../models/Customer";
 import { getCustomerFromLocalStorage } from "./customerLS";
 
 export function paymentOption() {

@@ -2,7 +2,7 @@ import { buttonAttributes } from "./helpers/cart";
 import { getFromLocalStorage } from "./helpers/localStorage";
 import { ProductCart } from "./models/ProductCart";
 import { paymentOption } from "./helpers/paymentForm";
-import { Customer } from "./models/customer";
+import { Customer } from "./models/Customer";
 
 buttonAttributes(); //anropar funktionen som i sin tur anropar funktionen som hämtar modalen
 displayCart();
