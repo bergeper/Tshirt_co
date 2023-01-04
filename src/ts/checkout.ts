@@ -10,7 +10,7 @@ function render() {
   cartProducts = getFromLocalStorage();
 
   let checkoutContainer = document.getElementById(
-    "checkout-container"
+    "checkout-cart"
   ) as HTMLDivElement;
   checkoutContainer.innerHTML = "";
 

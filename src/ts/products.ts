@@ -39,7 +39,7 @@ function sortProducts() {
   chooseFilterOpt6.text = "Loose T-shirts";
 
   filterForm.classList.add("productDiv__form");
-  chooseFilterLabel.classList.add("productDiv__form--label");
+  chooseFilterLabel.classList.add("productDiv__form--choose");
   chooseFilter.classList.add("productDiv__form--select");
   filterBtn.classList.add("productDiv__form--btn");
 
