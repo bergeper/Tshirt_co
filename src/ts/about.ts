@@ -1,3 +1,3 @@
-import { buttonAttributes } from "./helpers/cart";
+import { openCartButton } from "./helpers/cart";
 
-buttonAttributes(); //anropar funktionen som i sin tur anropar funktionen som hämtar modalen
+openCartButton(); //anropar funktionen som i sin tur anropar funktionen som hämtar modalen

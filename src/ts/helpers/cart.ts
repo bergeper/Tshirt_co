@@ -6,7 +6,7 @@ let cartProducts: ProductCart[] = [];
 
 //connect the cart button to the modal
 // Change function name.
-export function buttonAttributes() {
+export function openCartButton() {
   let clickOnCart = document.getElementById("cart__icon") as HTMLButtonElement;
   clickOnCart.setAttribute("data-bs-toggle", "modal");
   clickOnCart.setAttribute("data-bs-target", "#exampleModal");

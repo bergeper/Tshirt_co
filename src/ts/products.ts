@@ -1,6 +1,6 @@
 import { Product } from "./models/Products";
 import { products } from "./services/productList";
-import { buttonAttributes } from "./helpers/cart";
+import { openCartButton } from "./helpers/cart";
 import { cartProductToCart } from "./helpers/addToCart";
 
 function sortProducts() {
@@ -254,6 +254,6 @@ function createProductModal(productItem: Product) {
   productDescContainer.appendChild(clothingRelYear);
   productDescContainer.appendChild(clothingPrice);
 }
-buttonAttributes();
+openCartButton();
 createHTMLForProducts(products);
 sortProducts();

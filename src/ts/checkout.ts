@@ -1,10 +1,10 @@
-import { buttonAttributes } from "./helpers/cart";
+import { openCartButton } from "./helpers/cart";
 import { getFromLocalStorage } from "./helpers/localStorage";
 import { ProductCart } from "./models/ProductCart";
 import { paymentOption } from "./helpers/paymentForm";
 import { Customer } from "./models/Customer";
 
-buttonAttributes(); //anropar funktionen som i sin tur anropar funktionen som hämtar modalen
+openCartButton(); //anropar funktionen som i sin tur anropar funktionen som hämtar modalen
 displayCart();
 function displayCart() {
   let cartProducts: ProductCart[] = [];
