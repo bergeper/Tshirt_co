@@ -1,0 +1,49 @@
+@use "variables" as var;
+
+.deliveryContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.orderContainer {
+  text-align: center;
+  background-color: var.$third-color;
+  width: 90%;
+  margin-top: 20px;
+  padding: 20px;
+}
+
+.delivery {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px;
+  width: 100%;
+
+  &__cartImage {
+    width: 20%;
+  }
+  &__product {
+    &--name {
+      font-weight: bold;
+      font-size: 1.2rem;
+      width: 20%;
+      margin: 5px;
+    }
+    &--price {
+      font-weight: bold;
+      font-size: 1.1rem;
+      width: 20%;
+      margin: 5px;
+    }
+  }
+  &__totalSum {
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.533);
+    font-size: 1.2rem;
+    margin: 12px;
+    padding: 5px;
+    //   border-radius: 20px;
+  }
+}

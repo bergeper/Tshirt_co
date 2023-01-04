@@ -1,64 +1,7 @@
 // Payment form here
 
-import { ProductCart } from "../models/ProductCart";
-import { getFromLocalStorage } from "./localStorage";
-
-// Display Delivery Message
-export function displayDeliveryMessage(userName: string) {
-  let orderedItems: ProductCart[] = [];
-  orderedItems = getFromLocalStorage();
-
-  let mainWrapper: HTMLDivElement = document.getElementById(
-    "payment"
-  ) as HTMLDivElement;
-  mainWrapper.innerHTML = "";
-
-  let orderContainer: HTMLDivElement = document.createElement("div");
-  orderContainer.classList.add("orderContainer");
-
-  let orderMessage: HTMLHeadingElement = document.createElement("h3");
-  orderMessage.innerHTML = "Tack för din beställning " + userName;
-
-  orderContainer.appendChild(orderMessage);
-
-  for (let i = 0; i < orderedItems.length; i++) {
-    let orderDiv: HTMLDivElement = document.createElement("div");
-    let orderTitle: HTMLHeadElement = document.createElement("h3");
-    let orderImage: HTMLImageElement = document.createElement("img");
-    let orderPrice: HTMLHeadingElement = document.createElement("h3");
-
-    orderDiv.classList.add("checkout");
-    orderTitle.classList.add("checkout__product--name");
-    orderImage.classList.add("checkout__cartImage");
-    orderPrice.classList.add("checkout__product--price");
-
-    orderTitle.innerHTML = orderedItems[i].product.name;
-    orderImage.src = orderedItems[i].product.image;
-    orderPrice.innerHTML = orderedItems[i].product.price.toString();
-
-    orderDiv.appendChild(orderTitle);
-    orderDiv.appendChild(orderImage);
-    orderDiv.appendChild(orderPrice);
-    orderContainer.appendChild(orderDiv);
-  }
-  mainWrapper.appendChild(orderContainer);
-  // totalsum here
-  let sum = 0;
-  let totalSum: HTMLParagraphElement = document.createElement(
-    "totalsum"
-  ) as HTMLParagraphElement;
-  totalSum.className = "checkout__totalSum";
-  // totalSum.innerHTML = "";
-  if (orderedItems.length > 0) {
-    for (let i = 0; i < orderedItems.length; i++) {
-      sum += orderedItems[i].product.price * orderedItems[i].quantity;
-    }
-    totalSum.innerHTML = "Total: " + sum.toString() + " Kr";
-  } else {
-    totalSum.innerHTML = "Varukorgen är tom.";
-  }
-  orderContainer.appendChild(totalSum);
-}
+import { Customer } from "../models/customer";
+import { getCustomerFromLocalStorage } from "./customerLS";
 
 export function paymentOption() {
   let paymentChoice: HTMLDivElement = document.getElementById(
@@ -118,15 +61,19 @@ export function paymentOption() {
 let paymentChosen: HTMLDivElement = document.getElementById(
   "payment__chosen"
 ) as HTMLDivElement;
-paymentChosen.innerHTML = "";
 
 export function paymentCardChosen() {
+  paymentChosen.innerHTML = "";
   //form
   let formForCard: HTMLFormElement = document.createElement("form");
   //formForCard.classList.add("form-check");
 
   //container for inputs n labels
   let paymentCard: HTMLDivElement = document.createElement("div");
+
+  //Container for date and cvc
+  let dateAndCVC: HTMLDivElement = document.createElement("div");
+  dateAndCVC.classList.add("form-row");
 
   // Cardnumber
   let numberDiv: HTMLDivElement = document.createElement("div");
@@ -140,38 +87,42 @@ export function paymentCardChosen() {
   cardNumber.classList.add("form-control");
   cardNumber.setAttribute("id", "cardnumber");
   cardNumber.setAttribute("placeholder", "Kortnummer");
-  cardNumber.type = "number";
+  cardNumber.type = "text";
   cardNumber.required = true;
 
   // utgångsdatum
   let dateDiv: HTMLDivElement = document.createElement("div");
   let cardDate: HTMLInputElement = document.createElement("input");
   let cardDateLabel: HTMLLabelElement = document.createElement("label");
-  dateDiv.classList.add("m-3");
+  dateDiv.classList.add("m-3", "form-group", "col-4");
 
   cardDateLabel.innerHTML = "Utgångsdatum: ";
   cardDateLabel.setAttribute("for", "carddate");
   cardDateLabel.classList.add("form-label");
-  cardDate.classList.add("form-control", "col-xs-2");
+  cardDate.classList.add("form-control");
   cardDate.setAttribute("id", "carddate");
-  cardDate.setAttribute("placeholder", "Utgångsdatum");
-  cardDate.type = "number";
+  cardDate.setAttribute("placeholder", "Ex: 08-25");
+  cardDate.setAttribute("maxlength", "5");
+  cardDate.type = "text";
   cardDate.required = true;
+  cardDate.pattern = "[0-9]{2}+-[0-9]{2}";
 
   // security code - nummer
   let CVCDiv: HTMLDivElement = document.createElement("div");
   let cardCVC: HTMLInputElement = document.createElement("input");
   let cardCVCLabel: HTMLLabelElement = document.createElement("label");
-  CVCDiv.classList.add("m-3");
+  CVCDiv.classList.add("m-3", "form-group", "col-4");
 
   cardCVCLabel.innerHTML = "CVC: ";
   cardCVCLabel.setAttribute("for", "cardcvc");
   cardCVCLabel.classList.add("form-label");
   cardCVC.classList.add("form-control");
   cardCVC.setAttribute("id", "cardcvc");
-  cardCVC.setAttribute("placeholder", "CVC nummer");
-  cardCVC.type = "number";
+  cardCVC.setAttribute("placeholder", "Ex: 323");
+  cardCVC.type = "text";
+  cardCVC.setAttribute("maxlength", "3");
   cardCVC.required = true;
+  cardCVC.pattern = "[0-9]{3}";
 
   // Namn
   let nameDiv: HTMLDivElement = document.createElement("div");
@@ -189,23 +140,33 @@ export function paymentCardChosen() {
   cardName.required = true;
 
   // knapp för beställa
-
   let orderBtn: HTMLButtonElement = document.createElement("button");
   orderBtn.type = "submit";
   orderBtn.classList.add("productDiv__form--btn", "m-3");
-  orderBtn.innerHTML = "Betala";
+  orderBtn.innerHTML = "Lägg order";
+
+  orderBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    window.location.href = "http://localhost:1234/pages/delivery.html";
+  });
 
   numberDiv.appendChild(cardNumberLabel);
   numberDiv.appendChild(cardNumber);
+
   dateDiv.appendChild(cardDateLabel);
   dateDiv.appendChild(cardDate);
+
   CVCDiv.appendChild(cardCVCLabel);
   CVCDiv.appendChild(cardCVC);
+
   nameDiv.appendChild(cardNameLabel);
   nameDiv.appendChild(cardName);
+
+  dateAndCVC.appendChild(CVCDiv);
+  dateAndCVC.appendChild(dateDiv);
+
   paymentCard.appendChild(numberDiv);
-  paymentCard.appendChild(dateDiv);
-  paymentCard.appendChild(CVCDiv);
+  paymentCard.appendChild(dateAndCVC);
   paymentCard.appendChild(nameDiv);
   formForCard.appendChild(paymentCard);
   formForCard.appendChild(orderBtn);
@@ -213,9 +174,45 @@ export function paymentCardChosen() {
 }
 
 export function paymentInvoiceChosen() {
+  paymentChosen.innerHTML = "";
+  let formForInvoice: HTMLFormElement = document.createElement("form");
   let paymentInvoice: HTMLDivElement = document.createElement("div");
-  // hämta - info från LS
-  // personnummer
+  //formForCard.classList.add("form-check");
 
-  paymentChosen.appendChild(paymentInvoice);
+  // hämta - info från LS
+  let newCustomer: Customer[] = [];
+  newCustomer = getCustomerFromLocalStorage();
+
+  // personnummer
+  // Cardnumber
+  let pnDiv: HTMLDivElement = document.createElement("div");
+  let pnNumber: HTMLInputElement = document.createElement("input");
+  let pnNumberLabel: HTMLLabelElement = document.createElement("label");
+  pnDiv.classList.add("m-3");
+
+  pnNumberLabel.innerHTML = "Personummer: ";
+  pnNumberLabel.setAttribute("for", "personalnumber");
+  pnNumberLabel.classList.add("form-label");
+  pnNumber.classList.add("form-control");
+  pnNumber.setAttribute("id", "personalnumber");
+  pnNumber.setAttribute("placeholder", "Personummer");
+  pnNumber.type = "text";
+  pnNumber.required = true;
+
+  let orderBtn: HTMLButtonElement = document.createElement("button");
+  orderBtn.type = "submit";
+  orderBtn.classList.add("productDiv__form--btn", "m-3");
+  orderBtn.innerHTML = "Lägg order";
+
+  orderBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    window.location.href = "http://localhost:1234/pages/delivery.html";
+  });
+
+  pnDiv.appendChild(pnNumberLabel);
+  pnDiv.appendChild(pnNumber);
+  paymentInvoice.appendChild(pnDiv);
+  formForInvoice.appendChild(paymentInvoice);
+  formForInvoice.appendChild(orderBtn);
+  paymentChosen.appendChild(formForInvoice);
 }

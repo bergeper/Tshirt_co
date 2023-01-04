@@ -1,9 +1,8 @@
 import { buttonAttributes } from "./helpers/cart";
 import { getFromLocalStorage } from "./helpers/localStorage";
 import { ProductCart } from "./models/ProductCart";
-import { displayDeliveryMessage, paymentOption } from "./helpers/paymentForm";
+import { paymentOption } from "./helpers/paymentForm";
 import { Customer } from "./models/customer";
-import { getCustomerFromLocalStorage } from "./helpers/customerLS";
 
 buttonAttributes(); //anropar funktionen som i sin tur anropar funktionen som hämtar modalen
 displayCart();
