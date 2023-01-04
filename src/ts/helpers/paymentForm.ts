@@ -10,7 +10,7 @@ export function payoutForm() {
   ) as HTMLDivElement;
   //delivery form
   let deliveryLabel: HTMLHeadingElement = document.createElement("h3");
-  let deliveryForm: HTMLFormElement = document.createElement("form");
+  //let deliveryForm: HTMLFormElement = document.createElement("form");
   let deliveryAdressLabel: HTMLLabelElement = document.createElement("label");
   let deliveryAdressInput: HTMLInputElement = document.createElement("input");
   let deliveryZipLabel: HTMLLabelElement = document.createElement("label");
@@ -23,7 +23,7 @@ export function payoutForm() {
   let checkoutForm: HTMLFormElement = document.createElement("form");
   let checkoutTitle: HTMLHeadingElement = document.createElement("h3");
   let labelFirstName: HTMLLabelElement = document.createElement("label");
-  let fNameInput: HTMLInputElement = document.createElement("input"); // ska submitta value och använda senare
+  let fNameInput: HTMLInputElement = document.createElement("input");
   let labelLastName: HTMLLabelElement = document.createElement("label");
   let lNameInput: HTMLInputElement = document.createElement("input");
   let labelEmail: HTMLLabelElement = document.createElement("label");
@@ -74,7 +74,7 @@ export function payoutForm() {
   paymentOptionDiv.className = "payOutFormContainer__paymentDiv";
   payButton.className = "payOutFormContainer__extendendDiv--payButton";
   //delivery
-  deliveryForm.className = "deliveryForm";
+  //deliveryForm.className = "deliveryForm";
   deliveryZipInput.className = "deliveryForm__zip";
   //payment
   checkoutTitle.innerHTML = "Betalning";
