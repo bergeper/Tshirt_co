@@ -4,6 +4,7 @@
 .checkout-container {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   @include mix.tablet {
     flex-direction: row;
   }

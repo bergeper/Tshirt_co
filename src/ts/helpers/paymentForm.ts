@@ -156,7 +156,7 @@ function payWithCard(
   });
   let extendedDiv: HTMLDivElement = document.createElement("div");
 
-  extendedDiv.className = "extendedDiv";
+  extendedDiv.className = "payOutFormContainer__extendedDiv";
 
   extendedDiv.appendChild(paymentLabel);
   extendedDiv.appendChild(paymentInput);
