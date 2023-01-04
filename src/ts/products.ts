@@ -38,12 +38,12 @@ function sortProducts() {
   chooseFilterOpt6.value = "6";
   chooseFilterOpt6.text = "Loose T-shirts";
 
-  filterForm.classList.add("productDiv__form");
-  chooseFilterLabel.classList.add("productDiv__form--choose");
-  chooseFilter.classList.add("productDiv__form--select");
-  filterBtn.classList.add("productDiv__form--btn");
+  filterForm.classList.add("sort__form");
+  chooseFilterLabel.classList.add("sort__form--choose");
+  chooseFilter.classList.add("sort__form--select");
+  filterBtn.classList.add("sort__form--btn");
 
-  chooseFilterLabel.innerHTML = "Välj filter: ";
+  chooseFilterLabel.innerHTML = "Välj:";
   filterForm.appendChild(chooseFilterLabel);
   chooseFilter.appendChild(chooseFilterOpt1);
   chooseFilter.appendChild(chooseFilterOpt2);

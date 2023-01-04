@@ -105,6 +105,48 @@
     }
   }
 }
+.sort {
+  padding: 5px;
+  margin: 5px;
+  border-radius: 10px;
+  background-color: var.$secondary-color;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  &__form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &--choose {
+      font-size: 1rem;
+      padding-right: 3px;
+    }
+    &--btn {
+      padding: 2px;
+      margin: 2px;
+      border: none;
+      border-radius: 10px;
+      background-color: white;
+
+      &:hover {
+        background-color: black;
+        color: white;
+      }
+    }
+    &--select {
+      padding: 2px;
+
+      border-radius: 10px;
+      border: none;
+
+      &:hover {
+        background-color: black;
+        color: white;
+      }
+    }
+  }
+}
 
 .productsTitle {
   color: white;
