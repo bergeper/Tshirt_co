@@ -71,14 +71,15 @@
     </header>
     <main class="wrapper" id="mainWrapper">
       <h3 class="productPageTitle">Kassa</h3>
-      <div class="checkout-container" id="orderConfirmation">
+      <section class="checkout-container" id="orderConfirmation">
         <div id="checkout-cart" class="checkoutCart"></div>
-        <div class="checkout-form" id="checkout-form">
-          <form>
+        <div class="checkout-form">
+          <form id="checkoutForm">
             <div class="m-3">
               <label for="name" class="form-label">Förnamn: </label>
               <input
                 type="text"
+                value=""
                 class="form-control"
                 id="name"
                 placeholder="Förnamn"
@@ -138,10 +139,14 @@
                 required
               />
             </div>
-            <button type="submit">Betalsätt</button>
+            <button id="checkoutFormBtn" type="submit">Till betalning</button>
           </form>
         </div>
-      </div>
+        <div class="checkout-form" id="payment">
+          <div class="checkout-form__choice" id="payment__choice"></div>
+          <div class="checkout-form__choosen" id="payment__choosen"></div>
+        </div>
+      </section>
     </main>
     <footer class="information">
       <section class="contact">

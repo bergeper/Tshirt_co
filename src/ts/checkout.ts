@@ -1,10 +1,11 @@
 import { buttonAttributes } from "./helpers/cart";
 import { getFromLocalStorage } from "./helpers/localStorage";
 import { ProductCart } from "./models/ProductCart";
+import { displayDeliveryMessage, paymentOption } from "./helpers/paymentForm";
 
 buttonAttributes(); //anropar funktionen som i sin tur anropar funktionen som hämtar modalen
-
-function render() {
+displayCart();
+function displayCart() {
   let cartProducts: ProductCart[] = [];
   cartProducts = getFromLocalStorage();
 
@@ -69,7 +70,7 @@ function render() {
       //cartProducts[i].quantity++;
       cartProducts[i].quantityPlus(1);
       localStorage.setItem("Cart", JSON.stringify(cartProducts) || "");
-      render();
+      displayCart();
     });
 
     //remove quantity to cartitem
@@ -82,14 +83,14 @@ function render() {
         cartProducts[i].quantityPlus(1);
       }
       localStorage.setItem("Cart", JSON.stringify(cartProducts) || "");
-      render();
+      displayCart();
     });
 
     //Remove item for Cart
     removeAllButton.addEventListener("click", () => {
       cartProducts.splice(i, 1);
       localStorage.setItem("Cart", JSON.stringify(cartProducts) || "");
-      render();
+      displayCart();
     });
 
     procuctContainer.appendChild(productName);
@@ -127,7 +128,16 @@ function render() {
   }
   checkoutContainer.appendChild(totalSum);
 }
-render();
 //payoutForm();
+// Getting Form
+let checkOutForm: HTMLFormElement = document.getElementById(
+  "checkoutForm"
+) as HTMLFormElement;
+let checkOutFormfName: HTMLFormElement = document.getElementById(
+  "input"
+) as HTMLFormElement;
 
-// hämta html formet från checkout.html
+checkOutForm.addEventListener("submit", (e: SubmitEvent) => {
+  e.preventDefault();
+  paymentOption();
+});
