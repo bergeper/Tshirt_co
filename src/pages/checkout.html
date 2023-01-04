@@ -73,7 +73,73 @@
       <h3 class="productPageTitle">Kassa</h3>
       <div class="checkout-container" id="orderConfirmation">
         <div id="checkout-cart" class="checkoutCart"></div>
-        <div class="payOutFormContainer" id="checkout-form"></div>
+        <div class="checkout-form" id="checkout-form">
+          <form>
+            <div class="m-3">
+              <label for="name" class="form-label">Förnamn: </label>
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                placeholder="Förnamn"
+                required
+              />
+            </div>
+            <div class="m-3">
+              <label for="lastname" class="form-label">Efternamn: </label>
+              <input
+                type="text"
+                class="form-control"
+                id="lastname"
+                placeholder="Efternamn"
+                required
+              />
+            </div>
+            <div class="m-3">
+              <label for="email" class="form-label">Mailadress: </label>
+              <input
+                for="email"
+                type="email"
+                class="form-control"
+                id="email"
+                name="email"
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+                required
+                placeholder="Enter your email adress *"
+              />
+            </div>
+            <div class="m-3">
+              <label for="adress" class="form-label">Adress: </label>
+              <input
+                type="text"
+                class="form-control"
+                id="adress"
+                placeholder="Adress"
+                required
+              />
+            </div>
+            <div class="m-3">
+              <label for="city" class="form-label">Postort: </label>
+              <input
+                type="text"
+                class="form-control"
+                id="city"
+                placeholder="Postort"
+                required
+              />
+            </div>
+            <div class="m-3">
+              <label for="zipcode" class="form-label">Postnummer: </label>
+              <input
+                type="text"
+                class="form-control"
+                id="zipcode"
+                placeholder="Postnummer"
+                required
+              />
+            </div>
+          </form>
+        </div>
       </div>
     </main>
     <footer class="information">
@@ -85,32 +151,32 @@
           <p>#12345 Factory</p>
         </div>
         <div class="info">
-          <i class="bi bi-instagram"></i></i> Instagram</p>
+          <p><i class="bi bi-instagram"></i>Instagram</p>
           <p><i class="bi bi-twitter"></i> Twitter</p>
           <p><i class="bi bi-facebook"></i> Facebook</p>
           <p>© Copyright T-shirt & Co</p>
         </div>
       </section>
     </footer>
-     <!-- Shopping cart modal -->
+    <!-- Shopping cart modal -->
     <div
-     class="modal fade"
-     id="exampleModal"
-     tabindex="-1"
-     aria-labelledby="exampleModalLabel"
-     aria-hidden="true"
-     >
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
       <div class="modal-dialog">
         <div class="modal-content">
-          <div class="modal-header modal-color ">
+          <div class="modal-header modal-color">
             <h1 class="modal-title fs-5" id="exampleModalLabel">
               Din varukorg är tom!
             </h1>
             <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="modal"
-            aria-label="Close"
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
             ></button>
           </div>
           <div class="modal-body modal-color" id="modal-body">...</div>
@@ -131,7 +197,7 @@
             </button>
             <a href="/src/pages/checkout.html">
               <button type="button" class="btn btn-secondary">
-                 Till Kassan
+                Till Kassan
               </button>
             </a>
           </div>

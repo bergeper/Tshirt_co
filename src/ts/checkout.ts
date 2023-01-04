@@ -1,7 +1,6 @@
-import { buttonAttributes, openCartModal } from "./helpers/cart";
+import { buttonAttributes } from "./helpers/cart";
 import { getFromLocalStorage } from "./helpers/localStorage";
 import { ProductCart } from "./models/ProductCart";
-import { payoutForm } from "./helpers/paymentForm";
 
 buttonAttributes(); //anropar funktionen som i sin tur anropar funktionen som hämtar modalen
 
@@ -128,6 +127,7 @@ function render() {
   }
   checkoutContainer.appendChild(totalSum);
 }
-
 render();
-payoutForm();
+//payoutForm();
+
+// hämta html formet från checkout.html
