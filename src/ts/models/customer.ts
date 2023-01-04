@@ -1,3 +1,6 @@
 export class Customer {
-  constructor(public customerName: string) {}
+  constructor(
+    public customerFirstname: string,
+    public customerLastname: string
+  ) {}
 }

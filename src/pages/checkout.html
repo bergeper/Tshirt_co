@@ -110,7 +110,7 @@
               />
             </div>
             <div class="m-3">
-              <label for="adress" class="form-label">Adress: </label>
+              <label for="adress" class="form-label">Leveransadress: </label>
               <input
                 type="text"
                 class="form-control"
@@ -139,12 +139,21 @@
                 required
               />
             </div>
-            <button id="checkoutFormBtn" type="submit">Till betalning</button>
+            <button
+              id="checkoutFormBtn"
+              class="productDiv__form--btn m-3"
+              type="submit"
+            >
+              Till betalning
+            </button>
           </form>
-        </div>
-        <div class="checkout-form" id="payment">
-          <div class="checkout-form__choice" id="payment__choice"></div>
-          <div class="checkout-form__choosen" id="payment__choosen"></div>
+          <div class="" id="payment">
+            <div
+              class="checkout-form__choice form-check"
+              id="payment__choice"
+            ></div>
+            <div class="checkout-form__chosen" id="payment__chosen"></div>
+          </div>
         </div>
       </section>
     </main>

@@ -2,6 +2,8 @@ import { buttonAttributes } from "./helpers/cart";
 import { getFromLocalStorage } from "./helpers/localStorage";
 import { ProductCart } from "./models/ProductCart";
 import { displayDeliveryMessage, paymentOption } from "./helpers/paymentForm";
+import { Customer } from "./models/customer";
+import { getCustomerFromLocalStorage } from "./helpers/customerLS";
 
 buttonAttributes(); //anropar funktionen som i sin tur anropar funktionen som hämtar modalen
 displayCart();
@@ -133,11 +135,24 @@ function displayCart() {
 let checkOutForm: HTMLFormElement = document.getElementById(
   "checkoutForm"
 ) as HTMLFormElement;
-let checkOutFormfName: HTMLFormElement = document.getElementById(
-  "input"
-) as HTMLFormElement;
+let checkOutFormfName: HTMLInputElement = document.getElementById(
+  "name"
+) as HTMLInputElement;
+let checkOutFormlName: HTMLInputElement = document.getElementById(
+  "lastname"
+) as HTMLInputElement;
 
 checkOutForm.addEventListener("submit", (e: SubmitEvent) => {
   e.preventDefault();
+  let newCustomerfName: string = checkOutFormfName.value || "";
+  let newCustomerlName: string = checkOutFormlName.value || "";
+  const customer: Customer = new Customer(newCustomerfName, newCustomerlName);
+
+  // only saves the current customer making an order.
+  let saveCustomers: Customer[] = [];
+  saveCustomers.push(customer);
+  localStorage.setItem("Customer", JSON.stringify(saveCustomers));
+
+  console.log(customer);
   paymentOption();
 });
