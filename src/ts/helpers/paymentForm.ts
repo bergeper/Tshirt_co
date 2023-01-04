@@ -10,7 +10,6 @@ export function payoutForm() {
   ) as HTMLDivElement;
   //delivery form
   let deliveryLabel: HTMLHeadingElement = document.createElement("h3");
-  //let deliveryForm: HTMLFormElement = document.createElement("form");
   let deliveryAdressLabel: HTMLLabelElement = document.createElement("label");
   let deliveryAdressInput: HTMLInputElement = document.createElement("input");
   let deliveryZipLabel: HTMLLabelElement = document.createElement("label");
@@ -74,7 +73,7 @@ export function payoutForm() {
   paymentOptionDiv.className = "payOutFormContainer__paymentDiv";
   payButton.className = "payOutFormContainer__extendendDiv--payButton";
   //delivery
-  //deliveryForm.className = "deliveryForm";
+
   deliveryZipInput.className = "deliveryForm__zip";
   //payment
   checkoutTitle.innerHTML = "Betalning";
