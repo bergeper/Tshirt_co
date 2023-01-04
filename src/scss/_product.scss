@@ -95,3 +95,15 @@
     }
   }
 }
+
+.productsTitle {
+  color: white;
+  font-weight: lighter;
+  padding: 10px;
+}
+
+.heroProducts {
+  background-color: var.$primary-color;
+  display: flex;
+  justify-content: space-between;
+}

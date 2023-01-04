@@ -126,7 +126,7 @@ function render() {
   } else {
     totalSum.innerHTML = "Varukorgen är tom.";
   }
-  cartContainer.appendChild(totalSum);
+  checkoutContainer.appendChild(totalSum);
 }
 
 render();

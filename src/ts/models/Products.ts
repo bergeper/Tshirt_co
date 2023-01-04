@@ -7,7 +7,8 @@ export class Product {
     public image: string,
     public price: number,
     public desc: string,
-    public releaseDate: string,
+    public releaseYear: string,
+    public fitting: string,
     public size: Size
   ) {
     this.size = size;
